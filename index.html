@@ -366,7 +366,6 @@
             transition: background-color 0.3s;
         }
 
-        /* أنماط أيام بلا تداول */
         .calendar-cell.no-trading-day {
             background-color: var(--bg-holiday) !important;
             opacity: 0.6;
@@ -800,7 +799,6 @@
             outline: none; 
         }
         
-        /* تحسين حقول الوقت */
         .time-input-group {
             display: flex;
             flex-direction: column;
@@ -858,7 +856,6 @@
             transition: color 0.3s;
         }
         
-        /* قسم التحليلات */
         .analytics-section {
             background-color: var(--bg-container);
             padding: 25px;
@@ -940,7 +937,6 @@
             font-weight: bold;
         }
         
-        /* قسم إحصائيات الأيام */
         .days-statistics-section {
             background-color: var(--bg-container);
             padding: 25px;
@@ -981,7 +977,6 @@
             font-size: 0.8em;
         }
         
-        /* تحسينات للتبديل بين Detailed/Direct */
         .trade-mode-toggle-container {
             display: flex;
             justify-content: center;
@@ -1011,7 +1006,6 @@
             color: var(--text-secondary);
         }
         
-        /* Export Modal Styles */
         .export-controls {
             display: flex;
             flex-direction: column;
@@ -1047,7 +1041,6 @@
             margin: 0;
         }
 
-        /* أنماط جديدة لتحليل الوقت */
         .time-analysis-section {
             background-color: var(--bg-container);
             padding: 25px;
@@ -1129,6 +1122,167 @@
             text-align: center;
         }
 
+        /* Mobile Styles */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background-color: var(--bg-container);
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--bg-sidebar);
+            z-index: 999;
+            padding: 60px 20px 20px;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu-item {
+            padding: 15px;
+            color: var(--color-sidebar-link);
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid var(--border-cell);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-item:hover {
+            background-color: rgba(0, 188, 212, 0.1);
+            color: var(--color-sidebar-link-hover);
+        }
+
+        .mobile-menu-item i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .close-mobile-menu {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        /* Mobile Calendar */
+        .mobile-calendar-grid {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .mobile-week {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .mobile-week-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3px;
+        }
+
+        .mobile-week-total-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3px;
+        }
+
+        .mobile-calendar-cell {
+            background-color: var(--bg-cell-base);
+            padding: 8px 5px;
+            border-radius: 4px;
+            min-height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+            border: 1px solid var(--border-cell);
+            position: relative;
+        }
+
+        .mobile-day-name {
+            font-size: 0.65em;
+            color: var(--text-secondary);
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        .mobile-day-number {
+            font-size: 0.9em;
+            font-weight: bold;
+            color: var(--text-secondary);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .mobile-daily-pnl {
+            font-size: 0.8em;
+            font-weight: bold;
+            text-align: center;
+            margin: 2px 0;
+        }
+
+        .mobile-trade-count {
+            font-size: 0.65em;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .mobile-week-total-cell {
+            background-color: var(--bg-total-neutral);
+            color: var(--text-primary);
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 70px;
+            border-radius: 4px;
+            padding: 5px;
+            border: 1px solid var(--border-total-neutral);
+            grid-column: 1 / -1;
+        }
+
         @media (max-width: 1024px) {
             .container {
                 padding: 20px;
@@ -1174,55 +1328,22 @@
             }
 
             .sidebar {
-                width: 100%;
-                height: auto;
-                padding: 10px 0;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-            
-            .profile-section {
-                flex-direction: row;
-                padding: 0 15px;
-                border-bottom: none;
-                margin-bottom: 0;
-            }
-            
-            .profile-pic-container {
-                width: 40px;
-                height: 40px;
-                margin-bottom: 0;
-                margin-right: 10px;
-            }
-
-            #userNameDisplay {
-                font-size: 1.1em;
-            }
-
-            .sidebar-menu {
                 display: none;
             }
-            .sidebar-menu div:last-child { 
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                margin-right: 15px;
-            }
 
-            .sidebar-menu a, .sidebar-menu div {
-                display: inline-flex; 
-                padding: 8px 10px;
-                font-size: 1em;
+            .hamburger-menu {
+                display: flex;
             }
 
             .main-content {
-                padding: 15px 10px;
+                padding: 60px 15px 15px;
+                width: 100%;
             }
             
             .container {
                 padding: 15px;
+                width: 100%;
+                box-sizing: border-box;
             }
             
             .calendar-header {
@@ -1241,18 +1362,17 @@
                 font-size: 1em;
             }
             
+            /* Hide desktop calendar, show mobile calendar */
             .calendar-grid {
-                grid-template-columns: repeat(7, 1fr);
-                gap: 2px;
+                display: none;
+            }
+            
+            .mobile-calendar-grid {
+                display: flex;
             }
             
             .week-total-label {
                 display: none;
-            }
-            .week-total-cell {
-                grid-column: 1 / -1;
-                margin-top: 10px;
-                padding: 10px;
             }
             
             .day-label, .calendar-cell {
@@ -1344,65 +1464,105 @@
             .time-input-row label {
                 min-width: auto;
             }
+
+            .mobile-week-row,
+            .mobile-week-total-row {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .mobile-calendar-cell.holiday {
+                background-color: var(--bg-holiday);
+                color: var(--text-holiday);
+                cursor: default;
+            }
+
+            .mobile-calendar-cell.today-cell {
+                border: 2px solid var(--color-highlight);
+                background-color: var(--bg-cell-hover);
+            }
+
+            .mobile-calendar-cell.no-trading-day {
+                background-color: var(--bg-holiday);
+                opacity: 0.6;
+                border: 2px dashed var(--text-secondary);
+            }
+
+            .mobile-calendar-cell.inactive-day {
+                background-color: var(--bg-inactive);
+                opacity: var(--opacity-inactive);
+            }
         }
         
         @media (max-width: 480px) {
-             .sidebar {
-                 flex-wrap: wrap; 
-                 justify-content: space-between;
-             }
-             
-             .sidebar-menu {
-                 display: flex;
-                 width: 100%;
-                 justify-content: space-around;
-                 padding-top: 10px;
-                 border-top: 1px solid var(--border-cell);
-             }
-             
-             .sidebar-menu a, .sidebar-menu div {
-                 padding: 5px;
-             }
-             
-             .sidebar-menu i {
-                 margin-right: 0;
-             }
-
-             .sidebar-menu div:last-child {
-                 flex-grow: 0;
-                 margin-right: 0;
-                 justify-content: center;
-                 width: auto;
-             }
-             
-             .sidebar-menu div > i + * {
-                 display: none;
-             }
-             
-             .theme-switch-container {
-                 display: flex;
-             }
-             
-             .sidebar-menu div:last-child {
-                padding-right: 15px; 
-                padding-left: 0;
-             }
-             
-             .month-display {
-                 font-size: 1.5em;
-             }
-             
-             .analysis-stats {
-                 grid-template-columns: 1fr;
-             }
-             
-             .days-statistics {
-                 grid-template-columns: 1fr;
-             }
+            .mobile-week-row,
+            .mobile-week-total-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mobile-calendar-cell {
+                min-height: 65px;
+                padding: 6px 3px;
+            }
+            
+            .mobile-day-name {
+                font-size: 0.6em;
+            }
+            
+            .mobile-daily-pnl {
+                font-size: 0.75em;
+            }
+            
+            .mobile-trade-count {
+                font-size: 0.6em;
+            }
+            
+            .month-display {
+                font-size: 1.5em;
+            }
+            
+            .analysis-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .days-statistics {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body class="dark-mode"> 
+    
+    <!-- Mobile Hamburger Menu -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <span class="close-mobile-menu" onclick="closeMobileMenu()">&times;</span>
+        
+        <div class="mobile-menu-item" onclick="openUserInfoModal(); closeMobileMenu();">
+            <i class="fas fa-user-circle"></i> User Info
+        </div>
+        <div class="mobile-menu-item" onclick="openPlanModal(); closeMobileMenu();">
+            <i class="fas fa-bullseye"></i> Plan
+        </div>
+        <div class="mobile-menu-item" onclick="openTimeAnalysisModal(); closeMobileMenu();">
+            <i class="fas fa-chart-bar"></i> Time Analysis
+        </div>
+        <div class="mobile-menu-item" onclick="openExportModal(); closeMobileMenu();">
+            <i class="fas fa-file-export"></i> Data
+        </div>
+        <div class="mobile-menu-item" style="display: flex; justify-content: space-between; align-items: center;">
+            <span><i class="fas fa-paint-brush"></i> Theme</span>
+            <label class="switch">
+                <input type="checkbox" id="mobileThemeToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
     
     <div class="sidebar">
         <div class="profile-section">
@@ -1430,7 +1590,7 @@
                 <i class="fas fa-paint-brush"></i> Theme
                 <div class="theme-switch-container">
                     <label class="switch">
-                        <input type="checkbox" id="sidebarThemeToggle" onclick="toggleTheme()">
+                        <input type="checkbox" id="sidebarThemeToggle">
                         <span class="slider"></span>
                     </label>
                 </div>
@@ -1463,6 +1623,7 @@
                 </span>
             </div>
             
+            <!-- Desktop Calendar -->
             <div class="calendar-grid">
                 <div class="day-label holiday">Sun</div>
                 <div class="day-label">Mon</div>
@@ -1472,6 +1633,10 @@
                 <div class="day-label">Fri</div>
                 <div class="day-label holiday">Sat</div>
                 <div class="week-total-label">Total</div>
+            </div>
+
+            <!-- Mobile Calendar -->
+            <div class="mobile-calendar-grid" id="mobileCalendarGrid">
             </div>
 
             <div id="planSummary" class="plan-summary" style="display: none;">
@@ -1530,7 +1695,7 @@
                 </div>
             </div>
             
-            <!-- قسم إحصائيات الأيام -->
+            <!-- Days Statistics Section -->
             <div class="days-statistics-section">
                 <h3 style="text-align: center; color: var(--color-highlight); margin-bottom: 20px;">
                     <i class="fas fa-calendar-alt"></i> Monthly Days Statistics
@@ -1567,7 +1732,7 @@
         </div>
     </div>
     
-    <!-- Modal تحليل الوقت -->
+    <!-- Time Analysis Modal -->
     <div id="timeAnalysisModal" class="modal">
         <div class="modal-content" style="max-width: 900px;">
             <span class="close-btn" onclick="closeModal('timeAnalysisModal')">&times;</span>
@@ -1765,6 +1930,7 @@
         </div>
     </div>
     
+    <!-- Trade Modal -->
     <div id="tradeModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('tradeModal')">&times;</span>
@@ -1773,7 +1939,7 @@
             <input type="hidden" id="modalDate" name="modalDate"> 
             <input type="hidden" id="modalTradeId" name="modalTradeId"> 
 
-            <!-- تحسين واجهة التبديل -->
+            <!-- Trade Mode Toggle -->
             <div class="trade-mode-toggle-container">
                 <span class="trade-mode-label active" id="detailedLabel" onclick="setTradeMode(false)">
                     <i class="fas fa-list-alt"></i> Detailed Trade
@@ -1841,7 +2007,7 @@
                         <input type="number" id="commission" step="0.01" value="0.00">
                     </div>
                     
-                    <!-- حقول الوقت المحسنة -->
+                    <!-- Enhanced Time Fields -->
                     <div class="input-group" style="grid-column: 1 / -1;">
                         <label style="margin-bottom: 10px; color: var(--color-highlight); font-weight: bold;">
                             <i class="fas fa-clock"></i> Trade Timing
@@ -1900,6 +2066,7 @@
             </div>
     </div>
     
+    <!-- User Info Modal -->
     <div id="userInfoModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('userInfoModal')">&times;</span>
@@ -1920,6 +2087,7 @@
         </div>
     </div>
     
+    <!-- Plan Modal -->
     <div id="planModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('planModal')">&times;</span>
@@ -2055,1308 +2223,474 @@
     </div>
 
     <script>
-        // ========== المتغيرات العامة ==========
-        let db;
-        let trades = [];
-        let userInfo = { name: 'User Name', image: null };
-        let tradingPlan = { 
+        // ========== Global Variables ==========
+        let trades = JSON.parse(localStorage.getItem('tradingJournal')) || [];
+        let userInfo = JSON.parse(localStorage.getItem('journalUserInfo')) || { name: 'User Name', image: null };
+        let tradingPlan = JSON.parse(localStorage.getItem('tradingPlan')) || { 
             capital: 10000, 
             weeklyTarget: 2, 
             monthlyTarget: 10, 
             yearlyTarget: 100, 
         };
         let noTradingDays = JSON.parse(localStorage.getItem('noTradingDays')) || [];
+        let analyticsChart = null;
 
-        // ========== الدوال المساعدة لتحليل الوقت ==========
-        function calculateTradeDuration(entryDateTime, exitDateTime) {
-            if (!entryDateTime || !exitDateTime) return 30;
-            try {
-                const entry = new Date(entryDateTime);
-                const exit = new Date(exitDateTime);
-                return Math.round((exit - entry) / (1000 * 60)); // المدة بالدقائق
-            } catch (error) {
-                return 30;
-            }
+        // Initialize date variables
+        const today = new Date();
+        let currentDisplayDate = new Date(today.getFullYear(), today.getMonth(), 1);
+        const todayDateString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+        const holidayDays = [6, 0]; // Saturday and Sunday
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        // ========== Data Saving Functions ==========
+        function saveTrades() {
+            localStorage.setItem('tradingJournal', JSON.stringify(trades));
         }
 
-        function determineTimeCategory(entryDateTime) {
-            if (!entryDateTime) return 'INTRADAY';
-            try {
-                const entry = new Date(entryDateTime);
-                const hour = entry.getHours();
-                
-                if (hour >= 6 && hour < 12) return 'MORNING';
-                if (hour >= 12 && hour < 18) return 'AFTERNOON';
-                return 'EVENING';
-            } catch (error) {
-                return 'INTRADAY';
-            }
+        function saveUserInfo() {
+            localStorage.setItem('journalUserInfo', JSON.stringify(userInfo));
         }
 
-        function calculatePnL(entry, exit, shares, directPnL, commission = 0) {
-            if (directPnL !== undefined && directPnL !== null) {
-                return parseFloat(directPnL) - parseFloat(commission || 0);
-            }
-            return ((parseFloat(exit) - parseFloat(entry)) * parseInt(shares)) - parseFloat(commission || 0);
+        function saveTradingPlan() {
+            localStorage.setItem('tradingPlan', JSON.stringify(tradingPlan));
         }
 
-        function analyzeWinningTrades() {
-            const winningTrades = trades.filter(trade => {
-                const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-                return pnl > 0;
-            });
-            
-            const losingTrades = trades.filter(trade => {
-                const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-                return pnl < 0;
-            });
-            
-            return { winningTrades, losingTrades };
-        }
-
-        function analyzeSessionPerformance() {
-            const sessions = {
-                'PRE_MARKET': { trades: [], totalPnl: 0, winCount: 0 },
-                'INTRADAY': { trades: [], totalPnl: 0, winCount: 0 },
-                'AFTER_HOUR': { trades: [], totalPnl: 0, winCount: 0 }
-            };
-            
-            trades.forEach(trade => {
-                if (trade.tradingSession && sessions[trade.tradingSession]) {
-                    const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-                    sessions[trade.tradingSession].trades.push(trade);
-                    sessions[trade.tradingSession].totalPnl += pnl;
-                    if (pnl > 0) sessions[trade.tradingSession].winCount++;
-                }
-            });
-            
-            return sessions;
-        }
-
-        function analyzeTimePerformance() {
-            const timeCategories = {
-                'MORNING': { trades: [], totalPnl: 0, winCount: 0 },
-                'AFTERNOON': { trades: [], totalPnl: 0, winCount: 0 },
-                'EVENING': { trades: [], totalPnl: 0, winCount: 0 }
-            };
-            
-            trades.forEach(trade => {
-                if (trade.entryDateTime) {
-                    const timeCategory = determineTimeCategory(trade.entryDateTime);
-                    const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-                    if (timeCategories[timeCategory]) {
-                        timeCategories[timeCategory].trades.push(trade);
-                        timeCategories[timeCategory].totalPnl += pnl;
-                        if (pnl > 0) timeCategories[timeCategory].winCount++;
-                    }
-                }
-            });
-            
-            return timeCategories;
-        }
-
-        function updateTimeAnalysis() {
-            try {
-                const { winningTrades, losingTrades } = analyzeWinningTrades();
-                const sessions = analyzeSessionPerformance();
-                const timeCategories = analyzeTimePerformance();
-                
-                // تحديث إحصائيات الصفقات الرابحة والخاسرة
-                document.getElementById('winningTradesCount').textContent = winningTrades.length;
-                document.getElementById('winningTradesPnl').textContent = '$' + winningTrades.reduce((sum, trade) => 
-                    sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0).toFixed(2);
-                document.getElementById('avgWinPnl').textContent = '$' + (winningTrades.length ? 
-                    (winningTrades.reduce((sum, trade) => sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0) / winningTrades.length).toFixed(2) : '0.00');
-                document.getElementById('maxWinPnl').textContent = '$' + (winningTrades.length ? 
-                    Math.max(...winningTrades.map(trade => calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0))).toFixed(2) : '0.00');
-                
-                document.getElementById('losingTradesCount').textContent = losingTrades.length;
-                document.getElementById('losingTradesPnl').textContent = '$' + losingTrades.reduce((sum, trade) => 
-                    sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0).toFixed(2);
-                document.getElementById('avgLossPnl').textContent = '$' + (losingTrades.length ? 
-                    (losingTrades.reduce((sum, trade) => sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0) / losingTrades.length).toFixed(2) : '0.00');
-                document.getElementById('maxLossPnl').textContent = '$' + (losingTrades.length ? 
-                    Math.min(...losingTrades.map(trade => calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0))).toFixed(2) : '0.00');
-                
-                // تحديث إحصائيات الجلسات
-                Object.keys(sessions).forEach(session => {
-                    const sessionData = sessions[session];
-                    const elementId = session.toLowerCase().replace('_', '');
-                    const element = document.getElementById(elementId + 'Trades');
-                    if (element) {
-                        element.textContent = sessionData.trades.length;
-                        document.getElementById(elementId + 'Pnl').textContent = '$' + sessionData.totalPnl.toFixed(2);
-                        document.getElementById(elementId + 'WinRate').textContent = sessionData.trades.length ? 
-                            ((sessionData.winCount / sessionData.trades.length) * 100).toFixed(1) + '%' : '0%';
-                        document.getElementById(elementId + 'AvgTime').textContent = sessionData.trades.length ? 
-                            (sessionData.trades.reduce((sum, trade) => sum + (trade.tradeDuration || 0), 0) / sessionData.trades.length).toFixed(0) + 'm' : '0m';
-                    }
-                });
-                
-                // تحديث إحصائيات الوقت
-                Object.keys(timeCategories).forEach(timeCat => {
-                    const timeData = timeCategories[timeCat];
-                    const element = document.getElementById(timeCat.toLowerCase() + 'Trades');
-                    if (element) {
-                        element.textContent = timeData.trades.length;
-                        document.getElementById(timeCat.toLowerCase() + 'Pnl').textContent = '$' + timeData.totalPnl.toFixed(2);
-                        document.getElementById(timeCat.toLowerCase() + 'WinRate').textContent = timeData.trades.length ? 
-                            ((timeData.winCount / timeData.trades.length) * 100).toFixed(1) + '%' : '0%';
-                    }
-                });
-            } catch (error) {
-                console.error('Error in updateTimeAnalysis:', error);
-            }
-        }
-
-        // ========== إدارة أيام بلا تداول ==========
-        async function saveNoTradingDays() {
+        function saveNoTradingDays() {
             localStorage.setItem('noTradingDays', JSON.stringify(noTradingDays));
-            try {
-                await saveToDB('noTradingDays', { id: 'noTradingDays', days: noTradingDays });
-            } catch (error) {
-                console.log('NoTradingDays store not available');
+        }
+
+        // ========== Mobile Menu Functions ==========
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            
+            if (mobileMenu && hamburgerMenu) {
+                mobileMenu.classList.toggle('active');
+                hamburgerMenu.classList.toggle('active');
             }
         }
 
-        async function loadNoTradingDays() {
-            try {
-                const stored = await getAllFromDB('noTradingDays');
-                if (stored && stored.length > 0) {
-                    noTradingDays = stored[0].days || [];
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            
+            if (mobileMenu) mobileMenu.classList.remove('active');
+            if (hamburgerMenu) hamburgerMenu.classList.remove('active');
+        }
+
+        // ========== Enhanced Mobile Calendar Functions ==========
+        function renderMobileCalendar() {
+            const mobileCalendarGrid = document.getElementById('mobileCalendarGrid');
+            if (!mobileCalendarGrid) return;
+
+            const year = currentDisplayDate.getFullYear();
+            const month = currentDisplayDate.getMonth();
+            const { dailyData } = aggregateDailyData(trades);
+            
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+            
+            const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            
+            mobileCalendarGrid.innerHTML = '';
+            
+            let currentWeek = [];
+            let weekNumber = 0;
+            
+            // Add empty days at the beginning of the month
+            for (let i = 0; i < firstDayOfMonth; i++) {
+                currentWeek.push(null);
+            }
+            
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayOfWeek = (firstDayOfMonth + day - 1) % 7;
+                
+                currentWeek.push({
+                    day: day,
+                    dateString: dateString,
+                    dayOfWeek: dayOfWeek,
+                    dayName: dayNames[dayOfWeek],
+                    data: dailyData[dateString],
+                    isNoTradingDay: noTradingDays.includes(dateString)
+                });
+                
+                // When we reach the end of the week or end of the month
+                if (currentWeek.length === 7 || day === daysInMonth) {
+                    renderMobileWeek(currentWeek, weekNumber);
+                    currentWeek = [];
+                    weekNumber++;
                 }
-            } catch (error) {
-                noTradingDays = JSON.parse(localStorage.getItem('noTradingDays')) || [];
             }
-            return noTradingDays;
         }
 
-        function updateNoTradingButtons(dateString) {
-            const markBtn = document.getElementById('markNoTradingDay');
-            const unmarkBtn = document.getElementById('unmarkNoTradingDay');
+        function renderMobileWeek(weekDays, weekNumber) {
+            const mobileCalendarGrid = document.getElementById('mobileCalendarGrid');
+            if (!mobileCalendarGrid) return;
             
-            if (!markBtn || !unmarkBtn) return;
+            const weekContainer = document.createElement('div');
+            weekContainer.className = 'mobile-week';
             
-            const isNoTradingDay = noTradingDays.includes(dateString);
+            // First row (4 days)
+            const firstRow = document.createElement('div');
+            firstRow.className = 'mobile-week-row';
             
-            if (isNoTradingDay) {
-                markBtn.style.display = 'none';
-                unmarkBtn.style.display = 'inline-block';
+            // Second row (3 days + Total)
+            const secondRow = document.createElement('div');
+            secondRow.className = 'mobile-week-total-row';
+            
+            let weekTotal = 0;
+            let tradeCountInWeek = 0;
+            
+            // Process first 4 days
+            for (let i = 0; i < 4 && i < weekDays.length; i++) {
+                const dayData = weekDays[i];
+                if (dayData) {
+                    const cell = createMobileCell(dayData);
+                    firstRow.appendChild(cell);
+                    
+                    if (dayData.data) {
+                        weekTotal += dayData.data.totalPnL;
+                        tradeCountInWeek += dayData.data.tradeCount;
+                    }
+                } else {
+                    const emptyCell = document.createElement('div');
+                    emptyCell.className = 'mobile-calendar-cell empty-cell';
+                    firstRow.appendChild(emptyCell);
+                }
+            }
+            
+            // Process remaining 3 days
+            for (let i = 4; i < 7 && i < weekDays.length; i++) {
+                const dayData = weekDays[i];
+                if (dayData) {
+                    const cell = createMobileCell(dayData);
+                    secondRow.appendChild(cell);
+                    
+                    if (dayData.data) {
+                        weekTotal += dayData.data.totalPnL;
+                        tradeCountInWeek += dayData.data.tradeCount;
+                    }
+                } else {
+                    const emptyCell = document.createElement('div');
+                    emptyCell.className = 'mobile-calendar-cell empty-cell';
+                    secondRow.appendChild(emptyCell);
+                }
+            }
+            
+            // Add total cell in second row
+            const totalCell = createMobileTotalCell(weekTotal, tradeCountInWeek);
+            secondRow.appendChild(totalCell);
+            
+            weekContainer.appendChild(firstRow);
+            weekContainer.appendChild(secondRow);
+            mobileCalendarGrid.appendChild(weekContainer);
+        }
+
+        function createMobileCell(dayData) {
+            const cell = document.createElement('div');
+            cell.className = 'mobile-calendar-cell';
+            
+            const dateString = dayData.dateString;
+            const data = dayData.data;
+            const isNoTradingDay = dayData.isNoTradingDay;
+            
+            const pnl = data ? data.totalPnL : 0;
+            const count = data ? data.tradeCount : 0;
+            
+            if (dateString === todayDateString) {
+                cell.classList.add('today-cell');
+            }
+            
+            if (holidayDays.includes(dayData.dayOfWeek)) { 
+                cell.classList.add('holiday');
             } else {
-                markBtn.style.display = 'inline-block';
-                unmarkBtn.style.display = 'none';
+                cell.onclick = () => openTradeModal(dateString); 
             }
+
+            if (isNoTradingDay) {
+                cell.classList.add('no-trading-day');
+            }
+
+            let pnlClass = '';
+            if (pnl > 0) {
+                pnlClass = 'profit';
+            } else if (pnl < 0) {
+                pnlClass = 'loss';
+            } else if (count === 0 && !holidayDays.includes(dayData.dayOfWeek) && !isNoTradingDay) {
+                cell.classList.add('inactive-day'); 
+            }
+
+            cell.innerHTML = `
+                <div class="mobile-day-name">${dayData.dayName}</div>
+                <div class="mobile-day-number">
+                    <span>${dayData.day}</span>
+                    ${isNoTradingDay ? '<span class="no-trading-indicator" title="No Trading Day"><i class="fas fa-ban"></i></span>' : ''}
+                    ${dateString === todayDateString ? '<span class="live-indicator">LIVE</span>' : ''}
+                </div>
+                <div class="mobile-daily-pnl ${pnlClass}">
+                    ${isNoTradingDay ? 'No Trade' : pnl.toFixed(2) + ' $'}
+                </div>
+                <div class="mobile-trade-count">
+                    ${isNoTradingDay ? 'No Trading' : count + ' trades'}
+                </div>
+            `;
+
+            return cell;
         }
 
-        window.markAsNoTradingDay = async function() {
-            const dateString = document.getElementById('modalDate')?.value;
-            if (!dateString) return;
+        function createMobileTotalCell(weekTotal, tradeCount) {
+            const totalCell = document.createElement('div');
+            totalCell.className = 'mobile-week-total-cell';
             
-            if (!noTradingDays.includes(dateString)) {
-                noTradingDays.push(dateString);
-                await saveNoTradingDays();
-                updateNoTradingButtons(dateString);
-                renderCalendar(); // ✅ تحديث التقويم مباشرة
-                updateDaysStatistics(); // ✅ تحديث الإحصائيات مباشرة
-                alert('Day marked as no trading day');
-            }
-        };
+            let pnlClass = '';
 
-        window.unmarkNoTradingDay = async function() {
-            const dateString = document.getElementById('modalDate')?.value;
-            if (!dateString) return;
+            if (tradeCount > 0) {
+                if (weekTotal > 0) {
+                    pnlClass = 'profit';
+                    totalCell.classList.add('weekly-profit');
+                } else if (weekTotal < 0) {
+                    pnlClass = 'loss';
+                    totalCell.classList.add('weekly-loss');
+                }
+            } else {
+                totalCell.classList.add('inactive-total');
+            }
+
+            totalCell.innerHTML = `
+                <span style="font-size: 0.8em;">Weekly Total</span>
+                <span class="mobile-daily-pnl ${pnlClass}" style="font-size: 0.9em;">${weekTotal.toFixed(2) + ' $'}</span>
+                <span style="font-size: 0.6em; margin-top: 3px; color: var(--color-total-details);">${tradeCount} trades</span>
+            `;
             
-            noTradingDays = noTradingDays.filter(day => day !== dateString);
-            await saveNoTradingDays();
-            updateNoTradingButtons(dateString);
-            renderCalendar(); // ✅ تحديث التقويم مباشرة
-            updateDaysStatistics(); // ✅ تحديث الإحصائيات مباشرة
-            alert('No trading mark removed');
-        };
-
-        // ========== دوال الاستيراد ==========
-        window.openImportModal = function() {
-            document.getElementById('importModal').style.display = 'flex';
-            
-            const importFile = document.getElementById('importFile');
-            if (importFile) {
-                importFile.onchange = previewImportData;
-            }
-        };
-
-        async function previewImportData(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            const previewContent = document.getElementById('previewContent');
-            const importPreview = document.getElementById('importPreview');
-            
-            if (!previewContent || !importPreview) return;
-            
-            try {
-                const data = await readExcelFile(file);
-                let previewHTML = '';
-                
-                if (data.Trades && data.Trades.length > 0) {
-                    previewHTML += `<strong>Trades:</strong> ${data.Trades.length} records<br>`;
-                    if (data.Trades[0].Symbol) {
-                        previewHTML += `<small>Sample: ${data.Trades[0].Symbol} - $${data.Trades[0]['Calculated PnL'] || '0.00'}</small><br>`;
-                    }
-                }
-                
-                if (data.Plan && data.Plan.length > 0) {
-                    previewHTML += `<strong>Plan:</strong> ${data.Plan[0]['Starting Capital'] || 'N/A'}<br>`;
-                }
-                
-                if (data.NoTradingDays && data.NoTradingDays.length > 0) {
-                    previewHTML += `<strong>No Trading Days:</strong> ${data.NoTradingDays.length} days<br>`;
-                }
-                
-                previewContent.innerHTML = previewHTML || 'No recognizable data found';
-                importPreview.style.display = 'block';
-                
-            } catch (error) {
-                previewContent.innerHTML = `<span style="color: var(--color-loss);">Error reading file: ${error.message}</span>`;
-                importPreview.style.display = 'block';
-            }
+            return totalCell;
         }
 
-        function readExcelFile(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    try {
-                        const data = new Uint8Array(e.target.result);
-                        const workbook = XLSX.read(data, { type: 'array' });
-                        const result = {};
-                        
-                        workbook.SheetNames.forEach(sheetName => {
-                            const worksheet = workbook.Sheets[sheetName];
-                            const jsonData = XLSX.utils.sheet_to_json(worksheet);
-                            result[sheetName] = jsonData;
-                        });
-                        
-                        resolve(result);
-                    } catch (error) {
-                        reject(error);
-                    }
-                };
-                
-                reader.onerror = reject;
-                reader.readAsArrayBuffer(file);
-            });
-        }
-
-        window.importFromExcel = async function() {
-            const fileInput = document.getElementById('importFile');
-            const importTrades = document.getElementById('importTrades');
-            const importPlan = document.getElementById('importPlan');
-            const importNoTradingDays = document.getElementById('importNoTradingDays');
-            const importStrategy = document.getElementById('importStrategy');
-            
-            if (!fileInput || !fileInput.files[0]) {
-                alert('Please select a file to import');
-                return;
-            }
-            
-            try {
-                const file = fileInput.files[0];
-                const data = await readExcelFile(file);
-                
-                let importedCount = 0;
-                
-                if (importTrades.checked && data.Trades) {
-                    importedCount += await importTradesData(data.Trades, importStrategy.value);
-                }
-                
-                if (importPlan.checked && data.Plan && data.Plan.length > 0) {
-                    await importPlanData(data.Plan[0]);
-                    importedCount++;
-                }
-                
-                if (importNoTradingDays.checked && data.NoTradingDays) {
-                    importedCount += await importNoTradingDaysData(data.NoTradingDays, importStrategy.value);
-                }
-                
-                renderCalendar();
-                renderPlanSummary();
-                updateAnalyticsChart();
-                updateDaysStatistics();
-                
-                alert(`Successfully imported ${importedCount} items`);
-                closeModal('importModal');
-                
-            } catch (error) {
-                console.error('Import error:', error);
-                alert('Error importing data: ' + error.message);
-            }
-        };
-
-        async function importTradesData(tradesData, strategy) {
-            let importedCount = 0;
-            
-            const newTrades = tradesData.map(item => {
-                const tradeId = String(Date.now() + Math.random() + importedCount++);
-                
-                return {
-                    id: tradeId,
-                    date: item.Date || new Date().toISOString().split('T')[0],
-                    symbol: item.Symbol || 'DIRECT_PNL',
-                    entryPrice: parseFloat(item['Entry Price']) || 0,
-                    exitPrice: parseFloat(item['Exit Price']) || 0,
-                    shares: parseInt(item.Shares) || 0,
-                    commission: parseFloat(item.Commission) || 0,
-                    directPnL: item['Direct PnL'] !== 'N/A' && item['Direct PnL'] !== undefined ? parseFloat(item['Direct PnL']) : undefined,
-                    notes: item.Notes || '',
-                    entryDateTime: item['Entry Time'] !== 'N/A' ? item['Entry Time'] : null,
-                    exitDateTime: item['Exit Time'] !== 'N/A' ? item['Exit Time'] : null,
-                    tradingSession: item['Trading Session'] !== 'N/A' ? item['Trading Session'] : 'INTRADAY',
-                    tradeDuration: item['Trade Duration (min)'] !== 'N/A' ? parseInt(item['Trade Duration (min)']) : 30,
-                    timeCategory: item['Time Category'] !== 'N/A' ? item['Time Category'] : null
-                };
-            }).filter(trade => trade.date);
-
-            if (strategy === 'replace') {
-                trades = newTrades;
-            } else if (strategy === 'merge') {
-                const existingIds = new Set(trades.map(t => t.date + t.symbol + t.entryPrice));
-                newTrades.forEach(newTrade => {
-                    const tradeKey = newTrade.date + newTrade.symbol + newTrade.entryPrice;
-                    if (!existingIds.has(tradeKey)) {
-                        trades.push(newTrade);
-                    }
-                });
-            } else if (strategy === 'append') {
-                trades = trades.concat(newTrades);
-            }
-            
-            await saveTrades();
-            return newTrades.length;
-        }
-
-        async function importPlanData(planData) {
-            if (planData['Starting Capital']) {
-                tradingPlan.capital = parseFloat(planData['Starting Capital'].replace('$', '')) || tradingPlan.capital;
-            }
-            if (planData['Weekly Target']) {
-                tradingPlan.weeklyTarget = parseFloat(planData['Weekly Target'].replace('%', '')) || tradingPlan.weeklyTarget;
-            }
-            if (planData['Monthly Target']) {
-                tradingPlan.monthlyTarget = parseFloat(planData['Monthly Target'].replace('%', '')) || tradingPlan.monthlyTarget;
-            }
-            if (planData['Yearly Target']) {
-                tradingPlan.yearlyTarget = parseFloat(planData['Yearly Target'].replace('%', '')) || tradingPlan.yearlyTarget;
-            }
-            
-            await savePlan();
-        }
-
-        async function importNoTradingDaysData(daysData, strategy) {
-            const newDays = daysData.map(item => item.Date).filter(date => date);
-            
-            if (strategy === 'replace') {
-                noTradingDays = newDays;
-            } else if (strategy === 'merge') {
-                newDays.forEach(day => {
-                    if (!noTradingDays.includes(day)) {
-                        noTradingDays.push(day);
-                    }
-                });
-            } else if (strategy === 'append') {
-                noTradingDays = noTradingDays.concat(newDays);
-            }
-            
-            await saveNoTradingDays();
-            return newDays.length;
-        }
-
-        // ========== الدوال العامة للنافذة ==========
-        window.openTimeAnalysisModal = function() {
-            updateTimeAnalysis();
-            document.getElementById('timeAnalysisModal').style.display = 'flex';
-        };
-
-        window.switchAnalysisTab = function(tabName) {
-            document.querySelectorAll('.analysis-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.analysis-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            document.getElementById(tabName).classList.add('active');
-            
-            // تفعيل التبويب المحدد
-            event.target.classList.add('active');
-        };
-
-        // ========== IndexedDB Configuration ==========
-        const DB_NAME = 'TradingJournalDB';
-        const DB_VERSION = 2;
-        const STORES = {
-            TRADES: 'trades',
-            USER_INFO: 'userInfo',
-            TRADING_PLAN: 'tradingPlan',
-            NO_TRADING_DAYS: 'noTradingDays'
-        };
-
-        // Initialize IndexedDB
-        function initDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(DB_NAME, DB_VERSION);
-                
-                request.onerror = () => {
-                    console.error('Error opening database:', request.error);
-                    reject(request.error);
-                };
-                
-                request.onsuccess = () => {
-                    db = request.result;
-                    console.log('✅ Database opened successfully');
-                    resolve(db);
-                };
-                
-                request.onupgradeneeded = (event) => {
-                    const database = event.target.result;
-                    
-                    if (!database.objectStoreNames.contains(STORES.TRADES)) {
-                        const tradesStore = database.createObjectStore(STORES.TRADES, { keyPath: 'id' });
-                        tradesStore.createIndex('date', 'date', { unique: false });
-                    }
-                    
-                    if (!database.objectStoreNames.contains(STORES.USER_INFO)) {
-                        database.createObjectStore(STORES.USER_INFO, { keyPath: 'id' });
-                    }
-                    
-                    if (!database.objectStoreNames.contains(STORES.TRADING_PLAN)) {
-                        database.createObjectStore(STORES.TRADING_PLAN, { keyPath: 'id' });
-                    }
-
-                    if (!database.objectStoreNames.contains(STORES.NO_TRADING_DAYS)) {
-                        database.createObjectStore(STORES.NO_TRADING_DAYS, { keyPath: 'id' });
-                    }
-                    
-                    console.log('✅ Database setup completed');
-                };
-            });
-        }
-
-        // Generic function to save data to IndexedDB
-        function saveToDB(storeName, data) {
-            return new Promise((resolve, reject) => {
-                if (!db) {
-                    reject(new Error('Database not initialized'));
-                    return;
-                }
-                
-                try {
-                    const transaction = db.transaction([storeName], 'readwrite');
-                    const store = transaction.objectStore(storeName);
-                    
-                    const request = data.id ? store.put(data) : store.add(data);
-                    
-                    request.onsuccess = () => {
-                        console.log(`✅ Data saved to ${storeName}`);
-                        resolve(request.result);
-                    };
-                    
-                    request.onerror = () => {
-                        console.error(`Error saving to ${storeName}:`, request.error);
-                        reject(request.error);
-                    };
-                } catch (error) {
-                    reject(error);
-                }
-            });
-        }
-
-        // Generic function to get all data from a store
-        function getAllFromDB(storeName) {
-            return new Promise((resolve, reject) => {
-                if (!db) {
-                    reject(new Error('Database not initialized'));
-                    return;
-                }
-                
-                try {
-                    const transaction = db.transaction([storeName], 'readonly');
-                    const store = transaction.objectStore(storeName);
-                    const request = store.getAll();
-                    
-                    request.onsuccess = () => {
-                        console.log(`✅ Data loaded from ${storeName}`);
-                        resolve(request.result);
-                    };
-                    
-                    request.onerror = () => {
-                        console.error(`Error loading from ${storeName}:`, request.error);
-                        reject(request.error);
-                    };
-                } catch (error) {
-                    reject(error);
-                }
-            });
-        }
-
-        // Generic function to delete data from a store
-        function deleteFromDB(storeName, id) {
-            return new Promise((resolve, reject) => {
-                if (!db) {
-                    reject(new Error('Database not initialized'));
-                    return;
-                }
-                
-                try {
-                    const transaction = db.transaction([storeName], 'readwrite');
-                    const store = transaction.objectStore(storeName);
-                    const request = store.delete(id);
-                    
-                    request.onsuccess = () => {
-                        console.log(`✅ Data deleted from ${storeName}`);
-                        resolve();
-                    };
-                    
-                    request.onerror = () => {
-                        console.error(`Error deleting from ${storeName}:`, request.error);
-                        reject(request.error);
-                    };
-                } catch (error) {
-                    reject(error);
-                }
-            });
-        }
-
-        // Save trades to IndexedDB
-        async function saveTrades() {
-            try {
-                for (const trade of trades) {
-                    await saveToDB(STORES.TRADES, trade);
-                }
-                updateDaysStatistics();
-                return true;
-            } catch (error) {
-                console.error('Error saving trades:', error);
-                localStorage.setItem('trades_backup', JSON.stringify(trades));
-                return false;
-            }
-        }
-
-        // Load trades from IndexedDB
-        async function loadTrades() {
-            try {
-                const loadedTrades = await getAllFromDB(STORES.TRADES);
-                trades = loadedTrades || [];
-                
-                let changesMade = false;
-                trades = trades.map(trade => {
-                    if (!trade.id) {
-                        trade.id = String(Date.now() + Math.random());
-                        changesMade = true;
-                    }
-                    if (trade.symbol !== 'DIRECT_PNL' && trade.directPnL !== undefined) {
-                        trade.directPnL = undefined;
-                        changesMade = true;
-                    }
-                    if (!trade.commission) {
-                        trade.commission = 0;
-                        changesMade = true;
-                    }
-                    if (!trade.notes) {
-                        trade.notes = '';
-                        changesMade = true;
-                    }
-                    if (!trade.entryDateTime && trade.date) {
-                        trade.entryDateTime = trade.date + 'T10:00:00';
-                        changesMade = true;
-                    }
-                    if (!trade.exitDateTime && trade.date) {
-                        trade.exitDateTime = trade.date + 'T10:30:00';
-                        changesMade = true;
-                    }
-                    if (!trade.tradingSession) {
-                        trade.tradingSession = 'INTRADAY';
-                        changesMade = true;
-                    }
-                    if (!trade.tradeDuration) {
-                        trade.tradeDuration = 30;
-                        changesMade = true;
-                    }
-                    return trade;
-                });
-                
-                if (changesMade) {
-                    await saveTrades();
-                }
-                
-                return trades;
-            } catch (error) {
-                console.error('Error loading trades:', error);
-                const backup = localStorage.getItem('trades_backup');
-                trades = backup ? JSON.parse(backup) : [];
-                return trades;
-            }
-        }
-
-        // Save user info to IndexedDB
-        async function saveUserInfo() {
-            try {
-                const userInfoToSave = { ...userInfo, id: 'userInfo' };
-                await saveToDB(STORES.USER_INFO, userInfoToSave);
-                loadUserInfo();
-                return true;
-            } catch (error) {
-                console.error('Error saving user info:', error);
-                localStorage.setItem('journalUserInfo', JSON.stringify(userInfo));
-                return false;
-            }
-        }
-
-        // Load user info from IndexedDB
-        async function loadUserInfo() {
-            try {
-                const loadedUserInfo = await getAllFromDB(STORES.USER_INFO);
-                if (loadedUserInfo && loadedUserInfo.length > 0) {
-                    userInfo = loadedUserInfo[0];
-                } else {
-                    userInfo = { name: 'User Name', image: null, id: 'userInfo' };
-                    await saveUserInfo();
-                }
-                
-                const userNameDisplay = document.getElementById('userNameDisplay');
-                const newUserNameInput = document.getElementById('newUserName');
-                const profilePicture = document.getElementById('profilePicture');
-                const defaultIcon = document.getElementById('defaultIcon');
-                
-                if (userNameDisplay) userNameDisplay.textContent = userInfo.name;
-                if (newUserNameInput) newUserNameInput.value = userInfo.name;
-
-                if (userInfo.image) {
-                    if (profilePicture) {
-                        profilePicture.src = userInfo.image;
-                        profilePicture.style.display = 'block';
-                    }
-                    if (defaultIcon) defaultIcon.style.display = 'none';
-                } else {
-                    if (profilePicture) {
-                        profilePicture.src = '';
-                        profilePicture.style.display = 'none';
-                    }
-                    if (defaultIcon) defaultIcon.style.display = 'block';
-                }
-                
-                return userInfo;
-            } catch (error) {
-                console.error('Error loading user info:', error);
-                userInfo = JSON.parse(localStorage.getItem('journalUserInfo')) || { name: 'User Name', image: null };
-                return userInfo;
-            }
-        }
-
-        // Save trading plan to IndexedDB
-        async function savePlan() {
-            try {
-                const planToSave = { ...tradingPlan, id: 'tradingPlan' };
-                await saveToDB(STORES.TRADING_PLAN, planToSave);
-                return true;
-            } catch (error) {
-                console.error('Error saving trading plan:', error);
-                localStorage.setItem('tradingPlan', JSON.stringify(tradingPlan));
-                return false;
-            }
-        }
-
-        // Load trading plan from IndexedDB
-        async function loadPlan() {
-            try {
-                const loadedPlan = await getAllFromDB(STORES.TRADING_PLAN);
-                if (loadedPlan && loadedPlan.length > 0) {
-                    tradingPlan = loadedPlan[0];
-                } else {
-                    tradingPlan = { 
-                        capital: 10000, 
-                        weeklyTarget: 2, 
-                        monthlyTarget: 10, 
-                        yearlyTarget: 100,
-                        id: 'tradingPlan'
-                    };
-                    await savePlan();
-                }
-                return tradingPlan;
-            } catch (error) {
-                console.error('Error loading trading plan:', error);
-                tradingPlan = JSON.parse(localStorage.getItem('tradingPlan')) || { capital: 10000, weeklyTarget: 2, monthlyTarget: 10, yearlyTarget: 100 };
-                return tradingPlan;
-            }
-        }
-
-        // Delete trade from IndexedDB
-        async function deleteTradeFromDB(tradeId) {
-            try {
-                await deleteFromDB(STORES.TRADES, tradeId);
-                return true;
-            } catch (error) {
-                console.error('Error deleting trade:', error);
-                return false;
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Initialize IndexedDB first
-            try {
-                await initDB();
-                console.log('✅ IndexedDB initialized successfully');
-                
-                // Load all data from IndexedDB
-                await loadTrades();
-                await loadUserInfo();
-                await loadPlan();
-                await loadNoTradingDays();
-                
-                console.log('✅ All data loaded from IndexedDB');
-            } catch (error) {
-                console.error('❌ Error initializing IndexedDB:', error);
-                trades = JSON.parse(localStorage.getItem('tradingJournal')) || [];
-                userInfo = JSON.parse(localStorage.getItem('journalUserInfo')) || { name: 'User Name', image: null };
-                tradingPlan = JSON.parse(localStorage.getItem('tradingPlan')) || { 
-                    capital: 10000, 
-                    weeklyTarget: 2, 
-                    monthlyTarget: 10, 
-                    yearlyTarget: 100, 
-                };
-                noTradingDays = JSON.parse(localStorage.getItem('noTradingDays')) || [];
-            }
-
-            // ========== تعريف المتغيرات ==========
-            const form = document.getElementById('tradeForm');
-            const calendarGrid = document.querySelector('.calendar-grid');
-            const monthYearElement = document.getElementById('currentMonthYear');
+        // ========== Theme Functions ==========
+        function loadTheme() {
             const body = document.body;
-            const goToTodayBtn = document.getElementById('goToTodayBtn'); 
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const mobileThemeToggle = document.getElementById('mobileThemeToggle');
             const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
-
-            const userInfoForm = document.getElementById('userInfoForm');
-            const profileImageUpload = document.getElementById('profileImageUpload');
-            const planForm = document.getElementById('planForm');
-            const startingCapitalInput = document.getElementById('startingCapital');
             
-            const weeklyTargetGoalInput = document.getElementById('weeklyTargetGoal'); 
-            const monthlyTargetGoalInput = document.getElementById('monthlyTargetGoal'); 
-            const yearlyTargetGoalInput = document.getElementById('yearlyTargetGoal'); 
-            
-            const formTitle = document.getElementById('formTitle');
-            const submitButton = document.getElementById('submitButton');
-            const planSummaryElement = document.getElementById('planSummary');
-            
-            const tradeModeToggle = document.getElementById('tradeModeToggle');
-            const detailedFormWrapper = document.getElementById('detailedFormWrapper');
-            const simpleFormWrapper = document.getElementById('simpleFormWrapper');
-            const simplePnLForm = document.getElementById('simplePnLForm');
-            const submitSimplePnLButton = document.getElementById('submitSimplePnLButton');
-            const detailedLabel = document.getElementById('detailedLabel');
-            const simpleLabel = document.getElementById('simpleLabel');
-            const modalDateInput = document.getElementById('modalDate'); 
-            const modalTradeIdInput = document.getElementById('modalTradeId'); 
-            const directPnLAmountInput = document.getElementById('directPnLAmount'); 
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                if (mobileThemeToggle) mobileThemeToggle.checked = true;
+                if (sidebarThemeToggle) sidebarThemeToggle.checked = true;
+            } else {
+                body.classList.remove('light-mode');
+                if (mobileThemeToggle) mobileThemeToggle.checked = false;
+                if (sidebarThemeToggle) sidebarThemeToggle.checked = false;
+            }
+        }
 
-            // حقول الوقت المضافة
-            const entryTimeInput = document.getElementById('entryTime');
-            const exitTimeInput = document.getElementById('exitTime');
-            const tradingSessionSelect = document.getElementById('tradingSession');
-
-            // No Trading Day buttons
-            const markNoTradingDayBtn = document.getElementById('markNoTradingDay');
-            const unmarkNoTradingDayBtn = document.getElementById('unmarkNoTradingDay');
-
-            let currentDisplayDate = new Date(); 
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+            localStorage.setItem('theme', currentTheme);
             
-            const holidayDays = [6, 0];
-            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            // Sync toggle states
+            const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+            const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+            
+            if (mobileThemeToggle) {
+                mobileThemeToggle.checked = currentTheme === 'light';
+            }
+            if (sidebarThemeToggle) {
+                sidebarThemeToggle.checked = currentTheme === 'light';
+            }
+        }
+
+        // ========== Calendar Functions ==========
+        function renderCalendar() {
+            try {
+                const monthYearElement = document.getElementById('currentMonthYear');
+                const calendarGrid = document.querySelector('.calendar-grid');
+                const mobileCalendarGrid = document.getElementById('mobileCalendarGrid');
+                
+                if (!monthYearElement) return;
+                
+                const year = currentDisplayDate.getFullYear();
+                const month = currentDisplayDate.getMonth();
+                
+                monthYearElement.textContent = `${monthNames[month]} ${year}`;
+                
+                const { dailyData, totalMonthlyPnL } = aggregateDailyData(trades);
+                
+                // Update monthly total
+                const monthlyPnlElement = document.getElementById('monthlyPnlSummary');
+                if (monthlyPnlElement) {
+                    monthlyPnlElement.textContent = '$' + totalMonthlyPnL.toFixed(2);
+                    monthlyPnlElement.className = totalMonthlyPnL >= 0 ? 'profit' : 'loss';
+                }
+
+                // Check if mobile view
+                const isMobile = window.innerWidth <= 768;
+                
+                if (isMobile) {
+                    // Show mobile calendar and hide desktop calendar
+                    if (mobileCalendarGrid) {
+                        mobileCalendarGrid.style.display = 'flex';
+                        renderMobileCalendar();
+                    }
+                    if (calendarGrid) {
+                        calendarGrid.style.display = 'none';
+                    }
+                } else {
+                    // Show desktop calendar and hide mobile calendar
+                    if (calendarGrid) {
+                        calendarGrid.style.display = 'grid';
+                        renderDesktopCalendar(calendarGrid, dailyData, totalMonthlyPnL);
+                    }
+                    if (mobileCalendarGrid) {
+                        mobileCalendarGrid.style.display = 'none';
+                    }
+                }
+                
+                updateDaysStatistics();
+            } catch (error) {
+                console.error('Error in renderCalendar:', error);
+            }
+        }
+
+        function renderDesktopCalendar(calendarGrid, dailyData, totalMonthlyPnL) {
+            const year = currentDisplayDate.getFullYear();
+            const month = currentDisplayDate.getMonth();
+            const weeklyTargetPercentage = tradingPlan.weeklyTarget;
+            const capital = tradingPlan.capital;
+            const fullWeeklyTargetAmount = capital * (weeklyTargetPercentage / 100);
 
             const today = new Date();
-            const todayDateString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-
-            // ========== دوال تحميل السمة ==========
-            const loadTheme = () => {
-                const savedTheme = localStorage.getItem('theme') || 'dark'; 
-                if (savedTheme === 'light') {
-                    body.classList.add('light-mode');
-                    if (sidebarThemeToggle) sidebarThemeToggle.checked = true;
-                } else {
-                    body.classList.remove('light-mode');
-                    if (sidebarThemeToggle) sidebarThemeToggle.checked = false;
-                }
-            };
-
-            window.toggleTheme = () => {
-                body.classList.toggle('light-mode');
-                let currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
-                localStorage.setItem('theme', currentTheme);
-            };
-            
-            loadTheme();
-
-            // ========== دوال PnL ==========
-            const getCurrentPeriodPnL = (period) => {
-                const now = new Date();
-                let totalPnL = 0;
-                
-                let startOfPeriod = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-                let endOfPeriod = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
-                if (period === 'monthly') {
-                    startOfPeriod.setDate(1); 
-                    endOfPeriod.setMonth(now.getMonth() + 1, 0); 
-                } else if (period === 'yearly') {
-                    startOfPeriod.setMonth(0, 1); 
-                    endOfPeriod.setFullYear(now.getFullYear() + 1, 0, 0); 
-                } else if (period === 'weekly') {
-                    const day = startOfPeriod.getDay(); 
-                    startOfPeriod.setDate(startOfPeriod.getDate() - day);
-                    endOfPeriod = new Date(startOfPeriod);
-                    endOfPeriod.setDate(startOfPeriod.getDate() + 6);
-                }
-                
-                startOfPeriod.setHours(0, 0, 0, 0);
-                endOfPeriod.setHours(23, 59, 59, 999);
-
-                trades.forEach(trade => {
-                    const tradeDate = new Date(trade.date + 'T00:00:00'); 
-                    
-                    if (tradeDate >= startOfPeriod && tradeDate <= endOfPeriod) {
-                        totalPnL += calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-                    }
-                });
-                return totalPnL;
-            };
-
-            const aggregateDailyData = (tradesList) => {
-                const dailyData = {};
-                let totalMonthlyPnL = 0;
-                
-                tradesList.forEach(trade => {
-                    const tradeDate = new Date(trade.date + 'T00:00:00'); 
-                    
-                    if (tradeDate.getFullYear() === currentDisplayDate.getFullYear() && 
-                        tradeDate.getMonth() === currentDisplayDate.getMonth()) {
-                            
-                        const dateKey = trade.date;
-                        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-                        totalMonthlyPnL += pnl;
-
-                        if (!dailyData[dateKey]) {
-                            dailyData[dateKey] = { totalPnL: 0, tradeCount: 0 };
-                        }
-                        
-                        dailyData[dateKey].totalPnL += pnl;
-                        dailyData[dateKey].tradeCount += 1;
-                    }
-                });
-                return { dailyData, totalMonthlyPnL };
-            };
-
-            // ========== دوال واجهة المستخدم ==========
-            const renderPeriodGoal = (period, currentPnL, targetPercentage, capital) => {
-                
-                let achievementMessage = '';
-                let achievementClass = 'in-progress';
-                let disabledClass = ''; 
-
-                const iconAchieved = '<i class="fas fa-check-circle"></i>';
-                const iconNotAchieved = '<i class="fas fa-times-circle"></i>';
-                const iconProgress = '<i class="fas fa-spinner fa-spin"></i>';
-                const iconDisabled = '<i class="fas fa-minus-circle"></i>'; 
-                
-                let targetAmount = 0;
-                let progressPercentage = 0;
-                let progressWidth = 0;
-                
-                if (targetPercentage === 0) {
-                    achievementMessage = iconDisabled + ' Target Not Set.'; 
-                    achievementClass = 'not-set'; 
-                    disabledClass = 'disabled-goal'; 
-                    targetAmount = 0; 
-                    progressWidth = 0; 
-                } else {
-                    targetAmount = capital * (targetPercentage / 100);
-                    progressPercentage = (currentPnL / targetAmount) * 100;
-                    progressWidth = Math.min(100, Math.max(0, progressPercentage));
-                    
-                    if (currentPnL >= targetAmount) {
-                        achievementMessage = iconAchieved + ' Target Achieved!';
-                        achievementClass = 'achieved';
-                    } else if (currentPnL >= 0) {
-                        achievementMessage = iconProgress + ' In Progress...';
-                        achievementClass = 'in-progress';
-                    } else {
-                        achievementMessage = iconNotAchieved + ' PnL is Negative.';
-                        achievementClass = 'not-achieved';
-                    }
-                }
-                
-                const formattedPnL = currentPnL.toFixed(2);
-                const pnlClass = currentPnL >= 0 ? 'profit' : 'loss';
-                const periodTitle = period.charAt(0).toUpperCase() + period.slice(1); 
-                
-                const progressText = progressPercentage.toFixed(1) + '%';
-
-                return `
-                    <div class="period-summary-item ${period} ${disabledClass}">
-                        <h4>${periodTitle} Goal</h4>
-                        
-                        <div class="pnl-and-goal-row">
-                            <p class="goal-pct">${targetPercentage.toFixed(1)}% <small>($${targetAmount.toFixed(2)})</small></p>
-                            <p class="${pnlClass}">Current PnL: $${formattedPnL}</p>
-                        </div>
-
-                        <div class="progress-bar-container">
-                            <span class="progress-text">${progressText}</span>
-                            <div class="progress-bar" style="width: ${progressWidth}%;">
-                                 <div class="progress-bar-inner"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="achievement-status ${achievementClass}">
-                            ${achievementMessage}
-                        </div>
-                    </div>
-                `;
+            const isCurrentMonth = (year === today.getFullYear() && month === today.getMonth());
+            const goToTodayBtn = document.getElementById('goToTodayBtn');
+            if (goToTodayBtn) {
+                goToTodayBtn.style.display = isCurrentMonth ? 'none' : 'block';
             }
 
-            const renderPlanSummary = () => {
-                const capital = tradingPlan.capital;
-                
-                const currentWeeklyPnL = getCurrentPeriodPnL('weekly');
-                const currentMonthlyPnL = getCurrentPeriodPnL('monthly');
-                const currentYearlyPnL = getCurrentPeriodPnL('yearly');
-
-                const weeklySummary = renderPeriodGoal('weekly', currentWeeklyPnL, tradingPlan.weeklyTarget, capital);
-                const monthlySummary = renderPeriodGoal('monthly', currentMonthlyPnL, tradingPlan.monthlyTarget, capital);
-                const yearlySummary = renderPeriodGoal('yearly', currentYearlyPnL, tradingPlan.yearlyTarget, capital);
-                
-                if (planSummaryElement) {
-                    planSummaryElement.style.display = 'flex'; 
-                    planSummaryElement.innerHTML = `
-                        <div class="plan-item general-capital">
-                            <h4>Starting Capital</h4>
-                            <p>$${capital.toFixed(2)}</p>
-                        </div>
-                        <div class="goals-container">
-                            ${weeklySummary}
-                            ${monthlySummary}
-                            ${yearlySummary}
-                        </div>
-                    `;
-                }
-            };
+            // Clear current calendar
+            while (calendarGrid.children.length > 8) {
+                calendarGrid.removeChild(calendarGrid.lastChild);
+            }
             
-            window.setTradeMode = (isSimpleMode) => {
-                if (tradeModeToggle) tradeModeToggle.checked = isSimpleMode;
-                toggleTradeMode();
-            };
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
 
-            window.toggleTradeMode = () => {
-                const isSimpleMode = tradeModeToggle ? tradeModeToggle.checked : false;
-                
-                if (detailedFormWrapper) detailedFormWrapper.style.display = isSimpleMode ? 'none' : 'block';
-                if (simpleFormWrapper) simpleFormWrapper.style.display = isSimpleMode ? 'grid' : 'none';
-                
-                if (isSimpleMode) {
-                    if (detailedLabel) {
-                        detailedLabel.classList.remove('active');
-                        detailedLabel.classList.add('inactive');
-                    }
-                    if (simpleLabel) {
-                        simpleLabel.classList.remove('inactive');
-                        simpleLabel.classList.add('active');
-                    }
-                } else {
-                    if (detailedLabel) {
-                        detailedLabel.classList.remove('inactive');
-                        detailedLabel.classList.add('active');
-                    }
-                    if (simpleLabel) {
-                        simpleLabel.classList.remove('active');
-                        simpleLabel.classList.add('inactive');
-                    }
-                }
-                
-                if (form) form.reset(); 
-                if (simplePnLForm) simplePnLForm.reset(); 
-                if (modalTradeIdInput) modalTradeIdInput.value = '';
-                
-                const tradeImagePreview = document.getElementById('tradeImagePreview');
-                const tradeImage = document.getElementById('tradeImage');
-                if (tradeImagePreview) tradeImagePreview.style.display = 'none';
-                if (tradeImage) tradeImage.value = '';
-                
-                if (formTitle) formTitle.textContent = isSimpleMode ? 'Add Direct PnL' : 'Add New Trade';
-                if (submitButton) submitButton.textContent = isSimpleMode ? 'Log PnL' : 'Log Trade'; 
-            };
+            let dayCounter = 0;
+            let weekTotal = 0;
+            let tradeCountInWeek = 0;
+            let availableTradingDays = 0;
 
-            window.closeModal = (id) => {
-                const modal = document.getElementById(id);
-                if (modal) modal.style.display = 'none';
-                
-                if (id === 'tradeModal') {
-                    if (form) form.reset();
-                    if (simplePnLForm) simplePnLForm.reset();
-                    if (modalTradeIdInput) modalTradeIdInput.value = '';
-                    const tradeImagePreview = document.getElementById('tradeImagePreview');
-                    const tradeImage = document.getElementById('tradeImage');
-                    if (tradeImagePreview) tradeImagePreview.style.display = 'none';
-                    if (tradeImage) tradeImage.value = '';
-                }
-                if (id === 'userInfoModal') {
-                    if (userInfoForm) userInfoForm.reset(); 
-                    if (profileImageUpload) profileImageUpload.value = '';
-                }
-                if (id === 'planModal' && planForm) planForm.reset();
-                if (id === 'exportModal') {
-                    const exportPeriod = document.getElementById('exportPeriod');
-                    const dateRangeSection = document.getElementById('dateRangeSection');
-                    const includeTrades = document.getElementById('includeTrades');
-                    const includeAnalytics = document.getElementById('includeAnalytics');
-                    const includePlan = document.getElementById('includePlan');
-                    
-                    if (exportPeriod) exportPeriod.value = 'all';
-                    if (dateRangeSection) dateRangeSection.style.display = 'none';
-                    if (includeTrades) includeTrades.checked = true;
-                    if (includeAnalytics) includeAnalytics.checked = true;
-                    if (includePlan) includePlan.checked = true;
-                }
-                if (id === 'importModal') {
-                    const importFile = document.getElementById('importFile');
-                    const importPreview = document.getElementById('importPreview');
-                    if (importFile) importFile.value = '';
-                    if (importPreview) importPreview.style.display = 'none';
-                }
-            };
+            // Add empty cells for days before the first day of the month
+            for (let i = 0; i < firstDayOfMonth; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'calendar-cell empty-cell';
+                calendarGrid.appendChild(emptyCell);
+                dayCounter++;
+            }
             
-            window.openTradeModal = (dateString) => {
-                const [y, m, d] = dateString.split('-');
-                const selectedDateDisplay = document.getElementById('selectedDateDisplay');
-                if (selectedDateDisplay) selectedDateDisplay.textContent = `${y}/${m}/${d}`; 
+            // Add cells for each day of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const data = dailyData[dateString];
+                const dayOfWeek = dayCounter % 7;
+                const isNoTradingDay = noTradingDays.includes(dateString);
                 
-                if (modalDateInput) modalDateInput.value = dateString; 
-                if (modalTradeIdInput) modalTradeIdInput.value = ''; 
+                const pnl = data ? data.totalPnL : 0;
+                const count = data ? data.tradeCount : 0;
                 
-                if (tradeModeToggle) {
-                    tradeModeToggle.checked = false; 
-                    toggleTradeMode(); 
+                weekTotal += pnl;
+                tradeCountInWeek += count;
+                
+                if (dayOfWeek >= 1 && dayOfWeek <= 5) { 
+                    availableTradingDays++; 
                 }
-
-                // تحديث أزرار No Trading Day
-                updateNoTradingButtons(dateString);
-
-                // تعيين الوقت الافتراضي
-                const now = new Date();
-                const currentDate = now.toISOString().slice(0, 10);
                 
-                if (dateString === currentDate) {
-                    const currentTime = now.toTimeString().slice(0, 5);
-                    const defaultEntryTime = `${dateString}T${currentTime}`;
-                    const exitTime = new Date(now.getTime() + 30 * 60000);
-                    const defaultExitTime = `${dateString}T${exitTime.toTimeString().slice(0, 5)}`;
-                    
-                    if (entryTimeInput) entryTimeInput.value = defaultEntryTime;
-                    if (exitTimeInput) exitTimeInput.value = defaultExitTime;
+                const cell = document.createElement('div');
+                cell.className = 'calendar-cell';
+
+                let liveIndicatorHTML = '';
+                
+                if (dateString === todayDateString) {
+                     cell.classList.add('today-cell');
+                     liveIndicatorHTML = '<span class="live-indicator">LIVE</span>';
+                }
+                
+                if (holidayDays.includes(dayOfWeek)) { 
+                     cell.classList.add('holiday');
                 } else {
-                    const defaultEntryTime = `${dateString}T10:00`;
-                    const defaultExitTime = `${dateString}T10:30`;
-                    
-                    if (entryTimeInput) entryTimeInput.value = defaultEntryTime;
-                    if (exitTimeInput) exitTimeInput.value = defaultExitTime;
+                    cell.onclick = () => openTradeModal(dateString);
                 }
-                
-                if (tradingSessionSelect) tradingSessionSelect.value = 'INTRADAY';
 
-                updateTradesList(dateString);
-                const tradeModal = document.getElementById('tradeModal');
-                if (tradeModal) tradeModal.style.display = 'flex';
-            };
+                if (isNoTradingDay) {
+                    cell.classList.add('no-trading-day');
+                }
 
-            // دالة محدثة لعرض قائمة الصفقات
-            function updateTradesList(dateString) {
-                const dailyTrades = trades.filter(t => t.date === dateString);
-                const dailyTradesListElement = document.getElementById('dailyTradesList');
-                
-                if (!dailyTradesListElement) return;
-                
-                let tradesListHTML = `
-                    <div class="trade-header">
-                        <span>Symbol</span>
-                        <span>Entry</span>
-                        <span>Exit</span>
-                        <span>Shares</span>
-                        <span>Commission</span>
-                        <span>PnL</span>
-                        <span>Actions</span>
+                let pnlClass = '';
+                if (pnl > 0) {
+                    pnlClass = 'profit';
+                } else if (pnl < 0) {
+                    pnlClass = 'loss';
+                } else if (count === 0 && !holidayDays.includes(dayOfWeek) && !isNoTradingDay) {
+                    cell.classList.add('inactive-day');
+                }
+
+                cell.innerHTML = `
+                    <div class="day-number">
+                        <span>${day}</span>
+                        ${isNoTradingDay ? '<span class="no-trading-indicator" title="No Trading Day"><i class="fas fa-ban"></i></span>' : ''}
+                        ${liveIndicatorHTML}
+                    </div>
+                    <div class="daily-pnl ${pnlClass}">
+                        ${isNoTradingDay ? 'No Trade' : pnl.toFixed(2) + ' $'}
+                    </div>
+                    <div class="trade-count">
+                        ${isNoTradingDay ? 'No Trading' : count + ' trades'}
                     </div>
                 `;
 
-                if (dailyTrades.length > 0) {
-                    dailyTrades.forEach(trade => {
-                        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-                        const pnlClass = pnl >= 0 ? 'profit' : 'loss';
-                        
-                        const isSimple = trade.symbol === 'DIRECT_PNL';
+                calendarGrid.appendChild(cell);
+                dayCounter++;
 
-                        tradesListHTML += `
-                            <div class="daily-trade-item">
-                                <span>${isSimple ? 'PnL' : trade.symbol}</span> 
-                                <span>${isSimple ? 'N/A' : trade.entryPrice.toFixed(2)}</span> 
-                                <span>${isSimple ? 'N/A' : trade.exitPrice.toFixed(2)}</span> 
-                                <span>${isSimple ? 'N/A' : trade.shares}</span> 
-                                <span>${isSimple ? 'N/A' : '$' + (trade.commission || 0).toFixed(2)}</span>
-                                <span class="${pnlClass}">${pnl.toFixed(2) + ' $'}</span>
-                                <div style="display: flex; gap: 5px;">
-                                    <button class="edit-btn" onclick="editTrade('${trade.id}', '${dateString}')">Edit</button>
-                                    <button class="delete-btn" onclick="deleteTrade('${trade.id}', '${dateString}')">Delete</button>
-                                </div>
-                            </div>
-                        `;
-                    });
-                } else {
-                    tradesListHTML += '<p style="text-align: center; color: var(--text-secondary); font-size: 0.9em; grid-column: 1 / -1; padding: 15px;">No trades logged for this day.</p>';
+                // Add week total at the end of each week or month
+                if (dayOfWeek === 6 || day === daysInMonth) {
+                    addWeekTotal(weekTotal, tradeCountInWeek, fullWeeklyTargetAmount, availableTradingDays);
+                    
+                    weekTotal = 0;
+                    tradeCountInWeek = 0;
+                    availableTradingDays = 0;
                 }
-
-                dailyTradesListElement.innerHTML = tradesListHTML;
             }
             
-            window.openUserInfoModal = () => {
-                const newUserNameInput = document.getElementById('newUserName');
-                if (newUserNameInput) newUserNameInput.value = userInfo.name; 
-                const userInfoModal = document.getElementById('userInfoModal');
-                if (userInfoModal) userInfoModal.style.display = 'flex';
-            };
-
-            window.openPlanModal = () => {
-                if (startingCapitalInput) startingCapitalInput.value = tradingPlan.capital;
-                if (weeklyTargetGoalInput) weeklyTargetGoalInput.value = tradingPlan.weeklyTarget;
-                if (monthlyTargetGoalInput) monthlyTargetGoalInput.value = tradingPlan.monthlyTarget;
-                if (yearlyTargetGoalInput) yearlyTargetGoalInput.value = tradingPlan.yearlyTarget;
-                
-                const planModal = document.getElementById('planModal');
-                if (planModal) planModal.style.display = 'flex';
-            };
-
-            window.openExportModal = () => {
-                const today = new Date();
-                const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-                
-                const startDate = document.getElementById('startDate');
-                const endDate = document.getElementById('endDate');
-                if (startDate) startDate.value = firstDayOfMonth.toISOString().split('T')[0];
-                if (endDate) endDate.value = today.toISOString().split('T')[0];
-                
-                const exportModal = document.getElementById('exportModal');
-                if (exportModal) exportModal.style.display = 'flex';
-            };
-
-            window.toggleDateRange = () => {
-                const period = document.getElementById('exportPeriod');
-                const dateRangeSection = document.getElementById('dateRangeSection');
-                
-                if (period && dateRangeSection) {
-                    if (period.value === 'custom') {
-                        dateRangeSection.style.display = 'grid';
-                    } else {
-                        dateRangeSection.style.display = 'none';
-                    }
-                }
-            };
-
-            window.onclick = function(event) {
-                if (event.target.classList.contains('modal')) {
-                    closeModal(event.target.id);
-                }
-            }
-
-            window.deleteTrade = async (tradeId, dateString) => {
-                if (!confirm('Are you sure you want to delete this trade?')) return;
-
-                trades = trades.filter(t => t.id != tradeId);
-                
-                await deleteTradeFromDB(tradeId);
-                
-                renderCalendar();
-                renderPlanSummary(); 
-                updateTradesList(dateString);
-            };
+            // Fill remaining cells to complete the grid
+            const totalCells = calendarGrid.children.length;
+            const cellsToAdd = (8 - (totalCells % 8)) % 8;
             
-            window.editTrade = (tradeId, dateString) => {
-                const tradeToEdit = trades.find(t => t.id == tradeId);
-                if (!tradeToEdit) return;
-                
-                if (tradeToEdit.symbol === 'DIRECT_PNL') {
-                    if (tradeModeToggle) {
-                        tradeModeToggle.checked = true;
-                        toggleTradeMode();
-                    }
+            for (let i = 0; i < cellsToAdd; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'calendar-cell empty-cell';
+                calendarGrid.appendChild(emptyCell);
+            }
+        }
 
-                    if (modalTradeIdInput) modalTradeIdInput.value = tradeId;
-                    if (directPnLAmountInput) directPnLAmountInput.value = tradeToEdit.directPnL;
-                    const simpleNotes = document.getElementById('simpleNotes');
-                    if (simpleNotes) simpleNotes.value = tradeToEdit.notes || '';
-
-                    if (formTitle) formTitle.textContent = 'Edit Direct PnL';
-                    if (submitSimplePnLButton) submitSimplePnLButton.textContent = 'Update PnL';
-                } else {
-                    if (tradeModeToggle) {
-                        tradeModeToggle.checked = false;
-                        toggleTradeMode();
-                    }
-
-                    if (modalTradeIdInput) modalTradeIdInput.value = tradeId;
-                    if (document.getElementById('symbol')) document.getElementById('symbol').value = tradeToEdit.symbol;
-                    if (document.getElementById('entryPrice')) document.getElementById('entryPrice').value = tradeToEdit.entryPrice;
-                    if (document.getElementById('exitPrice')) document.getElementById('exitPrice').value = tradeToEdit.exitPrice;
-                    if (document.getElementById('shares')) document.getElementById('shares').value = tradeToEdit.shares;
-                    if (document.getElementById('commission')) document.getElementById('commission').value = tradeToEdit.commission || 0;
-                    if (document.getElementById('notes')) document.getElementById('notes').value = tradeToEdit.notes || '';
-                    
-                    if (tradeToEdit.entryDateTime && entryTimeInput) {
-                        entryTimeInput.value = tradeToEdit.entryDateTime.replace(' ', 'T').substring(0, 16);
-                    }
-                    if (tradeToEdit.exitDateTime && exitTimeInput) {
-                        exitTimeInput.value = tradeToEdit.exitDateTime.replace(' ', 'T').substring(0, 16);
-                    }
-                    if (tradeToEdit.tradingSession && tradingSessionSelect) {
-                        tradingSessionSelect.value = tradeToEdit.tradingSession;
-                    }
-                    
-                    const previewContainer = document.getElementById('tradeImagePreview');
-                    const previewImage = document.getElementById('previewImage');
-                    if (tradeToEdit.tradeImage) {
-                        if (previewImage) previewImage.src = tradeToEdit.tradeImage;
-                        if (previewContainer) previewContainer.style.display = 'block';
-                    } else {
-                        if (previewContainer) previewContainer.style.display = 'none';
-                    }
-
-                    if (formTitle) formTitle.textContent = 'Edit Current Trade';
-                    if (submitButton) submitButton.textContent = 'Update Trade';
-                }
-            };
-
-            const addWeekTotal = (pnl, count, fullWeeklyTargetAmount, availableDays) => {
+        function addWeekTotal(pnl, count, fullWeeklyTargetAmount, availableDays) {
+            try {
+                const calendarGrid = document.querySelector('.calendar-grid');
                 if (!calendarGrid) return;
                 
                 const totalCell = document.createElement('div');
                 totalCell.className = 'week-total-cell';
                 
                 let pnlClass = '';
-                let achievementHTML = ''; 
+                let achievementHTML = '';
 
                 if (count > 0) {
                     if (pnl > 0) {
                         pnlClass = 'profit';
-                        totalCell.classList.add('weekly-profit'); 
+                        totalCell.classList.add('weekly-profit');
                     } else if (pnl < 0) {
                         pnlClass = 'loss';
-                        totalCell.classList.add('weekly-loss'); 
+                        totalCell.classList.add('weekly-loss');
                     }
                 } else {
                     totalCell.classList.add('inactive-total');
@@ -3400,380 +2734,602 @@
                 totalCell.innerHTML = `
                     <span>Weekly Total</span>
                     <span class="daily-pnl ${pnlClass}">${pnl.toFixed(2) + ' $'}</span>
-                    ${achievementHTML} 
+                    ${achievementHTML}
                     <span style="font-size: 0.7em; margin-top: 3px; color: var(--color-total-details);">${count} trades</span>
                 `;
                 calendarGrid.appendChild(totalCell);
+            } catch (error) {
+                console.error('Error in addWeekTotal:', error);
             }
+        }
 
-            window.goToCurrentMonth = () => {
-                currentDisplayDate = new Date(today.getFullYear(), today.getMonth(), 1); 
-                renderCalendar();
-            };
+        // ========== Other Calendar Functions ==========
+        window.changeMonth = (delta) => {
+            currentDisplayDate.setMonth(currentDisplayDate.getMonth() + delta);
+            renderCalendar();
+        };
+
+        window.goToCurrentMonth = () => {
+            const today = new Date();
+            currentDisplayDate = new Date(today.getFullYear(), today.getMonth(), 1);
+            renderCalendar();
+        };
+
+        // ========== PnL Calculation Functions ==========
+        const getCurrentPeriodPnL = (period) => {
+            const now = new Date();
+            let totalPnL = 0;
             
-            const isMobileView = () => window.matchMedia('(max-width: 768px)').matches;
+            let startOfPeriod = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            let endOfPeriod = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-            const renderCalendar = () => {
-                if (!monthYearElement || !calendarGrid) return;
-                
-                const year = currentDisplayDate.getFullYear();
-                const month = currentDisplayDate.getMonth();
-                
-                monthYearElement.textContent = `${monthNames[month]} ${year}`;
-                
-                const { dailyData, totalMonthlyPnL } = aggregateDailyData(trades); 
-                
-                const weeklyTargetPercentage = tradingPlan.weeklyTarget;
-                const capital = tradingPlan.capital;
-                const fullWeeklyTargetAmount = capital * (weeklyTargetPercentage / 100);
+            if (period === 'monthly') {
+                startOfPeriod.setDate(1);
+                endOfPeriod.setMonth(now.getMonth() + 1, 0);
+            } else if (period === 'yearly') {
+                startOfPeriod.setMonth(0, 1);
+                endOfPeriod.setFullYear(now.getFullYear() + 1, 0, 0);
+            } else if (period === 'weekly') {
+                const day = startOfPeriod.getDay();
+                startOfPeriod.setDate(startOfPeriod.getDate() - day);
+                endOfPeriod = new Date(startOfPeriod);
+                endOfPeriod.setDate(startOfPeriod.getDate() + 6);
+            }
+            
+            startOfPeriod.setHours(0, 0, 0, 0);
+            endOfPeriod.setHours(23, 59, 59, 999);
 
-                const monthlyPnlElement = document.getElementById('monthlyPnlSummary');
-                if (monthlyPnlElement) {
-                    monthlyPnlElement.textContent = '$' + totalMonthlyPnL.toFixed(2);
-                    monthlyPnlElement.className = totalMonthlyPnL >= 0 ? 'profit' : 'loss';
+            trades.forEach(trade => {
+                const tradeDate = new Date(trade.date + 'T00:00:00');
+                
+                if (tradeDate >= startOfPeriod && tradeDate <= endOfPeriod) {
+                    totalPnL += calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
                 }
+            });
+            return totalPnL;
+        };
 
-                const isCurrentMonth = (year === today.getFullYear() && month === today.getMonth());
-                if (goToTodayBtn) {
-                    goToTodayBtn.style.display = isCurrentMonth ? 'none' : 'block';
-                }
-
-                while (calendarGrid.children.length > 8) {
-                    calendarGrid.removeChild(calendarGrid.lastChild);
-                }
+        const aggregateDailyData = (tradesList) => {
+            const dailyData = {};
+            let totalMonthlyPnL = 0;
+            
+            tradesList.forEach(trade => {
+                const tradeDate = new Date(trade.date + 'T00:00:00');
                 
-                const calendarHeaderDays = calendarGrid.querySelectorAll('.day-label, .week-total-label');
-                const isMobile = isMobileView();
-                
-                calendarGrid.style.gridTemplateColumns = isMobile ? 'repeat(7, 1fr)' : 'repeat(8, 1fr)';
-                if (calendarHeaderDays.length === 8) {
-                    calendarHeaderDays[7].style.display = isMobile ? 'none' : 'block';
-                }
-
-                const daysInMonth = new Date(year, month + 1, 0).getDate();
-                const firstDayOfMonth = new Date(year, month, 1).getDay(); 
-
-                let dayCounter = 0;
-                let weekTotal = 0;
-                let tradeCountInWeek = 0;
-                let availableTradingDays = 0;
-
-                for (let i = 0; i < firstDayOfMonth; i++) {
-                    const emptyCell = document.createElement('div');
-                    emptyCell.className = 'calendar-cell empty-cell';
-                    calendarGrid.appendChild(emptyCell);
-                    dayCounter++;
-                }
-                
-                for (let day = 1; day <= daysInMonth; day++) {
-                    const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                    const data = dailyData[dateString];
-                    const dayOfWeek = dayCounter % 7;
-                    const isNoTradingDay = noTradingDays.includes(dateString);
-                    
-                    const pnl = data ? data.totalPnL : 0;
-                    const count = data ? data.tradeCount : 0;
-                    
-                    weekTotal += pnl;
-                    tradeCountInWeek += count;
-                    
-                    if (dayOfWeek >= 1 && dayOfWeek <= 5) { 
-                        availableTradingDays++; 
-                    }
-                    
-                    const cell = document.createElement('div');
-                    cell.className = 'calendar-cell';
-
-                    let liveIndicatorHTML = ''; 
-                    
-                    if (dateString === todayDateString) {
-                         cell.classList.add('today-cell');
-                         liveIndicatorHTML = '<span class="live-indicator">LIVE</span>';
-                    }
-                    
-                    if (holidayDays.includes(dayOfWeek)) { 
-                         cell.classList.add('holiday');
-                    } else {
-                        cell.onclick = () => openTradeModal(dateString); 
-                    }
-
-                    // إضافة كلاس No Trading Day
-                    if (isNoTradingDay) {
-                        cell.classList.add('no-trading-day');
-                    }
-
-                    let pnlClass = '';
-                    if (pnl > 0) {
-                        pnlClass = 'profit';
-                    } else if (pnl < 0) {
-                        pnlClass = 'loss';
-                    } else if (count === 0 && !holidayDays.includes(dayOfWeek) && !isNoTradingDay) {
-                        cell.classList.add('inactive-day'); 
-                    }
-
-                    cell.innerHTML = `
-                        <div class="day-number">
-                            <span>${day}</span>
-                            ${isNoTradingDay ? '<span class="no-trading-indicator" title="No Trading Day"><i class="fas fa-ban"></i></span>' : ''}
-                            ${liveIndicatorHTML}
-                        </div>
-                        <div class="daily-pnl ${pnlClass}">
-                            ${isNoTradingDay ? 'No Trade' : pnl.toFixed(2) + ' $'}
-                        </div>
-                        <div class="trade-count">
-                            ${isNoTradingDay ? 'No Trading' : count + ' trades'}
-                        </div>
-                    `;
-
-                    calendarGrid.appendChild(cell);
-                    dayCounter++;
-
-                    if (dayOfWeek === 6 || day === daysInMonth) {
-                        addWeekTotal(weekTotal, tradeCountInWeek, fullWeeklyTargetAmount, availableTradingDays); 
+                if (tradeDate.getFullYear() === currentDisplayDate.getFullYear() && 
+                    tradeDate.getMonth() === currentDisplayDate.getMonth()) {
                         
-                        weekTotal = 0; 
-                        tradeCountInWeek = 0;
-                        availableTradingDays = 0;
+                    const dateKey = trade.date;
+                    const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                    totalMonthlyPnL += pnl;
+
+                    if (!dailyData[dateKey]) {
+                        dailyData[dateKey] = { totalPnL: 0, tradeCount: 0 };
                     }
-                }
-                
-                const totalCellsInCurrentRow = calendarGrid.children.length - (calendarHeaderDays.length - 1);
-                let cellsToFill = isMobile ? (7 - (totalCellsInCurrentRow % 7)) % 7 : (8 - (totalCellsInCurrentRow % 8)) % 8;
-                
-                if (dayCounter % 7 === 0 && dayCounter > 0) {
-                    cellsToFill = isMobile ? 0 : (8 - (calendarGrid.children.length % 8)) % 8;
-                } else if (dayCounter > 0) {
-                     const elementsInLastRow = (calendarGrid.children.length - 8) % 8;
-                     cellsToFill = isMobile ? (7 - (elementsInLastRow % 7)) % 7 : (8 - (elementsInLastRow % 8)) % 8;
-                }
-                
-                if (isMobile) {
-                     while (calendarGrid.children.length % 7 !== 0) {
-                         const lastChild = calendarGrid.lastChild;
-                         if (lastChild && lastChild.classList.contains('week-total-cell')) {
-                              break;
-                         }
-                         const emptyCell = document.createElement('div');
-                         emptyCell.className = 'calendar-cell empty-cell';
-                         calendarGrid.appendChild(emptyCell);
-                     }
-                } else {
-                     while (calendarGrid.children.length % 8 !== 0) {
-                         const emptyCell = document.createElement('div');
-                         emptyCell.className = 'calendar-cell empty-cell';
-                         calendarGrid.appendChild(emptyCell);
-                     }
-                }
-                
-                updateDaysStatistics();
-            };
-
-            window.changeMonth = (delta) => {
-                currentDisplayDate.setMonth(currentDisplayDate.getMonth() + delta);
-                renderCalendar();
-            };
-            
-            window.addEventListener('resize', renderCalendar);
-
-            // إضافة مستمع حدث لعرض معاينة الصورة
-            const tradeImageInput = document.getElementById('tradeImage');
-            if (tradeImageInput) {
-                tradeImageInput.addEventListener('change', function(e) {
-                    const file = e.target.files[0];
-                    const preview = document.getElementById('previewImage');
-                    const previewContainer = document.getElementById('tradeImagePreview');
                     
-                    if (file && preview && previewContainer) {
-                        const reader = new FileReader();
-                        reader.onloadend = function() {
-                            preview.src = reader.result;
-                            previewContainer.style.display = 'block';
-                        }
-                        reader.readAsDataURL(file);
-                    } else if (previewContainer) {
-                        previewContainer.style.display = 'none';
-                    }
-                });
-            }
+                    dailyData[dateKey].totalPnL += pnl;
+                    dailyData[dateKey].tradeCount += 1;
+                }
+            });
+            return { dailyData, totalMonthlyPnL };
+        };
 
-            // إضافة مستمعات أحداث لأزرار No Trading Day
-            if (markNoTradingDayBtn) {
-                markNoTradingDayBtn.addEventListener('click', window.markAsNoTradingDay);
+        function calculatePnL(entry, exit, shares, directPnL, commission = 0) {
+            if (directPnL !== undefined && directPnL !== null) {
+                return parseFloat(directPnL) - parseFloat(commission || 0);
             }
-            if (unmarkNoTradingDayBtn) {
-                unmarkNoTradingDayBtn.addEventListener('click', window.unmarkNoTradingDay);
-            }
+            return ((parseFloat(exit) - parseFloat(entry)) * parseInt(shares)) - parseFloat(commission || 0);
+        }
 
-            // دالة مساعدة لحفظ بيانات التداول
-            async function saveTradeData(tradeId, tradeData, dateString) {
-                if (tradeId) {
-                    const index = trades.findIndex(t => t.id == tradeId);
-                    if (index !== -1) {
-                        trades[index] = { ...trades[index], ...tradeData };
-                    }
+        // ========== Plan Summary Functions ==========
+        const renderPeriodGoal = (period, currentPnL, targetPercentage, capital) => {
+            
+            let achievementMessage = '';
+            let achievementClass = 'in-progress';
+            let disabledClass = '';
+
+            const iconAchieved = '<i class="fas fa-check-circle"></i>';
+            const iconNotAchieved = '<i class="fas fa-times-circle"></i>';
+            const iconProgress = '<i class="fas fa-spinner fa-spin"></i>';
+            const iconDisabled = '<i class="fas fa-minus-circle"></i>';
+            
+            let targetAmount = 0;
+            let progressPercentage = 0;
+            let progressWidth = 0;
+            
+            if (targetPercentage === 0) {
+                achievementMessage = iconDisabled + ' Target Not Set.';
+                achievementClass = 'not-set';
+                disabledClass = 'disabled-goal';
+                targetAmount = 0;
+                progressWidth = 0;
+            } else {
+                targetAmount = capital * (targetPercentage / 100);
+                progressPercentage = (currentPnL / targetAmount) * 100;
+                progressWidth = Math.min(100, Math.max(0, progressPercentage));
+                
+                if (currentPnL >= targetAmount) {
+                    achievementMessage = iconAchieved + ' Target Achieved!';
+                    achievementClass = 'achieved';
+                } else if (currentPnL >= 0) {
+                    achievementMessage = iconProgress + ' In Progress...';
+                    achievementClass = 'in-progress';
                 } else {
-                    const newTrade = {
-                        id: String(Date.now() + Math.random()),
-                        ...tradeData
-                    };
-                    trades.push(newTrade);
+                    achievementMessage = iconNotAchieved + ' PnL is Negative.';
+                    achievementClass = 'not-achieved';
+                }
+            }
+            
+            const formattedPnL = currentPnL.toFixed(2);
+            const pnlClass = currentPnL >= 0 ? 'profit' : 'loss';
+            const periodTitle = period.charAt(0).toUpperCase() + period.slice(1);
+            
+            const progressText = progressPercentage.toFixed(1) + '%';
+
+            return `
+                <div class="period-summary-item ${period} ${disabledClass}">
+                    <h4>${periodTitle} Goal</h4>
+                    
+                    <div class="pnl-and-goal-row">
+                        <p class="goal-pct">${targetPercentage.toFixed(1)}% <small>($${targetAmount.toFixed(2)})</small></p>
+                        <p class="${pnlClass}">Current PnL: $${formattedPnL}</p>
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <span class="progress-text">${progressText}</span>
+                        <div class="progress-bar" style="width: ${progressWidth}%;">
+                             <div class="progress-bar-inner"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement-status ${achievementClass}">
+                        ${achievementMessage}
+                    </div>
+                </div>
+            `;
+        };
+
+        const renderPlanSummary = () => {
+            try {
+                const planSummaryElement = document.getElementById('planSummary');
+                if (!planSummaryElement) return;
+
+                const capital = tradingPlan.capital;
+                
+                const currentWeeklyPnL = getCurrentPeriodPnL('weekly');
+                const currentMonthlyPnL = getCurrentPeriodPnL('monthly');
+                const currentYearlyPnL = getCurrentPeriodPnL('yearly');
+
+                const weeklySummary = renderPeriodGoal('weekly', currentWeeklyPnL, tradingPlan.weeklyTarget, capital);
+                const monthlySummary = renderPeriodGoal('monthly', currentMonthlyPnL, tradingPlan.monthlyTarget, capital);
+                const yearlySummary = renderPeriodGoal('yearly', currentYearlyPnL, tradingPlan.yearlyTarget, capital);
+                
+                planSummaryElement.style.display = 'flex';
+                planSummaryElement.innerHTML = `
+                    <div class="plan-item general-capital">
+                        <h4>Starting Capital</h4>
+                        <p>$${capital.toFixed(2)}</p>
+                    </div>
+                    <div class="goals-container">
+                        ${weeklySummary}
+                        ${monthlySummary}
+                        ${yearlySummary}
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Error in renderPlanSummary:', error);
+            }
+        };
+
+        // ========== Modal Functions ==========
+        window.openTradeModal = (dateString) => {
+            try {
+                const [y, m, d] = dateString.split('-');
+                const selectedDateDisplay = document.getElementById('selectedDateDisplay');
+                if (selectedDateDisplay) selectedDateDisplay.textContent = `${y}/${m}/${d}`;
+                
+                const modalDateInput = document.getElementById('modalDate');
+                const modalTradeIdInput = document.getElementById('modalTradeId');
+                
+                if (modalDateInput) modalDateInput.value = dateString;
+                if (modalTradeIdInput) modalTradeIdInput.value = '';
+                
+                const tradeModeToggle = document.getElementById('tradeModeToggle');
+                if (tradeModeToggle) {
+                    tradeModeToggle.checked = false;
+                    toggleTradeMode();
                 }
 
-                await saveTrades();
-                renderCalendar();
-                renderPlanSummary();
+                // Update No Trading Day buttons
+                updateNoTradingButtons(dateString);
+
+                // Set default time
+                const now = new Date();
+                const currentDate = now.toISOString().slice(0, 10);
+                
+                const entryTimeInput = document.getElementById('entryTime');
+                const exitTimeInput = document.getElementById('exitTime');
+                const tradingSessionSelect = document.getElementById('tradingSession');
+                
+                if (dateString === currentDate) {
+                    const currentTime = now.toTimeString().slice(0, 5);
+                    const defaultEntryTime = `${dateString}T${currentTime}`;
+                    const exitTime = new Date(now.getTime() + 30 * 60000);
+                    const defaultExitTime = `${dateString}T${exitTime.toTimeString().slice(0, 5)}`;
+                    
+                    if (entryTimeInput) entryTimeInput.value = defaultEntryTime;
+                    if (exitTimeInput) exitTimeInput.value = defaultExitTime;
+                } else {
+                    const defaultEntryTime = `${dateString}T10:00`;
+                    const defaultExitTime = `${dateString}T10:30`;
+                    
+                    if (entryTimeInput) entryTimeInput.value = defaultEntryTime;
+                    if (exitTimeInput) exitTimeInput.value = defaultExitTime;
+                }
+                
+                if (tradingSessionSelect) tradingSessionSelect.value = 'INTRADAY';
+
                 updateTradesList(dateString);
-                closeModal('tradeModal');
+                const tradeModal = document.getElementById('tradeModal');
+                if (tradeModal) tradeModal.style.display = 'flex';
+            } catch (error) {
+                console.error('Error in openTradeModal:', error);
             }
+        };
 
-            if (form) {
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    const tradeId = modalTradeIdInput ? modalTradeIdInput.value : '';
-                    const dateString = modalDateInput ? modalDateInput.value : '';
-                    
-                    if (tradeModeToggle && tradeModeToggle.checked) return;
+        function updateTradesList(dateString) {
+            try {
+                const dailyTrades = trades.filter(t => t.date === dateString);
+                const dailyTradesListElement = document.getElementById('dailyTradesList');
+                
+                if (!dailyTradesListElement) return;
+                
+                let tradesListHTML = `
+                    <div class="trade-header">
+                        <span>Symbol</span>
+                        <span>Entry</span>
+                        <span>Exit</span>
+                        <span>Shares</span>
+                        <span>Commission</span>
+                        <span>PnL</span>
+                        <span>Actions</span>
+                    </div>
+                `;
 
-                    // حساب المدة
-                    const entryDateTime = entryTimeInput ? entryTimeInput.value : '';
-                    const exitDateTime = exitTimeInput ? exitTimeInput.value : '';
-                    const tradeDuration = calculateTradeDuration(entryDateTime, exitDateTime);
-                    const timeCategory = determineTimeCategory(entryDateTime);
+                if (dailyTrades.length > 0) {
+                    dailyTrades.forEach(trade => {
+                        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                        const pnlClass = pnl >= 0 ? 'profit' : 'loss';
+                        
+                        const isSimple = trade.symbol === 'DIRECT_PNL';
 
-                    const updatedTradeData = {
-                        date: dateString,
-                        symbol: document.getElementById('symbol') ? document.getElementById('symbol').value.toUpperCase() : '',
-                        entryPrice: document.getElementById('entryPrice') ? parseFloat(document.getElementById('entryPrice').value) : 0,
-                        exitPrice: document.getElementById('exitPrice') ? parseFloat(document.getElementById('exitPrice').value) : 0,
-                        shares: document.getElementById('shares') ? parseInt(document.getElementById('shares').value) : 0,
-                        commission: document.getElementById('commission') ? parseFloat(document.getElementById('commission').value) || 0 : 0,
-                        notes: document.getElementById('notes') ? document.getElementById('notes').value : '',
-                        directPnL: undefined,
-                        tradeImage: null,
-                        entryDateTime: entryDateTime,
-                        exitDateTime: exitDateTime,
-                        tradingSession: tradingSessionSelect ? tradingSessionSelect.value : 'INTRADAY',
-                        tradeDuration: tradeDuration,
-                        timeCategory: timeCategory
-                    };
+                        tradesListHTML += `
+                            <div class="daily-trade-item">
+                                <span>${isSimple ? 'PnL' : trade.symbol}</span>
+                                <span>${isSimple ? 'N/A' : trade.entryPrice.toFixed(2)}</span>
+                                <span>${isSimple ? 'N/A' : trade.exitPrice.toFixed(2)}</span>
+                                <span>${isSimple ? 'N/A' : trade.shares}</span>
+                                <span>${isSimple ? 'N/A' : '$' + (trade.commission || 0).toFixed(2)}</span>
+                                <span class="${pnlClass}">${pnl.toFixed(2) + ' $'}</span>
+                                <div style="display: flex; gap: 5px;">
+                                    <button class="edit-btn" onclick="editTrade('${trade.id}', '${dateString}')">Edit</button>
+                                    <button class="delete-btn" onclick="deleteTrade('${trade.id}', '${dateString}')">Delete</button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    tradesListHTML += '<p style="text-align: center; color: var(--text-secondary); font-size: 0.9em; grid-column: 1 / -1; padding: 15px;">No trades logged for this day.</p>';
+                }
 
-                    const imageFile = document.getElementById('tradeImage') ? document.getElementById('tradeImage').files[0] : null;
-                    if (imageFile) {
-                        const reader = new FileReader();
-                        reader.onloadend = async function() {
-                            updatedTradeData.tradeImage = reader.result;
-                            await saveTradeData(tradeId, updatedTradeData, dateString);
-                        }
-                        reader.readAsDataURL(imageFile);
-                    } else {
-                        if (tradeId) {
-                            const existingTrade = trades.find(t => t.id == tradeId);
-                            if (existingTrade && existingTrade.tradeImage) {
-                                updatedTradeData.tradeImage = existingTrade.tradeImage;
-                            }
-                        }
-                        await saveTradeData(tradeId, updatedTradeData, dateString);
-                    }
-                });
+                dailyTradesListElement.innerHTML = tradesListHTML;
+            } catch (error) {
+                console.error('Error in updateTradesList:', error);
+            }
+        }
+
+        window.openUserInfoModal = () => {
+            try {
+                const newUserNameInput = document.getElementById('newUserName');
+                if (newUserNameInput) newUserNameInput.value = userInfo.name;
+                const userInfoModal = document.getElementById('userInfoModal');
+                if (userInfoModal) userInfoModal.style.display = 'flex';
+            } catch (error) {
+                console.error('Error in openUserInfoModal:', error);
+            }
+        };
+
+        window.openPlanModal = () => {
+            try {
+                const startingCapitalInput = document.getElementById('startingCapital');
+                const weeklyTargetGoalInput = document.getElementById('weeklyTargetGoal');
+                const monthlyTargetGoalInput = document.getElementById('monthlyTargetGoal');
+                const yearlyTargetGoalInput = document.getElementById('yearlyTargetGoal');
+                
+                if (startingCapitalInput) startingCapitalInput.value = tradingPlan.capital;
+                if (weeklyTargetGoalInput) weeklyTargetGoalInput.value = tradingPlan.weeklyTarget;
+                if (monthlyTargetGoalInput) monthlyTargetGoalInput.value = tradingPlan.monthlyTarget;
+                if (yearlyTargetGoalInput) yearlyTargetGoalInput.value = tradingPlan.yearlyTarget;
+                
+                const planModal = document.getElementById('planModal');
+                if (planModal) planModal.style.display = 'flex';
+            } catch (error) {
+                console.error('Error in openPlanModal:', error);
+            }
+        };
+
+        window.openTimeAnalysisModal = function() {
+            updateTimeAnalysis();
+            document.getElementById('timeAnalysisModal').style.display = 'flex';
+        };
+
+        window.openExportModal = () => {
+            try {
+                const today = new Date();
+                const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+                
+                const startDate = document.getElementById('startDate');
+                const endDate = document.getElementById('endDate');
+                if (startDate) startDate.value = firstDayOfMonth.toISOString().split('T')[0];
+                if (endDate) endDate.value = today.toISOString().split('T')[0];
+                
+                const exportModal = document.getElementById('exportModal');
+                if (exportModal) exportModal.style.display = 'flex';
+            } catch (error) {
+                console.error('Error in openExportModal:', error);
+            }
+        };
+
+        window.closeModal = (id) => {
+            const modal = document.getElementById(id);
+            if (modal) modal.style.display = 'none';
+            
+            if (id === 'tradeModal') {
+                const form = document.getElementById('tradeForm');
+                const simplePnLForm = document.getElementById('simplePnLForm');
+                const modalTradeIdInput = document.getElementById('modalTradeId');
+                
+                if (form) form.reset();
+                if (simplePnLForm) simplePnLForm.reset();
+                if (modalTradeIdInput) modalTradeIdInput.value = '';
+                const tradeImagePreview = document.getElementById('tradeImagePreview');
+                const tradeImage = document.getElementById('tradeImage');
+                if (tradeImagePreview) tradeImagePreview.style.display = 'none';
+                if (tradeImage) tradeImage.value = '';
+            }
+            if (id === 'userInfoModal') {
+                const userInfoForm = document.getElementById('userInfoForm');
+                const profileImageUpload = document.getElementById('profileImageUpload');
+                if (userInfoForm) userInfoForm.reset();
+                if (profileImageUpload) profileImageUpload.value = '';
+            }
+            if (id === 'planModal') {
+                const planForm = document.getElementById('planForm');
+                if (planForm) planForm.reset();
+            }
+            if (id === 'exportModal') {
+                const exportPeriod = document.getElementById('exportPeriod');
+                const dateRangeSection = document.getElementById('dateRangeSection');
+                const includeTrades = document.getElementById('includeTrades');
+                const includeAnalytics = document.getElementById('includeAnalytics');
+                const includePlan = document.getElementById('includePlan');
+                
+                if (exportPeriod) exportPeriod.value = 'all';
+                if (dateRangeSection) dateRangeSection.style.display = 'none';
+                if (includeTrades) includeTrades.checked = true;
+                if (includeAnalytics) includeAnalytics.checked = true;
+                if (includePlan) includePlan.checked = true;
+            }
+            if (id === 'importModal') {
+                const importFile = document.getElementById('importFile');
+                const importPreview = document.getElementById('importPreview');
+                if (importFile) importFile.value = '';
+                if (importPreview) importPreview.style.display = 'none';
+            }
+        };
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        // ========== Trade Mode Toggle Functions ==========
+        window.setTradeMode = (isSimpleMode) => {
+            const tradeModeToggle = document.getElementById('tradeModeToggle');
+            if (tradeModeToggle) tradeModeToggle.checked = isSimpleMode;
+            toggleTradeMode();
+        };
+
+        window.toggleTradeMode = () => {
+            const tradeModeToggle = document.getElementById('tradeModeToggle');
+            const detailedFormWrapper = document.getElementById('detailedFormWrapper');
+            const simpleFormWrapper = document.getElementById('simpleFormWrapper');
+            const detailedLabel = document.getElementById('detailedLabel');
+            const simpleLabel = document.getElementById('simpleLabel');
+            const formTitle = document.getElementById('formTitle');
+            const submitButton = document.getElementById('submitButton');
+            
+            if (!tradeModeToggle || !detailedFormWrapper || !simpleFormWrapper) return;
+            
+            const isSimpleMode = tradeModeToggle.checked;
+            
+            detailedFormWrapper.style.display = isSimpleMode ? 'none' : 'block';
+            simpleFormWrapper.style.display = isSimpleMode ? 'grid' : 'none';
+            
+            if (isSimpleMode) {
+                if (detailedLabel) {
+                    detailedLabel.classList.remove('active');
+                    detailedLabel.classList.add('inactive');
+                }
+                if (simpleLabel) {
+                    simpleLabel.classList.remove('inactive');
+                    simpleLabel.classList.add('active');
+                }
+            } else {
+                if (detailedLabel) {
+                    detailedLabel.classList.remove('inactive');
+                    detailedLabel.classList.add('active');
+                }
+                if (simpleLabel) {
+                    simpleLabel.classList.remove('active');
+                    simpleLabel.classList.add('inactive');
+                }
             }
             
-            if (simplePnLForm) {
-                simplePnLForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    const dateString = modalDateInput ? modalDateInput.value : '';
-                    const pnlAmount = directPnLAmountInput ? parseFloat(directPnLAmountInput.value) : 0;
-                    const tradeId = modalTradeIdInput ? modalTradeIdInput.value : '';
-                    const notes = document.getElementById('simpleNotes') ? document.getElementById('simpleNotes').value : '';
-
-                    if (isNaN(pnlAmount)) {
-                        alert('Please enter a valid PnL amount');
-                        return;
-                    }
-
-                    if (tradeId) {
-                        const index = trades.findIndex(t => t.id == tradeId);
-                        if (index !== -1) {
-                            trades[index].directPnL = pnlAmount;
-                            trades[index].date = dateString;
-                            trades[index].symbol = 'DIRECT_PNL';
-                            trades[index].entryPrice = 0;
-                            trades[index].exitPrice = 0;
-                            trades[index].shares = 0;
-                            trades[index].commission = 0;
-                            trades[index].notes = notes;
-                        }
-                    } else {
-                        const newTrade = {
-                            id: String(Date.now() + Math.random()),
-                            date: dateString,
-                            symbol: 'DIRECT_PNL',
-                            entryPrice: 0,
-                            exitPrice: 0,
-                            shares: 0,
-                            commission: 0,
-                            directPnL: pnlAmount,
-                            notes: notes
-                        };
-                        trades.push(newTrade);
-                    }
-                    
-                    await saveTrades();
-                    renderCalendar();
-                    renderPlanSummary();
-                    updateTradesList(dateString);
-                    closeModal('tradeModal');
-                });
-            }
-
-            if (userInfoForm) {
-                userInfoForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    const newUserNameInput = document.getElementById('newUserName');
-                    if (newUserNameInput) userInfo.name = newUserNameInput.value;
-                    
-                    const file = profileImageUpload ? profileImageUpload.files[0] : null;
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onloadend = async function() {
-                            userInfo.image = reader.result; 
-                            await saveUserInfo(); 
-                            closeModal('userInfoModal');
-                        }
-                        reader.readAsDataURL(file);
-                    } else {
-                        userInfo.image = userInfo.image; 
-                        await saveUserInfo();
-                        closeModal('userInfoModal');
-                    }
-                });
-            }
-
-            if (planForm) {
-                planForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    if (startingCapitalInput) tradingPlan.capital = parseFloat(startingCapitalInput.value);
-                    if (weeklyTargetGoalInput) tradingPlan.weeklyTarget = parseFloat(weeklyTargetGoalInput.value) || 0; 
-                    if (monthlyTargetGoalInput) tradingPlan.monthlyTarget = parseFloat(monthlyTargetGoalInput.value) || 0; 
-                    if (yearlyTargetGoalInput) tradingPlan.yearlyTarget = parseFloat(yearlyTargetGoalInput.value) || 0; 
-                    
-                    await savePlan();
-                    renderCalendar();
-                    closeModal('planModal');
-                });
-            }
-
-            currentDisplayDate = new Date(new Date().getFullYear(), new Date().getMonth(), 1); 
+            const form = document.getElementById('tradeForm');
+            const simplePnLForm = document.getElementById('simplePnLForm');
+            const modalTradeIdInput = document.getElementById('modalTradeId');
             
-            loadUserInfo();
-            renderCalendar(); 
+            if (form) form.reset();
+            if (simplePnLForm) simplePnLForm.reset();
+            if (modalTradeIdInput) modalTradeIdInput.value = '';
+            
+            const tradeImagePreview = document.getElementById('tradeImagePreview');
+            const tradeImage = document.getElementById('tradeImage');
+            if (tradeImagePreview) tradeImagePreview.style.display = 'none';
+            if (tradeImage) tradeImage.value = '';
+            
+            if (formTitle) formTitle.textContent = isSimpleMode ? 'Add Direct PnL' : 'Add New Trade';
+            if (submitButton) submitButton.textContent = isSimpleMode ? 'Log PnL' : 'Log Trade';
+        };
+
+        // ========== Trade Management Functions ==========
+        window.deleteTrade = async (tradeId, dateString) => {
+            if (!confirm('Are you sure you want to delete this trade?')) return;
+
+            trades = trades.filter(t => t.id != tradeId);
+            saveTrades();
+            
+            renderCalendar();
             renderPlanSummary();
-        });
-        
-        // دالة حساب إحصائيات الأيام
+            updateTradesList(dateString);
+        };
+
+        window.editTrade = (tradeId, dateString) => {
+            try {
+                const tradeToEdit = trades.find(t => t.id == tradeId);
+                if (!tradeToEdit) return;
+                
+                if (tradeToEdit.symbol === 'DIRECT_PNL') {
+                    const tradeModeToggle = document.getElementById('tradeModeToggle');
+                    if (tradeModeToggle) {
+                        tradeModeToggle.checked = true;
+                        toggleTradeMode();
+                    }
+
+                    const modalTradeIdInput = document.getElementById('modalTradeId');
+                    const directPnLAmountInput = document.getElementById('directPnLAmount');
+                    const simpleNotes = document.getElementById('simpleNotes');
+                    const formTitle = document.getElementById('formTitle');
+                    const submitSimplePnLButton = document.getElementById('submitSimplePnLButton');
+
+                    if (modalTradeIdInput) modalTradeIdInput.value = tradeId;
+                    if (directPnLAmountInput) directPnLAmountInput.value = tradeToEdit.directPnL;
+                    if (simpleNotes) simpleNotes.value = tradeToEdit.notes || '';
+
+                    if (formTitle) formTitle.textContent = 'Edit Direct PnL';
+                    if (submitSimplePnLButton) submitSimplePnLButton.textContent = 'Update PnL';
+                } else {
+                    const tradeModeToggle = document.getElementById('tradeModeToggle');
+                    if (tradeModeToggle) {
+                        tradeModeToggle.checked = false;
+                        toggleTradeMode();
+                    }
+
+                    const modalTradeIdInput = document.getElementById('modalTradeId');
+                    const symbolInput = document.getElementById('symbol');
+                    const entryPriceInput = document.getElementById('entryPrice');
+                    const exitPriceInput = document.getElementById('exitPrice');
+                    const sharesInput = document.getElementById('shares');
+                    const commissionInput = document.getElementById('commission');
+                    const notesInput = document.getElementById('notes');
+                    const entryTimeInput = document.getElementById('entryTime');
+                    const exitTimeInput = document.getElementById('exitTime');
+                    const tradingSessionSelect = document.getElementById('tradingSession');
+                    const previewContainer = document.getElementById('tradeImagePreview');
+                    const previewImage = document.getElementById('previewImage');
+                    const formTitle = document.getElementById('formTitle');
+                    const submitButton = document.getElementById('submitButton');
+
+                    if (modalTradeIdInput) modalTradeIdInput.value = tradeId;
+                    if (symbolInput) symbolInput.value = tradeToEdit.symbol;
+                    if (entryPriceInput) entryPriceInput.value = tradeToEdit.entryPrice;
+                    if (exitPriceInput) exitPriceInput.value = tradeToEdit.exitPrice;
+                    if (sharesInput) sharesInput.value = tradeToEdit.shares;
+                    if (commissionInput) commissionInput.value = tradeToEdit.commission || 0;
+                    if (notesInput) notesInput.value = tradeToEdit.notes || '';
+                    
+                    if (tradeToEdit.entryDateTime && entryTimeInput) {
+                        entryTimeInput.value = tradeToEdit.entryDateTime.replace(' ', 'T').substring(0, 16);
+                    }
+                    if (tradeToEdit.exitDateTime && exitTimeInput) {
+                        exitTimeInput.value = tradeToEdit.exitDateTime.replace(' ', 'T').substring(0, 16);
+                    }
+                    if (tradeToEdit.tradingSession && tradingSessionSelect) {
+                        tradingSessionSelect.value = tradeToEdit.tradingSession;
+                    }
+                    
+                    if (tradeToEdit.tradeImage) {
+                        if (previewImage) previewImage.src = tradeToEdit.tradeImage;
+                        if (previewContainer) previewContainer.style.display = 'block';
+                    } else {
+                        if (previewContainer) previewContainer.style.display = 'none';
+                    }
+
+                    if (formTitle) formTitle.textContent = 'Edit Current Trade';
+                    if (submitButton) submitButton.textContent = 'Update Trade';
+                }
+            } catch (error) {
+                console.error('Error in editTrade:', error);
+            }
+        };
+
+        // ========== No Trading Days Management ==========
+        function updateNoTradingButtons(dateString) {
+            const markBtn = document.getElementById('markNoTradingDay');
+            const unmarkBtn = document.getElementById('unmarkNoTradingDay');
+            
+            if (!markBtn || !unmarkBtn) return;
+            
+            const isNoTradingDay = noTradingDays.includes(dateString);
+            
+            if (isNoTradingDay) {
+                markBtn.style.display = 'none';
+                unmarkBtn.style.display = 'inline-block';
+            } else {
+                markBtn.style.display = 'inline-block';
+                unmarkBtn.style.display = 'none';
+            }
+        }
+
+        window.markAsNoTradingDay = async function() {
+            const dateString = document.getElementById('modalDate')?.value;
+            if (!dateString) return;
+            
+            if (!noTradingDays.includes(dateString)) {
+                noTradingDays.push(dateString);
+                saveNoTradingDays();
+                updateNoTradingButtons(dateString);
+                renderCalendar();
+                updateDaysStatistics();
+                alert('Day marked as no trading day');
+            }
+        };
+
+        window.unmarkNoTradingDay = async function() {
+            const dateString = document.getElementById('modalDate')?.value;
+            if (!dateString) return;
+            
+            noTradingDays = noTradingDays.filter(day => day !== dateString);
+            saveNoTradingDays();
+            updateNoTradingButtons(dateString);
+            renderCalendar();
+            updateDaysStatistics();
+            alert('No trading mark removed');
+        };
+
+        // ========== Days Statistics Function ==========
         function updateDaysStatistics() {
             try {
                 const now = new Date();
@@ -3782,19 +3338,18 @@
                 
                 const totalMonthDays = new Date(currentYear, currentMonth + 1, 0).getDate();
                 
-                let holidayDays = 0;
+                let holidayDaysCount = 0;
                 for (let day = 1; day <= totalMonthDays; day++) {
                     const date = new Date(currentYear, currentMonth, day);
                     const dayOfWeek = date.getDay();
                     if (dayOfWeek === 0 || dayOfWeek === 6) {
-                        holidayDays++;
+                        holidayDaysCount++;
                     }
                 }
                 
-                const allTrades = trades;
                 const tradingDaysSet = new Set();
                 
-                allTrades.forEach(trade => {
+                trades.forEach(trade => {
                     const tradeDate = new Date(trade.date + 'T00:00:00');
                     if (tradeDate.getMonth() === currentMonth && tradeDate.getFullYear() === currentYear) {
                         tradingDaysSet.add(trade.date);
@@ -3803,7 +3358,7 @@
                 
                 const tradingDays = tradingDaysSet.size;
                 
-                // ✅ حساب أيام بلا تداول
+                // Calculate no trading days
                 const noTradingDaysCount = noTradingDays.filter(date => {
                     const dateObj = new Date(date + 'T00:00:00');
                     return dateObj.getMonth() === currentMonth && dateObj.getFullYear() === currentYear;
@@ -3828,7 +3383,7 @@
                 
                 if (tradingDaysElement) tradingDaysElement.textContent = tradingDays;
                 if (noTradingDaysElement) noTradingDaysElement.textContent = noTradingDaysCount;
-                if (holidayDaysElement) holidayDaysElement.textContent = holidayDays;
+                if (holidayDaysElement) holidayDaysElement.textContent = holidayDaysCount;
                 if (remainingDaysElement) remainingDaysElement.textContent = remainingTradingDays;
                 if (totalMonthDaysElement) totalMonthDaysElement.textContent = totalMonthDays;
                 
@@ -3836,33 +3391,54 @@
                 console.log('Error in updateDaysStatistics:', error);
             }
         }
-        
-        // Analytics Functions
-        let analyticsChart;
 
+        // ========== Analytics Functions ==========
         function initializeAnalytics() {
-            createAnalyticsChart();
             updateAnalyticsChart();
         }
 
-        function createAnalyticsChart() {
+        function updateAnalyticsChart() {
+            const period = document.getElementById('analyticsPeriod');
+            const metric = document.getElementById('analyticsMetric');
+            
+            if (!period || !metric) return;
+            
+            // Destroy old chart if exists
+            if (analyticsChart) {
+                analyticsChart.destroy();
+                analyticsChart = null;
+            }
+            
+            const data = calculateAnalyticsData(period.value, metric.value);
             const ctx = document.getElementById('analyticsChart');
             if (!ctx) return;
             
             analyticsChart = new Chart(ctx.getContext('2d'), {
                 type: 'bar',
                 data: {
-                    labels: [],
+                    labels: data.labels,
                     datasets: [{
-                        label: 'Profit & Loss',
-                        data: [],
+                        label: getMetricLabel(metric.value),
+                        data: data.values,
                         backgroundColor: function(context) {
                             const value = context.dataset.data[context.dataIndex];
-                            return value >= 0 ? 'rgba(76, 175, 80, 0.7)' : 'rgba(244, 67, 54, 0.7)';
+                            if (metric.value === 'pnl') {
+                                return value >= 0 ? 'rgba(76, 175, 80, 0.7)' : 'rgba(244, 67, 54, 0.7)';
+                            } else if (metric.value === 'days') {
+                                return 'rgba(0, 188, 212, 0.7)';
+                            } else {
+                                return 'rgba(255, 193, 7, 0.7)';
+                            }
                         },
                         borderColor: function(context) {
                             const value = context.dataset.data[context.dataIndex];
-                            return value >= 0 ? 'rgba(76, 175, 80, 1)' : 'rgba(244, 67, 54, 1)';
+                            if (metric.value === 'pnl') {
+                                return value >= 0 ? 'rgba(76, 175, 80, 1)' : 'rgba(244, 67, 54, 1)';
+                            } else if (metric.value === 'days') {
+                                return 'rgba(0, 188, 212, 1)';
+                            } else {
+                                return 'rgba(255, 193, 7, 1)';
+                            }
                         },
                         borderWidth: 1
                     }]
@@ -3875,7 +3451,13 @@
                             beginAtZero: true,
                             ticks: {
                                 callback: function(value) {
-                                    return '$' + value.toFixed(2);
+                                    if (metric.value === 'pnl') {
+                                        return '$' + value.toFixed(2);
+                                    } else if (metric.value === 'winRate') {
+                                        return value + '%';
+                                    } else {
+                                        return value;
+                                    }
                                 }
                             }
                         }
@@ -3887,57 +3469,19 @@
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return '$' + context.parsed.y.toFixed(2);
+                                    if (metric.value === 'pnl') {
+                                        return '$' + context.parsed.y.toFixed(2);
+                                    } else if (metric.value === 'winRate') {
+                                        return context.parsed.y.toFixed(1) + '%';
+                                    } else {
+                                        return context.parsed.y;
+                                    }
                                 }
                             }
                         }
                     }
                 }
             });
-        }
-
-        function updateAnalyticsChart() {
-            const period = document.getElementById('analyticsPeriod');
-            const metric = document.getElementById('analyticsMetric');
-            
-            if (!period || !metric || !analyticsChart) return;
-            
-            const data = calculateAnalyticsData(period.value, metric.value);
-            
-            analyticsChart.data.labels = data.labels;
-            analyticsChart.data.datasets[0].data = data.values;
-            analyticsChart.data.datasets[0].label = getMetricLabel(metric.value);
-            
-            if (metric.value === 'pnl') {
-                analyticsChart.data.datasets[0].backgroundColor = function(context) {
-                    const value = context.dataset.data[context.dataIndex];
-                    return value >= 0 ? 'rgba(76, 175, 80, 0.7)' : 'rgba(244, 67, 54, 0.7)';
-                };
-                analyticsChart.data.datasets[0].borderColor = function(context) {
-                    const value = context.dataset.data[context.dataIndex];
-                    return value >= 0 ? 'rgba(76, 175, 80, 1)' : 'rgba(244, 67, 54, 1)';
-                };
-                
-                analyticsChart.options.scales.y.ticks.callback = function(value) {
-                    return '$' + value.toFixed(2);
-                };
-            } else if (metric.value === 'days') {
-                analyticsChart.data.datasets[0].backgroundColor = 'rgba(0, 188, 212, 0.7)';
-                analyticsChart.data.datasets[0].borderColor = 'rgba(0, 188, 212, 1)';
-                
-                analyticsChart.options.scales.y.ticks.callback = function(value) {
-                    return value;
-                };
-            } else {
-                analyticsChart.data.datasets[0].backgroundColor = 'rgba(255, 193, 7, 0.7)';
-                analyticsChart.data.datasets[0].borderColor = 'rgba(255, 193, 7, 1)';
-                
-                analyticsChart.options.scales.y.ticks.callback = function(value) {
-                    return value;
-                };
-            }
-            
-            analyticsChart.update();
             
             updateAnalyticsSummary();
         }
@@ -4029,8 +3573,7 @@
             let winningTrades = 0;
             let tradingDays = 0;
             
-            const periodTrades = trades;
-            const filteredTrades = periodTrades.filter(trade => {
+            const filteredTrades = trades.filter(trade => {
                 const tradeDate = new Date(trade.date + 'T00:00:00');
                 return tradeDate >= startDate && tradeDate <= endDate;
             });
@@ -4038,7 +3581,7 @@
             switch(metric) {
                 case 'pnl':
                     filteredTrades.forEach(trade => {
-                        const pnl = calculatePnLForAnalytics(trade);
+                        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
                         value += pnl;
                     });
                     break;
@@ -4047,13 +3590,13 @@
                     break;
                 case 'winRate':
                     filteredTrades.forEach(trade => {
-                        const pnl = calculatePnLForAnalytics(trade);
+                        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
                         if (pnl > 0) winningTrades++;
                     });
                     value = filteredTrades.length > 0 ? (winningTrades / filteredTrades.length) * 100 : 0;
                     break;
                 case 'days':
-                    // حساب أيام التداول
+                    // Calculate trading days
                     const tradingDaysSet = new Set();
                     filteredTrades.forEach(trade => {
                         tradingDaysSet.add(trade.date);
@@ -4065,22 +3608,14 @@
             return { label, value };
         }
 
-        function calculatePnLForAnalytics(trade) {
-            if (trade.directPnL !== undefined && trade.directPnL !== null) {
-                return trade.directPnL - (trade.commission || 0);
-            }
-            return ((trade.exitPrice - trade.entryPrice) * trade.shares) - (trade.commission || 0);
-        }
-
         function updateAnalyticsSummary() {
             let totalProfit = 0;
             let totalLoss = 0;
             let winningTrades = 0;
-            const allTrades = trades;
-            let totalTrades = allTrades.length;
+            let totalTrades = trades.length;
             
-            allTrades.forEach(trade => {
-                const pnl = calculatePnLForAnalytics(trade);
+            trades.forEach(trade => {
+                const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
                 if (pnl > 0) {
                     totalProfit += pnl;
                     winningTrades++;
@@ -4106,7 +3641,175 @@
             if (winRateElement) winRateElement.textContent = winRate.toFixed(1) + '%';
         }
 
-        // Export to Excel Function
+        // ========== Time Analysis Functions ==========
+        function calculateTradeDuration(entryDateTime, exitDateTime) {
+            if (!entryDateTime || !exitDateTime) return 30;
+            try {
+                const entry = new Date(entryDateTime);
+                const exit = new Date(exitDateTime);
+                return Math.round((exit - entry) / (1000 * 60)); // Duration in minutes
+            } catch (error) {
+                return 30;
+            }
+        }
+
+        function determineTimeCategory(entryDateTime) {
+            if (!entryDateTime) return 'INTRADAY';
+            try {
+                const entry = new Date(entryDateTime);
+                const hour = entry.getHours();
+                
+                if (hour >= 6 && hour < 12) return 'MORNING';
+                if (hour >= 12 && hour < 18) return 'AFTERNOON';
+                return 'EVENING';
+            } catch (error) {
+                return 'INTRADAY';
+            }
+        }
+
+        function analyzeWinningTrades() {
+            const winningTrades = trades.filter(trade => {
+                const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                return pnl > 0;
+            });
+            
+            const losingTrades = trades.filter(trade => {
+                const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                return pnl < 0;
+            });
+            
+            return { winningTrades, losingTrades };
+        }
+
+        function analyzeSessionPerformance() {
+            const sessions = {
+                'PRE_MARKET': { trades: [], totalPnl: 0, winCount: 0 },
+                'INTRADAY': { trades: [], totalPnl: 0, winCount: 0 },
+                'AFTER_HOUR': { trades: [], totalPnl: 0, winCount: 0 }
+            };
+            
+            trades.forEach(trade => {
+                if (trade.tradingSession && sessions[trade.tradingSession]) {
+                    const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                    sessions[trade.tradingSession].trades.push(trade);
+                    sessions[trade.tradingSession].totalPnl += pnl;
+                    if (pnl > 0) sessions[trade.tradingSession].winCount++;
+                }
+            });
+            
+            return sessions;
+        }
+
+        function analyzeTimePerformance() {
+            const timeCategories = {
+                'MORNING': { trades: [], totalPnl: 0, winCount: 0 },
+                'AFTERNOON': { trades: [], totalPnl: 0, winCount: 0 },
+                'EVENING': { trades: [], totalPnl: 0, winCount: 0 }
+            };
+            
+            trades.forEach(trade => {
+                if (trade.entryDateTime) {
+                    const timeCategory = determineTimeCategory(trade.entryDateTime);
+                    const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                    if (timeCategories[timeCategory]) {
+                        timeCategories[timeCategory].trades.push(trade);
+                        timeCategories[timeCategory].totalPnl += pnl;
+                        if (pnl > 0) timeCategories[timeCategory].winCount++;
+                    }
+                }
+            });
+            
+            return timeCategories;
+        }
+
+        function updateTimeAnalysis() {
+            try {
+                const { winningTrades, losingTrades } = analyzeWinningTrades();
+                const sessions = analyzeSessionPerformance();
+                const timeCategories = analyzeTimePerformance();
+                
+                // Update winning trades statistics
+                document.getElementById('winningTradesCount').textContent = winningTrades.length;
+                document.getElementById('winningTradesPnl').textContent = '$' + winningTrades.reduce((sum, trade) => 
+                    sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0).toFixed(2);
+                document.getElementById('avgWinPnl').textContent = '$' + (winningTrades.length ? 
+                    (winningTrades.reduce((sum, trade) => sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0) / winningTrades.length).toFixed(2) : '0.00');
+                document.getElementById('maxWinPnl').textContent = '$' + (winningTrades.length ? 
+                    Math.max(...winningTrades.map(trade => calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0))).toFixed(2) : '0.00');
+                
+                // Update losing trades statistics
+                document.getElementById('losingTradesCount').textContent = losingTrades.length;
+                document.getElementById('losingTradesPnl').textContent = '$' + losingTrades.reduce((sum, trade) => 
+                    sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0).toFixed(2);
+                document.getElementById('avgLossPnl').textContent = '$' + (losingTrades.length ? 
+                    (losingTrades.reduce((sum, trade) => sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0) / losingTrades.length).toFixed(2) : '0.00');
+                document.getElementById('maxLossPnl').textContent = '$' + (losingTrades.length ? 
+                    Math.min(...losingTrades.map(trade => calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0))).toFixed(2) : '0.00');
+                
+                // Update session statistics
+                Object.keys(sessions).forEach(session => {
+                    const sessionData = sessions[session];
+                    const elementId = session.toLowerCase().replace('_', '');
+                    const element = document.getElementById(elementId + 'Trades');
+                    if (element) {
+                        element.textContent = sessionData.trades.length;
+                        document.getElementById(elementId + 'Pnl').textContent = '$' + sessionData.totalPnl.toFixed(2);
+                        document.getElementById(elementId + 'WinRate').textContent = sessionData.trades.length ? 
+                            ((sessionData.winCount / sessionData.trades.length) * 100).toFixed(1) + '%' : '0%';
+                        document.getElementById(elementId + 'AvgTime').textContent = sessionData.trades.length ? 
+                            (sessionData.trades.reduce((sum, trade) => sum + (trade.tradeDuration || 0), 0) / sessionData.trades.length).toFixed(0) + 'm' : '0m';
+                    }
+                });
+                
+                // Update time statistics
+                Object.keys(timeCategories).forEach(timeCat => {
+                    const timeData = timeCategories[timeCat];
+                    const element = document.getElementById(timeCat.toLowerCase() + 'Trades');
+                    if (element) {
+                        element.textContent = timeData.trades.length;
+                        document.getElementById(timeCat.toLowerCase() + 'Pnl').textContent = '$' + timeData.totalPnl.toFixed(2);
+                        document.getElementById(timeCat.toLowerCase() + 'WinRate').textContent = timeData.trades.length ? 
+                            ((timeData.winCount / timeData.trades.length) * 100).toFixed(1) + '%' : '0%';
+                    }
+                });
+            } catch (error) {
+                console.error('Error in updateTimeAnalysis:', error);
+            }
+        }
+
+        window.switchAnalysisTab = function(tabName) {
+            document.querySelectorAll('.analysis-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.analysis-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            
+            // Activate the selected tab
+            event.target.classList.add('active');
+        };
+
+        // ========== Export/Import Functions ==========
+        window.toggleDateRange = () => {
+            try {
+                const period = document.getElementById('exportPeriod');
+                const dateRangeSection = document.getElementById('dateRangeSection');
+                
+                if (period && dateRangeSection) {
+                    if (period.value === 'custom') {
+                        dateRangeSection.style.display = 'grid';
+                    } else {
+                        dateRangeSection.style.display = 'none';
+                    }
+                }
+            } catch (error) {
+                console.error('Error in toggleDateRange:', error);
+            }
+        };
+
         window.exportToExcel = function() {
             try {
                 const period = document.getElementById('exportPeriod');
@@ -4149,7 +3852,7 @@
                     });
                     
                     const tradesData = filteredTrades.map(trade => {
-                        const pnl = calculatePnLForAnalytics(trade);
+                        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
                         return {
                             'Date': trade.date,
                             'Symbol': trade.symbol,
@@ -4173,7 +3876,7 @@
                         XLSX.utils.book_append_sheet(workbook, tradesSheet, 'Trades');
                     }
 
-                    // إضافة No Trading Days للتصدير
+                    // Add No Trading Days for export
                     const noTradingDaysData = noTradingDays.map(date => ({
                         'Date': date,
                         'Type': 'No Trading Day',
@@ -4227,7 +3930,405 @@
             }
         };
 
-        // Initialize analytics when page loads
+        window.openImportModal = function() {
+            document.getElementById('importModal').style.display = 'flex';
+        };
+
+        // ========== Import Excel Function ==========
+        window.importFromExcel = function() {
+            const fileInput = document.getElementById('importFile');
+            const importTrades = document.getElementById('importTrades');
+            const importPlan = document.getElementById('importPlan');
+            const importNoTradingDays = document.getElementById('importNoTradingDays');
+            const importStrategy = document.getElementById('importStrategy');
+            
+            if (!fileInput || !fileInput.files[0]) {
+                alert('Please select a file to import');
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    
+                    let importedCount = 0;
+                    
+                    // Import trades
+                    if (importTrades.checked && workbook.SheetNames.includes('Trades')) {
+                        const tradesSheet = workbook.Sheets['Trades'];
+                        const tradesData = XLSX.utils.sheet_to_json(tradesSheet);
+                        
+                        if (importStrategy.value === 'replace') {
+                            trades.length = 0;
+                        }
+                        
+                        tradesData.forEach(item => {
+                            const newTrade = {
+                                id: String(Date.now() + Math.random() + importedCount),
+                                date: item.Date || new Date().toISOString().split('T')[0],
+                                symbol: item.Symbol || 'DIRECT_PNL',
+                                entryPrice: parseFloat(item['Entry Price']) || 0,
+                                exitPrice: parseFloat(item['Exit Price']) || 0,
+                                shares: parseInt(item.Shares) || 0,
+                                commission: parseFloat(item.Commission) || 0,
+                                directPnL: item['Direct PnL'] !== 'N/A' ? parseFloat(item['Direct PnL']) : undefined,
+                                notes: item.Notes || '',
+                                entryDateTime: item['Entry Time'] !== 'N/A' ? item['Entry Time'] : null,
+                                exitDateTime: item['Exit Time'] !== 'N/A' ? item['Exit Time'] : null,
+                                tradingSession: item['Trading Session'] !== 'N/A' ? item['Trading Session'] : 'INTRADAY',
+                                tradeDuration: item['Trade Duration (min)'] !== 'N/A' ? parseInt(item['Trade Duration (min)']) : 30,
+                                timeCategory: item['Time Category'] !== 'N/A' ? item['Time Category'] : null
+                            };
+                            
+                            if (importStrategy.value === 'merge') {
+                                const existingIndex = trades.findIndex(t => 
+                                    t.date === newTrade.date && 
+                                    t.symbol === newTrade.symbol && 
+                                    t.entryPrice === newTrade.entryPrice
+                                );
+                                
+                                if (existingIndex === -1) {
+                                    trades.push(newTrade);
+                                    importedCount++;
+                                }
+                            } else {
+                                trades.push(newTrade);
+                                importedCount++;
+                            }
+                        });
+                    }
+                    
+                    // Import plan
+                    if (importPlan.checked && workbook.SheetNames.includes('Trading Plan')) {
+                        const planSheet = workbook.Sheets['Trading Plan'];
+                        const planData = XLSX.utils.sheet_to_json(planSheet);
+                        
+                        if (planData.length > 0) {
+                            const plan = planData[0];
+                            if (plan['Starting Capital']) {
+                                tradingPlan.capital = parseFloat(plan['Starting Capital'].replace('$', '')) || tradingPlan.capital;
+                            }
+                            if (plan['Weekly Target']) {
+                                tradingPlan.weeklyTarget = parseFloat(plan['Weekly Target'].replace('%', '')) || tradingPlan.weeklyTarget;
+                            }
+                            if (plan['Monthly Target']) {
+                                tradingPlan.monthlyTarget = parseFloat(plan['Monthly Target'].replace('%', '')) || tradingPlan.monthlyTarget;
+                            }
+                            if (plan['Yearly Target']) {
+                                tradingPlan.yearlyTarget = parseFloat(plan['Yearly Target'].replace('%', '')) || tradingPlan.yearlyTarget;
+                            }
+                            importedCount++;
+                        }
+                    }
+                    
+                    // Import no trading days
+                    if (importNoTradingDays.checked && workbook.SheetNames.includes('NoTradingDays')) {
+                        const noTradingSheet = workbook.Sheets['NoTradingDays'];
+                        const noTradingData = XLSX.utils.sheet_to_json(noTradingSheet);
+                        
+                        if (importStrategy.value === 'replace') {
+                            noTradingDays.length = 0;
+                        }
+                        
+                        noTradingData.forEach(item => {
+                            if (item.Date && !noTradingDays.includes(item.Date)) {
+                                noTradingDays.push(item.Date);
+                                importedCount++;
+                            }
+                        });
+                    }
+                    
+                    // Save all imported data
+                    saveTrades();
+                    saveTradingPlan();
+                    saveNoTradingDays();
+                    
+                    // Update UI
+                    renderCalendar();
+                    renderPlanSummary();
+                    updateAnalyticsChart();
+                    updateDaysStatistics();
+                    
+                    alert(`Successfully imported ${importedCount} items`);
+                    closeModal('importModal');
+                    
+                } catch (error) {
+                    console.error('Error importing data:', error);
+                    alert('Error importing data: ' + error.message);
+                }
+            };
+            
+            reader.onerror = function() {
+                alert('Error reading file');
+            };
+            
+            reader.readAsArrayBuffer(file);
+        };
+
+        // ========== Form Event Listeners ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load theme
+            loadTheme();
+            
+            // Add event listeners for theme toggles
+            const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+            const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+            
+            if (mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('change', toggleTheme);
+            }
+            
+            if (sidebarThemeToggle) {
+                sidebarThemeToggle.addEventListener('change', toggleTheme);
+            }
+            
+            // Add event listener for image preview
+            const tradeImageInput = document.getElementById('tradeImage');
+            if (tradeImageInput) {
+                tradeImageInput.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    const preview = document.getElementById('previewImage');
+                    const previewContainer = document.getElementById('tradeImagePreview');
+                    
+                    if (file && preview && previewContainer) {
+                        const reader = new FileReader();
+                        reader.onloadend = function() {
+                            preview.src = reader.result;
+                            previewContainer.style.display = 'block';
+                        }
+                        reader.readAsDataURL(file);
+                    } else if (previewContainer) {
+                        previewContainer.style.display = 'none';
+                    }
+                });
+            }
+
+            // Add event listeners for No Trading Day buttons
+            const markNoTradingDayBtn = document.getElementById('markNoTradingDay');
+            const unmarkNoTradingDayBtn = document.getElementById('unmarkNoTradingDay');
+            
+            if (markNoTradingDayBtn) {
+                markNoTradingDayBtn.addEventListener('click', window.markAsNoTradingDay);
+            }
+            if (unmarkNoTradingDayBtn) {
+                unmarkNoTradingDayBtn.addEventListener('click', window.unmarkNoTradingDay);
+            }
+
+            // Add event listener for hamburger menu
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', toggleMobileMenu);
+            }
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const hamburgerMenu = document.getElementById('hamburgerMenu');
+                
+                if (mobileMenu && hamburgerMenu && 
+                    !mobileMenu.contains(event.target) && 
+                    !hamburgerMenu.contains(event.target) &&
+                    mobileMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Add form event listeners
+            const tradeForm = document.getElementById('tradeForm');
+            if (tradeForm) {
+                tradeForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const tradeId = document.getElementById('modalTradeId')?.value || '';
+                    const dateString = document.getElementById('modalDate')?.value || '';
+                    
+                    const tradeModeToggle = document.getElementById('tradeModeToggle');
+                    if (tradeModeToggle && tradeModeToggle.checked) return;
+
+                    // Calculate duration
+                    const entryDateTime = document.getElementById('entryTime')?.value || '';
+                    const exitDateTime = document.getElementById('exitTime')?.value || '';
+                    const tradeDuration = calculateTradeDuration(entryDateTime, exitDateTime);
+                    const timeCategory = determineTimeCategory(entryDateTime);
+
+                    const newTrade = {
+                        id: tradeId || String(Date.now() + Math.random()),
+                        date: dateString,
+                        symbol: document.getElementById('symbol') ? document.getElementById('symbol').value.toUpperCase() : '',
+                        entryPrice: document.getElementById('entryPrice') ? parseFloat(document.getElementById('entryPrice').value) : 0,
+                        exitPrice: document.getElementById('exitPrice') ? parseFloat(document.getElementById('exitPrice').value) : 0,
+                        shares: document.getElementById('shares') ? parseInt(document.getElementById('shares').value) : 0,
+                        commission: document.getElementById('commission') ? parseFloat(document.getElementById('commission').value) || 0 : 0,
+                        notes: document.getElementById('notes') ? document.getElementById('notes').value : '',
+                        directPnL: undefined,
+                        entryDateTime: entryDateTime,
+                        exitDateTime: exitDateTime,
+                        tradingSession: document.getElementById('tradingSession') ? document.getElementById('tradingSession').value : 'INTRADAY',
+                        tradeDuration: tradeDuration,
+                        timeCategory: timeCategory
+                    };
+
+                    if (tradeId) {
+                        // Update existing trade
+                        const index = trades.findIndex(t => t.id === tradeId);
+                        if (index !== -1) {
+                            trades[index] = newTrade;
+                        }
+                    } else {
+                        // Add new trade
+                        trades.push(newTrade);
+                    }
+                    
+                    saveTrades();
+                    renderCalendar();
+                    renderPlanSummary();
+                    updateTradesList(dateString);
+                    closeModal('tradeModal');
+                });
+            }
+            
+            const simplePnLForm = document.getElementById('simplePnLForm');
+            if (simplePnLForm) {
+                simplePnLForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const dateString = document.getElementById('modalDate')?.value || '';
+                    const pnlAmount = document.getElementById('directPnLAmount') ? parseFloat(document.getElementById('directPnLAmount').value) : 0;
+                    const tradeId = document.getElementById('modalTradeId')?.value || '';
+                    const notes = document.getElementById('simpleNotes') ? document.getElementById('simpleNotes').value : '';
+
+                    if (isNaN(pnlAmount)) {
+                        alert('Please enter a valid PnL amount');
+                        return;
+                    }
+
+                    const newTrade = {
+                        id: tradeId || String(Date.now() + Math.random()),
+                        date: dateString,
+                        symbol: 'DIRECT_PNL',
+                        entryPrice: 0,
+                        exitPrice: 0,
+                        shares: 0,
+                        commission: 0,
+                        directPnL: pnlAmount,
+                        notes: notes
+                    };
+
+                    if (tradeId) {
+                        // Update existing trade
+                        const index = trades.findIndex(t => t.id === tradeId);
+                        if (index !== -1) {
+                            trades[index] = newTrade;
+                        }
+                    } else {
+                        // Add new trade
+                        trades.push(newTrade);
+                    }
+                    
+                    saveTrades();
+                    renderCalendar();
+                    renderPlanSummary();
+                    updateTradesList(dateString);
+                    closeModal('tradeModal');
+                });
+            }
+
+            const userInfoForm = document.getElementById('userInfoForm');
+            if (userInfoForm) {
+                userInfoForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const newUserNameInput = document.getElementById('newUserName');
+                    if (newUserNameInput) userInfo.name = newUserNameInput.value;
+                    
+                    const file = document.getElementById('profileImageUpload') ? document.getElementById('profileImageUpload').files[0] : null;
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onloadend = function() {
+                            userInfo.image = reader.result;
+                            saveUserInfo();
+                            loadUserInfo();
+                            closeModal('userInfoModal');
+                        }
+                        reader.readAsDataURL(file);
+                    } else {
+                        saveUserInfo();
+                        loadUserInfo();
+                        closeModal('userInfoModal');
+                    }
+                });
+            }
+
+            const planForm = document.getElementById('planForm');
+            if (planForm) {
+                planForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const startingCapitalInput = document.getElementById('startingCapital');
+                    const weeklyTargetGoalInput = document.getElementById('weeklyTargetGoal');
+                    const monthlyTargetGoalInput = document.getElementById('monthlyTargetGoal');
+                    const yearlyTargetGoalInput = document.getElementById('yearlyTargetGoal');
+                    
+                    if (startingCapitalInput) tradingPlan.capital = parseFloat(startingCapitalInput.value);
+                    if (weeklyTargetGoalInput) tradingPlan.weeklyTarget = parseFloat(weeklyTargetGoalInput.value) || 0;
+                    if (monthlyTargetGoalInput) tradingPlan.monthlyTarget = parseFloat(monthlyTargetGoalInput.value) || 0;
+                    if (yearlyTargetGoalInput) tradingPlan.yearlyTarget = parseFloat(yearlyTargetGoalInput.value) || 0;
+                    
+                    saveTradingPlan();
+                    renderCalendar();
+                    closeModal('planModal');
+                });
+            }
+
+            // Load user data
+            loadUserInfo();
+            
+            // Initialize the application
+            renderCalendar();
+            renderPlanSummary();
+            initializeAnalytics();
+            updateDaysStatistics();
+        });
+
+        // ========== Data Loading Functions ==========
+        function loadUserInfo() {
+            try {
+                const userNameDisplay = document.getElementById('userNameDisplay');
+                const newUserNameInput = document.getElementById('newUserName');
+                const profilePicture = document.getElementById('profilePicture');
+                const defaultIcon = document.getElementById('defaultIcon');
+                
+                if (userNameDisplay) userNameDisplay.textContent = userInfo.name;
+                if (newUserNameInput) newUserNameInput.value = userInfo.name;
+
+                if (userInfo.image) {
+                    if (profilePicture) {
+                        profilePicture.src = userInfo.image;
+                        profilePicture.style.display = 'block';
+                    }
+                    if (defaultIcon) defaultIcon.style.display = 'none';
+                } else {
+                    if (profilePicture) {
+                        profilePicture.src = '';
+                        profilePicture.style.display = 'none';
+                    }
+                    if (defaultIcon) defaultIcon.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error loading user info:', error);
+            }
+        }
+
+        // Add resize event listener for responsive design
+        window.addEventListener('resize', function() {
+            renderCalendar();
+        });
+
+        // Initialize analytics after page load
         setTimeout(() => {
             initializeAnalytics();
             updateDaysStatistics();

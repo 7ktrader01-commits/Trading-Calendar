@@ -152,6 +152,7 @@
             transition: background-color 0.2s, color 0.2s;
             display: flex;
             align-items: center;
+            position: relative;
         }
         
         .sidebar-menu a:hover, .sidebar-menu div:hover {
@@ -1287,6 +1288,223 @@
             grid-column: 1 / -1;
         }
 
+        /* Wallet Styles - NEW */
+        .wallet-section {
+            background-color: var(--bg-container);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+
+        .wallet-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-cell);
+        }
+
+        .wallet-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .wallet-tab.active {
+            border-bottom: 2px solid var(--color-highlight);
+            color: var(--color-highlight);
+        }
+
+        .wallet-content {
+            display: none;
+        }
+
+        .wallet-content.active {
+            display: block;
+        }
+
+        .expense-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-cell);
+            border-radius: 8px;
+            padding: 10px;
+            background-color: var(--bg-day-label);
+        }
+
+        .expense-header, .expense-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            align-items: center;
+            padding: 8px 5px;
+            border-bottom: 1px dashed var(--border-cell);
+            font-size: 0.9em;
+        }
+
+        .expense-header {
+            font-weight: bold;
+            color: var(--color-highlight);
+            border-bottom: 2px solid var(--color-highlight);
+        }
+
+        .expense-item:last-child {
+            border-bottom: none;
+        }
+
+        .expense-item button {
+            background-color: var(--bg-holiday);
+            color: var(--text-primary);
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8em;
+            margin: 0 2px;
+        }
+
+        .expense-item button.edit-btn {
+            background-color: var(--color-highlight);
+            color: white;
+        }
+
+        .expense-item button.delete-btn {
+            background-color: var(--color-loss);
+            color: white;
+        }
+
+        .expense-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .expense-stat-card {
+            background-color: var(--bg-day-label);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .expense-stat-card h4 {
+            margin: 0 0 10px 0;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .expense-stat-card p {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .alert-settings {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .alert-setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: var(--bg-day-label);
+            border-radius: 6px;
+            border: 1px solid var(--border-cell);
+        }
+
+        .alert-setting-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-setting-controls input[type="number"] {
+            width: 80px;
+            padding: 5px;
+            border: 1px solid var(--border-cell);
+            background-color: var(--bg-inactive);
+            color: var(--text-primary);
+            border-radius: 4px;
+        }
+
+        /* NEW: Notification Styles */
+        .notification-badge {
+            background-color: var(--color-loss);
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.7em;
+            margin-left: 10px;
+            min-width: 18px;
+            text-align: center;
+            display: none;
+        }
+
+        .notification-item {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-cell);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .notification-item:hover {
+            background-color: var(--bg-cell-hover);
+        }
+
+        .notification-item.unread {
+            background-color: rgba(0, 188, 212, 0.1);
+            border-left: 3px solid var(--color-highlight);
+        }
+
+        .notification-icon {
+            font-size: 1.2em;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .notification-message {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .notification-time {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            text-align: right;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+
+        .notification-item.warning .notification-icon {
+            color: #ff9800;
+        }
+
+        .notification-item.danger .notification-icon {
+            color: #f44336;
+        }
+
+        .notification-item.info .notification-icon {
+            color: #2196f3;
+        }
+
         @media (max-width: 1024px) {
             .container {
                 padding: 20px;
@@ -1322,6 +1540,10 @@
             }
             
             .analysis-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .expense-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -1495,7 +1717,103 @@
                 background-color: var(--bg-inactive);
                 opacity: var(--opacity-inactive);
             }
+
+            .wallet-tabs {
+                flex-wrap: wrap;
+            }
+
+            .wallet-tab {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+
+            .expense-header, .expense-item {
+                grid-template-columns: 1fr 1fr 1fr;
+                font-size: 0.8em;
+            }
+
+            .expense-header span:nth-child(3),
+            .expense-header span:nth-child(4),
+            .expense-item span:nth-child(3),
+            .expense-item span:nth-child(4) {
+                display: none;
+            }
+
+            .expense-stats {
+                grid-template-columns: 1fr;
+            }
         }
+/* ========== NEW: Enhanced Expenses Summary Styles ========== */
+.expenses-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.expense-item {
+    background-color: var(--bg-container);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-cell);
+    transition: all 0.3s ease;
+}
+
+.expense-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.expense-item.negative {
+    background-color: var(--bg-loss-total);
+    border-color: var(--color-loss);
+}
+
+.expense-item.positive {
+    background-color: var(--bg-profit-total);
+    border-color: var(--color-profit);
+}
+
+.expense-item h4 {
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.expense-item .amount {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.expense-impact {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 12px;
+    background-color: var(--bg-day-label);
+    border-radius: 6px;
+    margin-top: 5px;
+    border: 1px dashed var(--border-cell);
+}
+
+.expense-impact .impact-value {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .expenses-summary {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .expense-item {
+        padding: 12px;
+    }
+}
         
         @media (max-width: 480px) {
             .mobile-week-row,
@@ -1554,14 +1872,18 @@
         <div class="mobile-menu-item" onclick="openUserInfoModal(); closeMobileMenu();">
             <i class="fas fa-user-circle"></i> User Info
         </div>
-        <div class="mobile-menu-item" onclick="openPlanModal(); closeMobileMenu();">
-            <i class="fas fa-bullseye"></i> Plan
+        <div class="mobile-menu-item" onclick="openWalletModal(); closeMobileMenu();">
+            <i class="fas fa-wallet"></i> Wallet
         </div>
         <div class="mobile-menu-item" onclick="openTimeAnalysisModal(); closeMobileMenu();">
             <i class="fas fa-chart-bar"></i> Time Analysis
         </div>
         <div class="mobile-menu-item" onclick="openExportModal(); closeMobileMenu();">
             <i class="fas fa-file-export"></i> Data
+        </div>
+        <div class="mobile-menu-item" onclick="openNotificationsModal(); closeMobileMenu();">
+            <i class="fas fa-bell"></i> Notifications
+            <span id="mobileNotificationBadge" class="notification-badge" style="display: none;">0</span>
         </div>
         <div class="mobile-menu-item" style="display: flex; justify-content: space-between; align-items: center;">
             <span><i class="fas fa-paint-brush"></i> Theme</span>
@@ -1585,14 +1907,18 @@
             <div onclick="openUserInfoModal()">
                 <i class="fas fa-user-circle"></i> User Info
             </div>
-            <div onclick="openPlanModal()">
-                <i class="fas fa-bullseye"></i> Plan
+            <div onclick="openWalletModal()">
+                <i class="fas fa-wallet"></i> Wallet
             </div>
             <div onclick="openTimeAnalysisModal()">
                 <i class="fas fa-chart-bar"></i> Time Analysis
             </div>
             <div onclick="openExportModal()">
                 <i class="fas fa-file-export"></i> Data
+            </div>
+            <div onclick="openNotificationsModal()">
+                <i class="fas fa-bell"></i> Notifications
+                <span id="notificationBadge" class="notification-badge" style="display: none;">0</span>
             </div>
             <div style="margin-top: 10px; border-top: 1px solid var(--border-cell);">
                 <i class="fas fa-paint-brush"></i> Theme
@@ -1647,7 +1973,7 @@
             <div class="mobile-calendar-grid" id="mobileCalendarGrid">
             </div>
 
-            <div id="planSummary" class="plan-summary" style="display: none;">
+		<div id="planSummary" class="plan-summary" style="display: none;">
                 </div>
             
             <!-- Analytics Section -->
@@ -2086,30 +2412,255 @@
         </div>
     </div>
     
-    <!-- Plan Modal -->
-    <div id="planModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('planModal')">&times;</span>
-            <h2><i class="fas fa-chart-bar"></i> Set Trading Plan</h2>
+    <!-- Wallet Modal - NEW -->
+    <div id="walletModal" class="modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <span class="close-btn" onclick="closeModal('walletModal')">&times;</span>
+            <h2 style="text-align: center; color: var(--color-highlight); margin-bottom: 20px;">
+                <i class="fas fa-wallet"></i> Wallet Management
+            </h2>
             
-            <form id="planForm">
-                <div class="input-group" style="grid-column: 1 / -1;">
-                    <label for="startingCapital">Starting Capital ($):</label>
-                    <input type="number" id="startingCapital" step="0.01" required> </div>
-                <div class="input-group" style="grid-column: 1 / -1;">
-                    <label for="weeklyTargetGoal">Weekly Target Percentage (%):</label>
-                    <input type="number" id="weeklyTargetGoal" step="0.01" min="0" max="100">
+            <div class="wallet-tabs">
+                <div class="wallet-tab active" onclick="switchWalletTab('capitalPlan')">
+                    <i class="fas fa-chart-line"></i> Capital & Plan
                 </div>
-                <div class="input-group" style="grid-column: 1 / -1;">
-                    <label for="monthlyTargetGoal">Monthly Target Percentage (%):</label>
-                    <input type="number" id="monthlyTargetGoal" step="0.01" min="0" max="100">
+                <div class="wallet-tab" onclick="switchWalletTab('expenseManagement')">
+                    <i class="fas fa-money-bill-wave"></i> Expense Management
                 </div>
-                <div class="input-group" style="grid-column: 1 / -1;">
-                    <label for="yearlyTargetGoal">Yearly Target Percentage (%):</label>
-                    <input type="number" id="yearlyTargetGoal" step="0.01" min="0" max="1000">
+                <div class="wallet-tab" onclick="switchWalletTab('expenseReports')">
+                    <i class="fas fa-chart-pie"></i> Expense Reports
                 </div>
-                <button type="submit" id="savePlanBtn">Save Plan</button>
-            </form>
+                <div class="wallet-tab" onclick="switchWalletTab('alertSettings')">
+                    <i class="fas fa-bell"></i> Alert Settings
+                </div>
+            </div>
+            
+            <!-- Capital & Plan Tab -->
+            <div id="capitalPlan" class="wallet-content active">
+                <form id="planForm">
+                    <div class="input-group" style="grid-column: 1 / -1;">
+                        <label for="startingCapital">Starting Capital ($):</label>
+                        <input type="number" id="startingCapital" step="0.01" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="weeklyTargetGoal">Weekly Target (%):</label>
+                        <input type="number" id="weeklyTargetGoal" step="0.01" min="0" max="100">
+                    </div>
+                    <div class="input-group">
+                        <label for="monthlyTargetGoal">Monthly Target (%):</label>
+                        <input type="number" id="monthlyTargetGoal" step="0.01" min="0" max="100">
+                    </div>
+                    <div class="input-group">
+                        <label for="yearlyTargetGoal">Yearly Target (%):</label>
+                        <input type="number" id="yearlyTargetGoal" step="0.01" min="0" max="1000">
+                    </div>
+                    <button type="submit" id="savePlanBtn">Save Plan</button>
+                </form>
+		        <!-- Plan Summary Section -->
+        <div style="margin-top: 30px; border-top: 2px solid var(--border-cell); padding-top: 20px;">
+            <h3 style="color: var(--color-highlight); text-align: center; margin-bottom: 20px;">
+                <i class="fas fa-chart-line"></i> Goals Progress
+            </h3>
+            <div id="walletPlanSummary" class="plan-summary">
+                <!-- سيتم عرض تقرير الأهداف هنا تلقائياً -->
+            </div>
+        </div>
+            </div>
+            
+            <!-- Expense Management Tab -->
+            <div id="expenseManagement" class="wallet-content">
+                <h3 style="color: var(--color-highlight); margin-bottom: 15px;">
+                    <i class="fas fa-plus-circle"></i> Add New Expense
+                </h3>
+                
+                <form id="expenseForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="input-group">
+                        <label for="expenseAmount">Amount ($):</label>
+                        <input type="number" id="expenseAmount" step="0.01" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="expenseCategory">Category:</label>
+                        <select id="expenseCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="subscriptions">Subscriptions</option>
+                            <option value="education">Education</option>
+                            <option value="equipment">Equipment</option>
+                            <option value="software">Software</option>
+                            <option value="operational">Operational</option>
+                            <option value="long_term">Long-term Investments</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="input-group" style="grid-column: 1 / -1;">
+                        <label for="expenseDescription">Description:</label>
+                        <input type="text" id="expenseDescription" placeholder="What was this expense for?" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="expenseDate">Date (Optional):</label>
+                        <input type="date" id="expenseDate">
+                    </div>
+                    <div class="input-group">
+                        <label for="expenseRecurring">Recurring Expense:</label>
+                        <select id="expenseRecurring">
+                            <option value="no">No</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="quarterly">Quarterly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="addExpenseBtn" style="grid-column: 1 / -1;">Add Expense</button>
+                </form>
+                
+                <h3 style="color: var(--color-highlight); margin-top: 30px; margin-bottom: 15px;">
+                    <i class="fas fa-list"></i> Expense History
+                </h3>
+                
+                <div class="expense-list">
+                    <div class="expense-header">
+                        <span>Date</span>
+                        <span>Category</span>
+                        <span>Description</span>
+                        <span>Amount</span>
+                        <span>Actions</span>
+                    </div>
+                    <div id="expensesListContent">
+                        <!-- Expenses will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expense Reports Tab -->
+            <div id="expenseReports" class="wallet-content">
+                <h3 style="color: var(--color-highlight); margin-bottom: 20px;">
+                    <i class="fas fa-chart-bar"></i> Expense Statistics
+                </h3>
+                
+                <div class="expense-stats">
+                    <div class="expense-stat-card">
+                        <h4>Total Expenses</h4>
+                        <p id="totalExpenses">$0.00</p>
+                    </div>
+                    <div class="expense-stat-card">
+                        <h4>This Month</h4>
+                        <p id="monthlyExpenses">$0.00</p>
+                    </div>
+                    <div class="expense-stat-card">
+                        <h4>Avg Monthly</h4>
+                        <p id="avgMonthlyExpenses">$0.00</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h4 style="color: var(--text-secondary); margin-bottom: 10px;">Expenses by Category</h4>
+                    <div id="expensesByCategory">
+                        <!-- Category breakdown will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alert Settings Tab -->
+            <div id="alertSettings" class="wallet-content">
+                <h3 style="color: var(--color-highlight); margin-bottom: 20px;">
+                    <i class="fas fa-bell"></i> Alert Settings
+                </h3>
+                
+                <div class="alert-settings">
+                    <div class="alert-setting-item">
+                        <div>
+                            <strong>Expense to Profit Ratio Alert</strong>
+                            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: var(--text-secondary);">
+                                Alert when expenses reach certain percentage of profits
+                            </p>
+                        </div>
+                        <div class="alert-setting-controls">
+                            <input type="number" id="expenseRatioAlert" value="20" min="1" max="100">
+                            <span>%</span>
+                            <label class="switch">
+                                <input type="checkbox" id="expenseRatioToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="alert-setting-item">
+                        <div>
+                            <strong>Monthly Expense Limit</strong>
+                            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: var(--text-secondary);">
+                                Alert when monthly expenses exceed limit
+                            </p>
+                        </div>
+                        <div class="alert-setting-controls">
+                            <input type="number" id="monthlyExpenseLimit" value="500" min="1" step="50">
+                            <span>$</span>
+                            <label class="switch">
+                                <input type="checkbox" id="monthlyLimitToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="alert-setting-item">
+                        <div>
+                            <strong>Subscription Reminders</strong>
+                            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: var(--text-secondary);">
+                                Remind before recurring expenses renew
+                            </p>
+                        </div>
+                        <div class="alert-setting-controls">
+                            <input type="number" id="subscriptionReminderDays" value="3" min="1" max="30">
+                            <span>days before</span>
+                            <label class="switch">
+                                <input type="checkbox" id="subscriptionReminderToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="alert-setting-item">
+                        <div>
+                            <strong>Capital Health Alert</strong>
+                            <p style="margin: 5px 0 0 0; font-size: 0.9em; color: var(--text-secondary);">
+                                Alert when capital falls below minimum
+                            </p>
+                        </div>
+                        <div class="alert-setting-controls">
+                            <input type="number" id="capitalMinAlert" value="1000" min="100" step="100">
+                            <span>$</span>
+                            <label class="switch">
+                                <input type="checkbox" id="capitalAlertToggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="saveAlertSettings()" style="width: 100%; margin-top: 20px; padding: 12px; background-color: var(--color-highlight); color: white; border: none; border-radius: 4px; cursor: pointer;">
+                    <i class="fas fa-save"></i> Save Alert Settings
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications Modal - NEW -->
+    <div id="notificationsModal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close-btn" onclick="closeModal('notificationsModal')">&times;</span>
+            <h2 style="text-align: center; color: var(--color-highlight); margin-bottom: 20px;">
+                <i class="fas fa-bell"></i> Notifications
+            </h2>
+            
+            <div class="notifications-list" id="notificationsList" style="max-height: 400px; overflow-y: auto; border: 1px solid var(--border-cell); border-radius: 8px; padding: 10px; background-color: var(--bg-day-label);">
+                <!-- Notifications will be loaded here -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="markAllNotificationsAsRead()" style="padding: 8px 15px; background-color: var(--color-highlight); color: white; border: none; border-radius: 4px; cursor: pointer; margin-right: 10px;">
+                    Mark All as Read
+                </button>
+                <button onclick="clearAllNotifications()" style="padding: 8px 15px; background-color: var(--color-loss); color: white; border: none; border-radius: 4px; cursor: pointer;">
+                    Clear All
+                </button>
+            </div>
         </div>
     </div>
 
@@ -2155,6 +2706,10 @@
                         <input type="checkbox" id="includePlan" checked>
                         <label for="includePlan">Trading Plan</label>
                     </div>
+                    <div class="export-checkbox">
+                        <input type="checkbox" id="includeExpenses" checked>
+                        <label for="includeExpenses">Expenses Data</label>
+                    </div>
                 </div>
             </div>
             
@@ -2195,6 +2750,10 @@
                         <label for="importPlan">Trading Plan</label>
                     </div>
                     <div class="import-checkbox">
+                        <input type="checkbox" id="importExpenses">
+                        <label for="importExpenses">Expenses Data</label>
+                    </div>
+                    <div class="import-checkbox">
                         <input type="checkbox" id="importNoTradingDays">
                         <label for="importNoTradingDays">No Trading Days</label>
                     </div>
@@ -2232,6 +2791,19 @@
             yearlyTarget: 100, 
         };
         let noTradingDays = JSON.parse(localStorage.getItem('noTradingDays')) || [];
+        
+        // NEW: Wallet expenses data
+        let expenses = JSON.parse(localStorage.getItem('walletExpenses')) || [];
+        let alertSettings = JSON.parse(localStorage.getItem('walletAlertSettings')) || {
+            expenseRatio: { enabled: true, value: 20 },
+            monthlyLimit: { enabled: true, value: 500 },
+            subscriptionReminder: { enabled: true, days: 3 },
+            capitalAlert: { enabled: false, value: 1000 }
+        };
+
+        // NEW: Notifications data
+        let notifications = JSON.parse(localStorage.getItem('tradingNotifications')) || [];
+
         let analyticsChart = null;
 
         // Initialize date variables
@@ -2246,6 +2818,32 @@
             localStorage.setItem('tradingJournal', JSON.stringify(trades));
         }
 
+// ========== NEW: Calculate Available Capital مع إضافة الأرباح وخصم الخسائر ==========
+function calculateAvailableCapital() {
+    // نجمع كل المصاريف
+    const totalExpenses = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+    
+    // نحسب إجمالي الأرباح والخسائر من التداولات
+    const totalPnL = trades.reduce((sum, trade) => {
+        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+        return sum + pnl;
+    }, 0);
+    
+    // رأس المال الفعلي = رأس المال الأساسي - المصاريف + الأرباح (أو - الخسائر)
+    const availableCapital = tradingPlan.capital - totalExpenses + totalPnL;
+    
+    // نحسب نسبة تأثير المصاريف
+    const expenseImpact = (totalExpenses / tradingPlan.capital) * 100;
+    
+    // نرجع كل البيانات
+    return {
+        totalExpenses: totalExpenses,
+        totalPnL: totalPnL,
+        availableCapital: availableCapital,
+        expenseImpact: expenseImpact
+    };
+}
+
         function saveUserInfo() {
             localStorage.setItem('journalUserInfo', JSON.stringify(userInfo));
         }
@@ -2256,6 +2854,127 @@
 
         function saveNoTradingDays() {
             localStorage.setItem('noTradingDays', JSON.stringify(noTradingDays));
+        }
+
+        // NEW: Wallet data saving functions
+        function saveExpenses() {
+            localStorage.setItem('walletExpenses', JSON.stringify(expenses));
+        }
+
+        function saveAlertSettings() {
+            localStorage.setItem('walletAlertSettings', JSON.stringify(alertSettings));
+        }
+
+        // NEW: Notifications saving function
+        function saveNotifications() {
+            localStorage.setItem('tradingNotifications', JSON.stringify(notifications));
+        }
+
+        // ========== NEW: Notifications Functions ==========
+        window.openNotificationsModal = function() {
+            loadNotifications();
+            document.getElementById('notificationsModal').style.display = 'flex';
+        };
+
+        function loadNotifications() {
+            const notificationsList = document.getElementById('notificationsList');
+            if (!notificationsList) return;
+
+            if (notifications.length === 0) {
+                notificationsList.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 20px;">No notifications</p>';
+                return;
+            }
+
+            let notificationsHTML = '';
+            notifications.forEach((notification, index) => {
+                const icon = getNotificationIcon(notification.type);
+                const timeAgo = getTimeAgo(notification.timestamp);
+                
+                notificationsHTML += `
+                    <div class="notification-item ${notification.type} ${notification.read ? '' : 'unread'}" onclick="markNotificationAsRead(${index})">
+                        <div class="notification-icon">${icon}</div>
+                        <div class="notification-content">
+                            <div class="notification-title">${notification.title}</div>
+                            <div class="notification-message">${notification.message}</div>
+                        </div>
+                        <div class="notification-time">${timeAgo}</div>
+                    </div>
+                `;
+            });
+
+            notificationsList.innerHTML = notificationsHTML;
+            updateNotificationBadge();
+        }
+
+        function getNotificationIcon(type) {
+            switch(type) {
+                case 'warning': return '⚠️';
+                case 'danger': return '🔴';
+                case 'info': return 'ℹ️';
+                default: return '🔔';
+            }
+        }
+
+        function getTimeAgo(timestamp) {
+            const now = new Date();
+            const diff = now - new Date(timestamp);
+            const minutes = Math.floor(diff / 60000);
+            const hours = Math.floor(diff / 3600000);
+            const days = Math.floor(diff / 86400000);
+
+            if (minutes < 1) return 'Just now';
+            if (minutes < 60) return `${minutes}m ago`;
+            if (hours < 24) return `${hours}h ago`;
+            return `${days}d ago`;
+        }
+
+        function updateNotificationBadge() {
+            const badge = document.getElementById('notificationBadge');
+            const mobileBadge = document.getElementById('mobileNotificationBadge');
+            
+            const unreadCount = notifications.filter(n => !n.read).length;
+            
+            if (badge) {
+                if (unreadCount > 0) {
+                    badge.textContent = unreadCount;
+                    badge.style.display = 'inline';
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+            
+            if (mobileBadge) {
+                if (unreadCount > 0) {
+                    mobileBadge.textContent = unreadCount;
+                    mobileBadge.style.display = 'inline';
+                } else {
+                    mobileBadge.style.display = 'none';
+                }
+            }
+        }
+
+        function markNotificationAsRead(index) {
+            if (index >= 0 && index < notifications.length) {
+                notifications[index].read = true;
+                saveNotifications();
+                loadNotifications();
+            }
+        }
+
+        function markAllNotificationsAsRead() {
+            notifications.forEach(notification => {
+                notification.read = true;
+            });
+            saveNotifications();
+            loadNotifications();
+        }
+
+        function clearAllNotifications() {
+            if (confirm('Are you sure you want to clear all notifications?')) {
+                notifications = [];
+                saveNotifications();
+                loadNotifications();
+            }
         }
 
         // ========== Mobile Menu Functions ==========
@@ -2895,37 +3614,495 @@
             `;
         };
 
-        const renderPlanSummary = () => {
+ const renderPlanSummary = () => {
+    try {
+        // نبحث عن مكان عرض البيانات
+        let planSummaryElement = document.getElementById('walletPlanSummary');
+        if (!planSummaryElement) {
+            planSummaryElement = document.getElementById('planSummary');
+        }
+        if (!planSummaryElement) return;
+
+        const capitalData = calculateAvailableCapital();
+        
+        // الأرباح الحالية
+        const currentWeeklyPnL = getCurrentPeriodPnL('weekly');
+        const currentMonthlyPnL = getCurrentPeriodPnL('monthly');
+        const currentYearlyPnL = getCurrentPeriodPnL('yearly');
+
+        // نجهز تقارير الأهداف (باستخدام رأس المال الفعلي)
+        const weeklySummary = renderPeriodGoal('weekly', currentWeeklyPnL, tradingPlan.weeklyTarget, capitalData.availableCapital);
+        const monthlySummary = renderPeriodGoal('monthly', currentMonthlyPnL, tradingPlan.monthlyTarget, capitalData.availableCapital);
+        const yearlySummary = renderPeriodGoal('yearly', currentYearlyPnL, tradingPlan.yearlyTarget, capitalData.availableCapital);
+        
+        // HTML الجديد لقسم المصاريف ورأس المال
+        const capitalSectionHTML = `
+            <!-- قسم رأس المال والمصاريف المحسّن -->
+            <div style="margin-bottom: 20px;">
+                <div class="expenses-summary">
+                    <!-- رأس المال الأساسي -->
+                    <div class="expense-item">
+                        <h4>🏦 Starting Capital</h4>
+                        <div class="amount">$${tradingPlan.capital.toFixed(2)}</div>
+                        <small style="color: var(--text-secondary); font-size: 0.75em;">Initial investment</small>
+                    </div>
+                    
+                    <!-- إجمالي المصاريف -->
+                    <div class="expense-item negative">
+                        <h4>💸 Total Expenses</h4>
+                        <div class="amount loss">-$${capitalData.totalExpenses.toFixed(2)}</div>
+                        <small style="color: var(--text-loss-total); font-size: 0.75em;">Deducted from capital</small>
+                    </div>
+                    
+                    <!-- إجمالي الأرباح/الخسائر -->
+                    <div class="expense-item ${capitalData.totalPnL >= 0 ? 'positive' : 'negative'}">
+                        <h4>📊 Total P&L</h4>
+                        <div class="amount ${capitalData.totalPnL >= 0 ? 'profit' : 'loss'}">${capitalData.totalPnL >= 0 ? '+' : ''}$${capitalData.totalPnL.toFixed(2)}</div>
+                        <small style="color: ${capitalData.totalPnL >= 0 ? 'var(--text-profit-total)' : 'var(--text-loss-total)'}; font-size: 0.75em;">From trading</small>
+                    </div>
+                    
+                    <!-- رأس المال الفعلي -->
+                    <div class="expense-item ${capitalData.availableCapital >= tradingPlan.capital ? 'positive' : 'negative'}">
+                        <h4>💰 Available Capital</h4>
+                        <div class="amount ${capitalData.availableCapital >= tradingPlan.capital ? 'profit' : 'loss'}">$${capitalData.availableCapital.toFixed(2)}</div>
+                        <small style="color: ${capitalData.availableCapital >= tradingPlan.capital ? 'var(--text-profit-total)' : 'var(--text-loss-total)'}; font-size: 0.75em;">For trading</small>
+                    </div>
+                    
+                    <!-- تأثير المصاريف -->
+                    <div class="expense-impact">
+                        <h4 style="margin: 0 0 5px 0; color: var(--text-secondary);">📊 Net Impact</h4>
+                        <div class="impact-value ${capitalData.availableCapital >= tradingPlan.capital ? 'profit' : 'loss'}">${capitalData.availableCapital >= tradingPlan.capital ? '+' : ''}${((capitalData.availableCapital - tradingPlan.capital) / tradingPlan.capital * 100).toFixed(1)}%</div>
+                        <small style="font-size: 0.8em; color: var(--text-secondary);">from starting capital</small>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // نعرض كل شيء
+        planSummaryElement.style.display = 'flex';
+        planSummaryElement.innerHTML = `
+            ${capitalSectionHTML}
+            
+            <!-- قسم الأهداف -->
+            <div class="goals-container">
+                ${weeklySummary}
+                ${monthlySummary}
+                ${yearlySummary}
+            </div>
+        `;
+    } catch (error) {
+        console.error('Error in renderPlanSummary:', error);
+    }
+};
+
+        // ========== NEW: Wallet Functions ==========
+        window.openWalletModal = () => {
             try {
-                const planSummaryElement = document.getElementById('planSummary');
-                if (!planSummaryElement) return;
-
-                const capital = tradingPlan.capital;
+                // Load current plan data
+                const startingCapitalInput = document.getElementById('startingCapital');
+                const weeklyTargetGoalInput = document.getElementById('weeklyTargetGoal');
+                const monthlyTargetGoalInput = document.getElementById('monthlyTargetGoal');
+                const yearlyTargetGoalInput = document.getElementById('yearlyTargetGoal');
                 
-                const currentWeeklyPnL = getCurrentPeriodPnL('weekly');
-                const currentMonthlyPnL = getCurrentPeriodPnL('monthly');
-                const currentYearlyPnL = getCurrentPeriodPnL('yearly');
-
-                const weeklySummary = renderPeriodGoal('weekly', currentWeeklyPnL, tradingPlan.weeklyTarget, capital);
-                const monthlySummary = renderPeriodGoal('monthly', currentMonthlyPnL, tradingPlan.monthlyTarget, capital);
-                const yearlySummary = renderPeriodGoal('yearly', currentYearlyPnL, tradingPlan.yearlyTarget, capital);
+                if (startingCapitalInput) startingCapitalInput.value = tradingPlan.capital;
+                if (weeklyTargetGoalInput) weeklyTargetGoalInput.value = tradingPlan.weeklyTarget;
+                if (monthlyTargetGoalInput) monthlyTargetGoalInput.value = tradingPlan.monthlyTarget;
+                if (yearlyTargetGoalInput) yearlyTargetGoalInput.value = tradingPlan.yearlyTarget;
                 
-                planSummaryElement.style.display = 'flex';
-                planSummaryElement.innerHTML = `
-                    <div class="plan-item general-capital">
-                        <h4>Starting Capital</h4>
-                        <p>$${capital.toFixed(2)}</p>
-                    </div>
-                    <div class="goals-container">
-                        ${weeklySummary}
-                        ${monthlySummary}
-                        ${yearlySummary}
-                    </div>
-                `;
+                // Load alert settings
+                loadAlertSettings();
+                
+                // Load expenses
+                loadExpensesList();
+                updateExpenseReports();
+                
+                const walletModal = document.getElementById('walletModal');
+                if (walletModal) walletModal.style.display = 'flex';
+        // تحديث Plan Summary تلقائياً عند فتح Wallet
+        setTimeout(() => {
+            renderPlanSummary();
+        }, 100);
             } catch (error) {
-                console.error('Error in renderPlanSummary:', error);
+                console.error('Error in openWalletModal:', error);
             }
         };
+
+        function loadAlertSettings() {
+            document.getElementById('expenseRatioAlert').value = alertSettings.expenseRatio.value;
+            document.getElementById('expenseRatioToggle').checked = alertSettings.expenseRatio.enabled;
+            document.getElementById('monthlyExpenseLimit').value = alertSettings.monthlyLimit.value;
+            document.getElementById('monthlyLimitToggle').checked = alertSettings.monthlyLimit.enabled;
+            document.getElementById('subscriptionReminderDays').value = alertSettings.subscriptionReminder.days;
+            document.getElementById('subscriptionReminderToggle').checked = alertSettings.subscriptionReminder.enabled;
+            document.getElementById('capitalMinAlert').value = alertSettings.capitalAlert.value;
+            document.getElementById('capitalAlertToggle').checked = alertSettings.capitalAlert.enabled;
+        }
+
+        // ========== NEW: Alert System Functions ==========
+        function checkAlerts() {
+            const capitalData = calculateAvailableCapital();
+            const totalPnL = capitalData.totalPnL;
+            const availableCapital = capitalData.availableCapital;
+            const totalExpenses = capitalData.totalExpenses;
+            
+            let newNotifications = [];
+            
+            // Expense to Profit Ratio Alert
+            if (alertSettings.expenseRatio.enabled && totalPnL > 0) {
+                const expenseRatio = (totalExpenses / totalPnL) * 100;
+                if (expenseRatio >= alertSettings.expenseRatio.value) {
+                    newNotifications.push({
+                        type: 'warning',
+                        title: 'High Expense Ratio',
+                        message: `Your expenses (${expenseRatio.toFixed(1)}%) have reached ${alertSettings.expenseRatio.value}% of your profits. Consider reducing costs.`,
+                        timestamp: new Date().toISOString(),
+                        read: false
+                    });
+                }
+            }
+            
+            // Monthly Expense Limit Alert
+            if (alertSettings.monthlyLimit.enabled) {
+                const currentMonth = new Date().getMonth();
+                const currentYear = new Date().getFullYear();
+                const monthlyExpenses = expenses
+                    .filter(expense => {
+                        if (!expense.date) return false;
+                        const expenseDate = new Date(expense.date);
+                        return expenseDate.getMonth() === currentMonth && expenseDate.getFullYear() === currentYear;
+                    })
+                    .reduce((sum, expense) => sum + expense.amount, 0);
+                
+                if (monthlyExpenses >= alertSettings.monthlyLimit.value) {
+                    newNotifications.push({
+                        type: 'warning',
+                        title: 'Monthly Expense Limit Reached',
+                        message: `Your monthly expenses ($${monthlyExpenses.toFixed(2)}) have exceeded your limit of $${alertSettings.monthlyLimit.value}.`,
+                        timestamp: new Date().toISOString(),
+                        read: false
+                    });
+                }
+            }
+            
+            // Capital Health Alert
+            if (alertSettings.capitalAlert.enabled && availableCapital <= alertSettings.capitalAlert.value) {
+                newNotifications.push({
+                    type: 'danger',
+                    title: 'Low Capital Warning',
+                    message: `Your available capital ($${availableCapital.toFixed(2)}) has fallen below the minimum threshold of $${alertSettings.capitalAlert.value}.`,
+                    timestamp: new Date().toISOString(),
+                    read: false
+                });
+            }
+            
+            // Subscription Reminders
+            if (alertSettings.subscriptionReminder.enabled) {
+                const today = new Date();
+                expenses.forEach(expense => {
+                    if (expense.recurring !== 'no' && expense.date) {
+                        const nextPayment = new Date(expense.date);
+                        while (nextPayment <= today) {
+                            if (expense.recurring === 'monthly') {
+                                nextPayment.setMonth(nextPayment.getMonth() + 1);
+                            } else if (expense.recurring === 'quarterly') {
+                                nextPayment.setMonth(nextPayment.getMonth() + 3);
+                            } else if (expense.recurring === 'yearly') {
+                                nextPayment.setFullYear(nextPayment.getFullYear() + 1);
+                            }
+                        }
+                        
+                        const daysUntilRenewal = Math.ceil((nextPayment - today) / (1000 * 60 * 60 * 24));
+                        if (daysUntilRenewal <= alertSettings.subscriptionReminder.days) {
+                            newNotifications.push({
+                                type: 'info',
+                                title: 'Subscription Renewal',
+                                message: `${expense.description} renews in ${daysUntilRenewal} day(s). Amount: $${expense.amount.toFixed(2)}`,
+                                timestamp: new Date().toISOString(),
+                                read: false
+                            });
+                        }
+                    }
+                });
+            }
+            
+          // إضافة الاشعارات الجديدة مع التحقق من الوقت
+if (newNotifications.length > 0) {
+    const now = new Date();
+    const twentyFourHoursAgo = new Date(now.getTime() - (6 * 60 * 60 * 1000));
+    
+    // الحصول على آخر مرة ظهر فيها كل نوع من التنبيهات
+    const lastAlertTimes = JSON.parse(localStorage.getItem('lastAlertTimes')) || {};
+    
+    // تصفية الإشعارات الجديدة - تظهر فقط إذا مرت 24 ساعة منذ آخر ظهور
+    const filteredNewNotifications = newNotifications.filter(notification => {
+        const alertKey = `${notification.title}-${notification.message}`;
+        const lastTime = lastAlertTimes[alertKey];
+        
+        // إذا لم يظهر من قبل، أو مرت 24 ساعة منذ آخر ظهور
+        if (!lastTime || new Date(lastTime) < twentyFourHoursAgo) {
+            // تحديث وقت آخر ظهور
+            lastAlertTimes[alertKey] = now.toISOString();
+            return true;
+        }
+        return false;
+    });
+    
+    // حفظ أوقات التنبيهات المحدثة
+    localStorage.setItem('lastAlertTimes', JSON.stringify(lastAlertTimes));
+    
+    // إضافة الإشعارات المصفاة فقط
+    if (filteredNewNotifications.length > 0) {
+        notifications = [...filteredNewNotifications, ...notifications].slice(0, 50);
+        saveNotifications();
+        updateNotificationBadge();
+    }
+}
+        }
+
+        // ========== UPDATED: Save Alert Settings Function ==========
+        window.saveAlertSettings = function() {
+    alertSettings = {
+        expenseRatio: {
+            enabled: document.getElementById('expenseRatioToggle').checked,
+            value: parseFloat(document.getElementById('expenseRatioAlert').value)
+        },
+        monthlyLimit: {
+            enabled: document.getElementById('monthlyLimitToggle').checked,
+            value: parseFloat(document.getElementById('monthlyExpenseLimit').value)
+        },
+        subscriptionReminder: {
+            enabled: document.getElementById('subscriptionReminderToggle').checked,
+            days: parseInt(document.getElementById('subscriptionReminderDays').value)
+        },
+        capitalAlert: {
+            enabled: document.getElementById('capitalAlertToggle').checked,
+            value: parseFloat(document.getElementById('capitalMinAlert').value)
+        }
+    };
+    
+    // الحل: استبدل هذا السطر
+    localStorage.setItem('walletAlertSettings', JSON.stringify(alertSettings));
+    
+    alert('Alert settings saved successfully!');
+    
+    // Test alerts after saving
+    setTimeout(checkAlerts, 1000);
+};
+
+        function loadExpensesList() {
+            const expensesListContent = document.getElementById('expensesListContent');
+            if (!expensesListContent) return;
+            
+            if (expenses.length === 0) {
+                expensesListContent.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 20px;">No expenses recorded yet.</p>';
+                return;
+            }
+            
+            let expensesHTML = '';
+            expenses.forEach((expense, index) => {
+                const date = expense.date ? new Date(expense.date).toLocaleDateString() : 'No date';
+                const categoryNames = {
+                    'subscriptions': 'Subscriptions',
+                    'education': 'Education',
+                    'equipment': 'Equipment',
+                    'software': 'Software',
+                    'operational': 'Operational',
+                    'long_term': 'Long-term',
+                    'other': 'Other'
+                };
+                
+                expensesHTML += `
+                    <div class="expense-item">
+                        <span>${date}</span>
+                        <span>${categoryNames[expense.category]}</span>
+                        <span>${expense.description}</span>
+                        <span class="loss">-$${expense.amount.toFixed(2)}</span>
+                        <div style="display: flex; gap: 5px;">
+                            <button class="edit-btn" onclick="editExpense(${index})">Edit</button>
+                            <button class="delete-btn" onclick="deleteExpense(${index})">Delete</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            expensesListContent.innerHTML = expensesHTML;
+        }
+
+        function updateExpenseReports() {
+            // Total expenses
+            const totalExpenses = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+            document.getElementById('totalExpenses').textContent = '$' + totalExpenses.toFixed(2);
+            
+            // Monthly expenses
+            const currentMonth = new Date().getMonth();
+            const currentYear = new Date().getFullYear();
+            const monthlyExpenses = expenses
+                .filter(expense => {
+                    if (!expense.date) return false;
+                    const expenseDate = new Date(expense.date);
+                    return expenseDate.getMonth() === currentMonth && expenseDate.getFullYear() === currentYear;
+                })
+                .reduce((sum, expense) => sum + expense.amount, 0);
+            document.getElementById('monthlyExpenses').textContent = '$' + monthlyExpenses.toFixed(2);
+            
+            // Average monthly expenses
+            const monthlyAverages = calculateMonthlyAverages();
+            document.getElementById('avgMonthlyExpenses').textContent = '$' + monthlyAverages.toFixed(2);
+            
+            // Expenses by category
+            updateExpensesByCategory();
+        }
+
+        function calculateMonthlyAverages() {
+            if (expenses.length === 0) return 0;
+            
+            const expensesByMonth = {};
+            expenses.forEach(expense => {
+                if (!expense.date) return;
+                const date = new Date(expense.date);
+                const monthKey = `${date.getFullYear()}-${date.getMonth()}`;
+                
+                if (!expensesByMonth[monthKey]) {
+                    expensesByMonth[monthKey] = 0;
+                }
+                expensesByMonth[monthKey] += expense.amount;
+            });
+            
+            const monthlyTotals = Object.values(expensesByMonth);
+            if (monthlyTotals.length === 0) return 0;
+            
+            const average = monthlyTotals.reduce((sum, total) => sum + total, 0) / monthlyTotals.length;
+            return average;
+        }
+
+        function updateExpensesByCategory() {
+            const categoryContainer = document.getElementById('expensesByCategory');
+            if (!categoryContainer) return;
+            
+            const categoryTotals = {};
+            const categoryNames = {
+                'subscriptions': 'Subscriptions',
+                'education': 'Education',
+                'equipment': 'Equipment',
+                'software': 'Software',
+                'operational': 'Operational',
+                'long_term': 'Long-term',
+                'other': 'Other'
+            };
+            
+            // Initialize categories
+            Object.keys(categoryNames).forEach(category => {
+                categoryTotals[category] = 0;
+            });
+            
+            // Calculate totals
+            expenses.forEach(expense => {
+                categoryTotals[expense.category] += expense.amount;
+            });
+            
+            // Generate HTML
+            let categoryHTML = '';
+            Object.keys(categoryTotals).forEach(category => {
+                if (categoryTotals[category] > 0) {
+                    const percentage = (categoryTotals[category] / expenses.reduce((sum, e) => sum + e.amount, 0)) * 100;
+                    categoryHTML += `
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border-cell);">
+                            <span>${categoryNames[category]}</span>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span class="loss">-$${categoryTotals[category].toFixed(2)}</span>
+                                <span style="color: var(--text-secondary); font-size: 0.8em;">${percentage.toFixed(1)}%</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            
+            categoryContainer.innerHTML = categoryHTML || '<p style="color: var(--text-secondary); text-align: center;">No expenses by category</p>';
+        }
+
+        window.switchWalletTab = (tabName) => {
+            document.querySelectorAll('.wallet-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.wallet-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            // Refresh data when switching to reports tab
+            if (tabName === 'expenseReports') {
+                updateExpenseReports();
+            }
+        };
+
+        // Expense management functions
+        document.getElementById('expenseForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const amount = parseFloat(document.getElementById('expenseAmount').value);
+            const category = document.getElementById('expenseCategory').value;
+            const description = document.getElementById('expenseDescription').value;
+            const date = document.getElementById('expenseDate').value;
+            const recurring = document.getElementById('expenseRecurring').value;
+            
+            const newExpense = {
+                id: Date.now() + Math.random(),
+                amount: amount,
+                category: category,
+                description: description,
+                date: date || null,
+                recurring: recurring,
+                createdAt: new Date().toISOString()
+            };
+            
+            expenses.push(newExpense);
+            saveExpenses();
+            
+            // Reset form
+            this.reset();
+            
+            // Update UI
+            loadExpensesList();
+            updateExpenseReports();
+            
+            alert('Expense added successfully!');
+ 	    setTimeout(checkAlerts, 500);
+        });
+
+        function editExpense(index) {
+            const expense = expenses[index];
+            if (!expense) return;
+            
+            document.getElementById('expenseAmount').value = expense.amount;
+            document.getElementById('expenseCategory').value = expense.category;
+            document.getElementById('expenseDescription').value = expense.description;
+            document.getElementById('expenseDate').value = expense.date || '';
+            document.getElementById('expenseRecurring').value = expense.recurring;
+            
+            // Remove the old expense
+            expenses.splice(index, 1);
+            saveExpenses();
+            loadExpensesList();
+            updateExpenseReports();
+            
+            // Switch to expense management tab
+            switchWalletTab('expenseManagement');
+        }
+
+        function deleteExpense(index) {
+            if (!confirm('Are you sure you want to delete this expense?')) return;
+            
+            expenses.splice(index, 1);
+            saveExpenses();
+            loadExpensesList();
+            updateExpenseReports();
+            
+            alert('Expense deleted successfully!');
+	    setTimeout(checkAlerts, 500);
+        }
 
         // ========== Modal Functions ==========
         window.openTradeModal = (dateString) => {
@@ -3043,25 +4220,6 @@
             }
         };
 
-        window.openPlanModal = () => {
-            try {
-                const startingCapitalInput = document.getElementById('startingCapital');
-                const weeklyTargetGoalInput = document.getElementById('weeklyTargetGoal');
-                const monthlyTargetGoalInput = document.getElementById('monthlyTargetGoal');
-                const yearlyTargetGoalInput = document.getElementById('yearlyTargetGoal');
-                
-                if (startingCapitalInput) startingCapitalInput.value = tradingPlan.capital;
-                if (weeklyTargetGoalInput) weeklyTargetGoalInput.value = tradingPlan.weeklyTarget;
-                if (monthlyTargetGoalInput) monthlyTargetGoalInput.value = tradingPlan.monthlyTarget;
-                if (yearlyTargetGoalInput) yearlyTargetGoalInput.value = tradingPlan.yearlyTarget;
-                
-                const planModal = document.getElementById('planModal');
-                if (planModal) planModal.style.display = 'flex';
-            } catch (error) {
-                console.error('Error in openPlanModal:', error);
-            }
-        };
-
         window.openTimeAnalysisModal = function() {
             updateTimeAnalysis();
             document.getElementById('timeAnalysisModal').style.display = 'flex';
@@ -3107,9 +4265,11 @@
                 if (userInfoForm) userInfoForm.reset();
                 if (profileImageUpload) profileImageUpload.value = '';
             }
-            if (id === 'planModal') {
+            if (id === 'walletModal') {
                 const planForm = document.getElementById('planForm');
+                const expenseForm = document.getElementById('expenseForm');
                 if (planForm) planForm.reset();
+                if (expenseForm) expenseForm.reset();
             }
             if (id === 'exportModal') {
                 const exportPeriod = document.getElementById('exportPeriod');
@@ -3117,12 +4277,14 @@
                 const includeTrades = document.getElementById('includeTrades');
                 const includeAnalytics = document.getElementById('includeAnalytics');
                 const includePlan = document.getElementById('includePlan');
+                const includeExpenses = document.getElementById('includeExpenses');
                 
                 if (exportPeriod) exportPeriod.value = 'all';
                 if (dateRangeSection) dateRangeSection.style.display = 'none';
                 if (includeTrades) includeTrades.checked = true;
                 if (includeAnalytics) includeAnalytics.checked = true;
                 if (includePlan) includePlan.checked = true;
+                if (includeExpenses) includeExpenses.checked = true;
             }
             if (id === 'importModal') {
                 const importFile = document.getElementById('importFile');
@@ -3208,6 +4370,7 @@
             renderCalendar();
             renderPlanSummary();
             updateTradesList(dateString);
+	    setTimeout(checkAlerts, 500);
         };
 
         window.editTrade = (tradeId, dateString) => {
@@ -3398,922 +4561,1096 @@
         }
 
         function updateAnalyticsChart() {
-    const period = document.getElementById('analyticsPeriod');
-    const metric = document.getElementById('analyticsMetric');
-    
-    if (!period || !metric) return;
-    
-    // Destroy old chart if exists
-    if (analyticsChart) {
-        analyticsChart.destroy();
-        analyticsChart = null;
-    }
-    
-    const data = calculateAnalyticsData(period.value, metric.value);
-    const ctx = document.getElementById('analyticsChart');
-    if (!ctx) return;
-    
-    // ⚡ تحقق من وجود بيانات
-    if (data.labels.length === 0 || data.values.length === 0) {
-        console.log('No data available for chart');
-        return;
-    }
-    
-    analyticsChart = new Chart(ctx.getContext('2d'), {
-        type: 'line',
-        data: {
-            labels: data.labels,
-            datasets: [{
-                label: getMetricLabel(metric.value),
-                data: data.values,
-                borderColor: function(context) {
-                    const value = context.dataset.data[context.dataIndex];
-                    if (metric.value === 'pnl') {
-                        return value >= 0 ? '#4CAF50' : '#F44336';
-                    } else {
-                        return '#00BCD4';
-                    }
-                },
-                backgroundColor: function(context) {
-                    const value = context.dataset.data[context.dataIndex];
-                    if (metric.value === 'pnl') {
-                        return value >= 0 ? 'rgba(76, 175, 80, 0.1)' : 'rgba(244, 67, 54, 0.1)';
-                    } else {
-                        return 'rgba(0, 188, 212, 0.1)';
-                    }
-                },
-                pointBackgroundColor: function(context) {
-                    const value = context.dataset.data[context.dataIndex];
-                    if (metric.value === 'pnl') {
-                        return value >= 0 ? '#4CAF50' : '#F44336';
-                    } else {
-                        return '#00BCD4';
-                    }
-                },
-                pointBorderColor: 'white',
-                pointBorderWidth: 2,
-                pointRadius: 4,
-                pointHoverRadius: 6,
-                borderWidth: 2,
-                fill: true,
-                tension: 0.1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
+            const period = document.getElementById('analyticsPeriod');
+            const metric = document.getElementById('analyticsMetric');
+            
+            if (!period || !metric) return;
+            
+            // Destroy old chart if exists
+            if (analyticsChart) {
+                analyticsChart.destroy();
+                analyticsChart = null;
+            }
+            
+            const data = calculateAnalyticsData(period.value, metric.value);
+            const ctx = document.getElementById('analyticsChart');
+            if (!ctx) return;
+            
+            // ⚡ تحقق من وجود بيانات
+            if (data.labels.length === 0 || data.values.length === 0) {
+                console.log('No data available for chart');
+                return;
+            }
+            
+            analyticsChart = new Chart(ctx.getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: getMetricLabel(metric.value),
+                        data: data.values,
+                        borderColor: function(context) {
+                            const value = context.dataset.data[context.dataIndex];
                             if (metric.value === 'pnl') {
-                                return '$' + value.toFixed(2);
-                            } else if (metric.value === 'winRate') {
-                                return value + '%';
+                                return value >= 0 ? '#4CAF50' : '#F44336';
                             } else {
-                                return value;
+                                return '#00BCD4';
+                            }
+                        },
+                        backgroundColor: function(context) {
+                            const value = context.dataset.data[context.dataIndex];
+                            if (metric.value === 'pnl') {
+                                return value >= 0 ? 'rgba(76, 175, 80, 0.1)' : 'rgba(244, 67, 54, 0.1)';
+                            } else {
+                                return 'rgba(0, 188, 212, 0.1)';
+                            }
+                        },
+                        pointBackgroundColor: function(context) {
+                            const value = context.dataset.data[context.dataIndex];
+                            if (metric.value === 'pnl') {
+                                return value >= 0 ? '#4CAF50' : '#F44336';
+                            } else {
+                                return '#00BCD4';
+                            }
+                        },
+                        pointBorderColor: 'white',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    if (metric.value === 'pnl') {
+                                        return '$' + value.toFixed(2);
+                                    } else if (metric.value === 'winRate') {
+                                        return value + '%';
+                                    } else {
+                                        return value;
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.parsed.y;
+                                    if (metric.value === 'pnl') {
+                                        const profitLoss = value >= 0 ? 'Profit' : 'Loss';
+                                        const symbol = value >= 0 ? '✅' : '❌';
+                                        return `${symbol} ${profitLoss}: $${Math.abs(value).toFixed(2)}`;
+                                    } else if (metric.value === 'winRate') {
+                                        return `Win Rate: ${value.toFixed(1)}%`;
+                                    } else if (metric.value === 'trades') {
+                                        return `Trades: ${value}`;
+                                    } else {
+                                        return `Days: ${value}`;
+                                    }
+                                }
                             }
                         }
                     }
                 }
-            },
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'top'
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            const value = context.parsed.y;
-                            if (metric.value === 'pnl') {
-                                const profitLoss = value >= 0 ? 'Profit' : 'Loss';
-                                const symbol = value >= 0 ? '✅' : '❌';
-                                return `${symbol} ${profitLoss}: $${Math.abs(value).toFixed(2)}`;
-                            } else if (metric.value === 'winRate') {
-                                return `Win Rate: ${value.toFixed(1)}%`;
-                            } else if (metric.value === 'trades') {
-                                return `Trades: ${value}`;
-                            } else {
-                                return `Days: ${value}`;
-                            }
-                        }
-                    }
-                }
+            });
+            
+            updateAnalyticsSummary();
+        }
+
+        function getMetricLabel(metric) {
+            switch(metric) {
+                case 'pnl': return 'Profit & Loss';
+                case 'trades': return 'Number of Trades';
+                case 'winRate': return 'Win Rate (%)';
+                case 'days': return 'Trading Days';
+                default: return 'Data';
             }
         }
-    });
-    
-    updateAnalyticsSummary();
-}
 
-function getMetricLabel(metric) {
-    switch(metric) {
-        case 'pnl': return 'Profit & Loss';
-        case 'trades': return 'Number of Trades';
-        case 'winRate': return 'Win Rate (%)';
-        case 'days': return 'Trading Days';
-        default: return 'Data';
-    }
-}
+        function calculateAnalyticsData(period, metric) {
+            const now = new Date();
+            const labels = [];
+            const values = [];
+            
+            let periodsCount = 0;
+            
+            switch(period) {
+                case 'weekly':
+                    periodsCount = 8;
+                    break;
+                case 'monthly':
+                    periodsCount = 12;
+                    break;
+                case 'quarterly':
+                    periodsCount = 4;
+                    break;
+                case 'yearly':
+                    periodsCount = 5;
+                    break;
+                case 'daily':
+            // عدد أيام الشهر الحالي
+            const now = new Date();
+            periodsCount = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+            break;
+            }
+            
+            for (let i = 0; i < periodsCount; i++) {
+                const periodData = getPeriodData(period, i, metric);
+                labels.push(periodData.label);
+                values.push(periodData.value);
+            }
+            
+            return { labels, values };
+        }
 
-function calculateAnalyticsData(period, metric) {
-    const now = new Date();
-    const labels = [];
-    const values = [];
-    
-    let periodsCount = 0;
-    
-    switch(period) {
-        case 'weekly':
-            periodsCount = 8;
-            break;
-        case 'monthly':
-            periodsCount = 12;
-            break;
-        case 'quarterly':
-            periodsCount = 4;
-            break;
-        case 'yearly':
-            periodsCount = 5;
-            break;
-        case 'daily':
-    // عدد أيام الشهر الحالي
-    const now = new Date();
-    periodsCount = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-    break;
-    }
-    
-    for (let i = 0; i < periodsCount; i++) {
-        const periodData = getPeriodData(period, i, metric);
-        labels.push(periodData.label);
-        values.push(periodData.value);
-    }
-    
-    return { labels, values };
-}
-
-function getPeriodData(period, offset, metric) {
-    const now = new Date();
-    let startDate, endDate, label;
-    
-    switch(period) {
-        case 'weekly':
-            startDate = new Date(now);
-            startDate.setDate(now.getDate() - offset * 7);
-            startDate.setDate(startDate.getDate() - startDate.getDay());
-            endDate = new Date(startDate);
-            endDate.setDate(startDate.getDate() + 6);
+        function getPeriodData(period, offset, metric) {
+            const now = new Date();
+            let startDate, endDate, label;
+            
+            switch(period) {
+                case 'weekly':
+                    startDate = new Date(now);
+                    startDate.setDate(now.getDate() - offset * 7);
+                    startDate.setDate(startDate.getDate() - startDate.getDay());
+                    endDate = new Date(startDate);
+                    endDate.setDate(startDate.getDate() + 6);
+                    label = startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                    break;
+                case 'monthly':
+                    startDate = new Date(now.getFullYear(), now.getMonth() - offset, 1);
+                    endDate = new Date(now.getFullYear(), now.getMonth() - offset + 1, 0);
+                    label = startDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                    break;
+                case 'quarterly':
+                    const quarterStartMonth = Math.floor((now.getMonth() - offset * 3) / 3) * 3;
+                    startDate = new Date(now.getFullYear(), quarterStartMonth, 1);
+                    endDate = new Date(now.getFullYear(), quarterStartMonth + 3, 0);
+                    const quarter = Math.floor(quarterStartMonth / 3) + 1;
+                    label = `Q${quarter} ${startDate.getFullYear()}`;
+                    break;
+                case 'yearly':
+                    startDate = new Date(now.getFullYear() - offset, 0, 1);
+                    endDate = new Date(now.getFullYear() - offset, 11, 31);
+                    label = startDate.getFullYear().toString();
+                    break;
+                case 'daily':
+            // عرض أيام الشهر الحالي فقط
+            const currentMonth = now.getMonth();
+            const currentYear = now.getFullYear();
+            const daysInCurrentMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            
+            // تأكد أننا لا نتجاوز أيام الشهر
+            if (offset >= daysInCurrentMonth) {
+                return { label: '', value: 0 };
+            }
+            
+            startDate = new Date(currentYear, currentMonth, offset + 1);
+            endDate = new Date(currentYear, currentMonth, offset + 1);
             label = startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
             break;
-        case 'monthly':
-            startDate = new Date(now.getFullYear(), now.getMonth() - offset, 1);
-            endDate = new Date(now.getFullYear(), now.getMonth() - offset + 1, 0);
-            label = startDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-            break;
-        case 'quarterly':
-            const quarterStartMonth = Math.floor((now.getMonth() - offset * 3) / 3) * 3;
-            startDate = new Date(now.getFullYear(), quarterStartMonth, 1);
-            endDate = new Date(now.getFullYear(), quarterStartMonth + 3, 0);
-            const quarter = Math.floor(quarterStartMonth / 3) + 1;
-            label = `Q${quarter} ${startDate.getFullYear()}`;
-            break;
-        case 'yearly':
-            startDate = new Date(now.getFullYear() - offset, 0, 1);
-            endDate = new Date(now.getFullYear() - offset, 11, 31);
-            label = startDate.getFullYear().toString();
-            break;
-        case 'daily':
-    // عرض أيام الشهر الحالي فقط
-    const currentMonth = now.getMonth();
-    const currentYear = now.getFullYear();
-    const daysInCurrentMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    
-    // تأكد أننا لا نتجاوز أيام الشهر
-    if (offset >= daysInCurrentMonth) {
-        return { label: '', value: 0 };
-    }
-    
-    startDate = new Date(currentYear, currentMonth, offset + 1);
-    endDate = new Date(currentYear, currentMonth, offset + 1);
-    label = startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    break;
-    }
-    
-    let value = 0;
-    let totalTrades = 0;
-    let winningTrades = 0;
-    let tradingDays = 0;
-    
-    const filteredTrades = trades.filter(trade => {
-        const tradeDate = new Date(trade.date + 'T00:00:00');
-        return tradeDate >= startDate && tradeDate <= endDate;
-    });
-    
-    switch(metric) {
-        case 'pnl':
-            filteredTrades.forEach(trade => {
-                const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-                value += pnl;
-            });
-            break;
-        case 'trades':
-            value = filteredTrades.length;
-            break;
-        case 'winRate':
-            filteredTrades.forEach(trade => {
-                const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-                if (pnl > 0) winningTrades++;
-            });
-            value = filteredTrades.length > 0 ? (winningTrades / filteredTrades.length) * 100 : 0;
-            break;
-        case 'days':
-            // Calculate trading days
-            const tradingDaysSet = new Set();
-            filteredTrades.forEach(trade => {
-                tradingDaysSet.add(trade.date);
-            });
-            value = tradingDaysSet.size;
-            break;
-    }
-    
-    return { label, value };
-}
-
-function updateAnalyticsSummary() {
-    let totalProfit = 0;
-    let totalLoss = 0;
-    let winningTrades = 0;
-    let totalTrades = trades.length;
-    
-    trades.forEach(trade => {
-        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-        if (pnl > 0) {
-            totalProfit += pnl;
-            winningTrades++;
-        } else {
-            totalLoss += Math.abs(pnl);
-        }
-    });
-    
-    const netPnl = totalProfit - totalLoss;
-    const winRate = totalTrades > 0 ? (winningTrades / totalTrades) * 100 : 0;
-    
-    const totalProfitElement = document.getElementById('totalProfit');
-    const totalLossElement = document.getElementById('totalLoss');
-    const netPnlElement = document.getElementById('netPnl');
-    const winRateElement = document.getElementById('winRate');
-    
-    if (totalProfitElement) totalProfitElement.textContent = '$' + totalProfit.toFixed(2);
-    if (totalLossElement) totalLossElement.textContent = '$' + totalLoss.toFixed(2);
-    if (netPnlElement) {
-        netPnlElement.textContent = '$' + netPnl.toFixed(2);
-        netPnlElement.className = netPnl >= 0 ? 'profit' : 'loss';
-    }
-    if (winRateElement) winRateElement.textContent = winRate.toFixed(1) + '%';
-}
-
-// ========== Time Analysis Functions ==========
-function calculateTradeDuration(entryDateTime, exitDateTime) {
-    if (!entryDateTime || !exitDateTime) return 30;
-    try {
-        const entry = new Date(entryDateTime);
-        const exit = new Date(exitDateTime);
-        return Math.round((exit - entry) / (1000 * 60)); // Duration in minutes
-    } catch (error) {
-        return 30;
-    }
-}
-
-// NEW FUNCTION: Calculate trading session automatically based on entry time
-function calculateTradingSession(entryDateTime) {
-    if (!entryDateTime) return 'INTRADAY';
-    
-    try {
-        const entry = new Date(entryDateTime);
-        const hour = entry.getHours();
-        const minutes = entry.getMinutes();
-        const totalMinutes = hour * 60 + minutes;
-        
-        // PRE-MARKET: 11:00 PM - 4:30 PM (23:00 - 16:30)
-        // Note: 11PM to 4:30PM spans overnight, so we need to handle this carefully
-        if ((hour >= 23 && hour <= 23) || (hour >= 0 && hour < 16) || (hour === 16 && minutes <= 30)) {
-            return 'PRE_MARKET';
-        }
-        // INTRADAY: 4:30 PM - 11:00 PM (16:30 - 23:00)
-        else if ((hour === 16 && minutes > 30) || (hour > 16 && hour < 23) || (hour === 23 && minutes === 0)) {
-            return 'INTRADAY';
-        }
-        // AFTER-HOUR: 11:00 PM to 3:00 AM (23:00 - 03:00)
-        else {
-            return 'AFTER_HOUR';
-        }
-    } catch (error) {
-        return 'INTRADAY';
-    }
-}
-
-function determineTimeCategory(entryDateTime) {
-    if (!entryDateTime) return 'INTRADAY';
-    try {
-        const entry = new Date(entryDateTime);
-        const hour = entry.getHours();
-        
-        if (hour >= 6 && hour < 12) return 'MORNING';
-        if (hour >= 12 && hour < 18) return 'AFTERNOON';
-        return 'EVENING';
-    } catch (error) {
-        return 'INTRADAY';
-    }
-}
-
-function analyzeWinningTrades() {
-    const winningTrades = trades.filter(trade => {
-        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-        return pnl > 0;
-    });
-    
-    const losingTrades = trades.filter(trade => {
-        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-        return pnl < 0;
-    });
-    
-    return { winningTrades, losingTrades };
-}
-
-function analyzeSessionPerformance() {
-    const sessions = {
-        'PRE_MARKET': { trades: [], totalPnl: 0, winCount: 0 },
-        'INTRADAY': { trades: [], totalPnl: 0, winCount: 0 },
-        'AFTER_HOUR': { trades: [], totalPnl: 0, winCount: 0 }
-    };
-    
-    trades.forEach(trade => {
-        // Use the automatically calculated session if available, otherwise calculate it
-        const session = trade.tradingSession || calculateTradingSession(trade.entryDateTime);
-        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-        
-        if (sessions[session]) {
-            sessions[session].trades.push(trade);
-            sessions[session].totalPnl += pnl;
-            if (pnl > 0) sessions[session].winCount++;
-        }
-    });
-    
-    return sessions;
-}
-
-function analyzeTimePerformance() {
-    const timeCategories = {
-        'MORNING': { trades: [], totalPnl: 0, winCount: 0 },
-        'AFTERNOON': { trades: [], totalPnl: 0, winCount: 0 },
-        'EVENING': { trades: [], totalPnl: 0, winCount: 0 }
-    };
-    
-    trades.forEach(trade => {
-        if (trade.entryDateTime) {
-            const timeCategory = determineTimeCategory(trade.entryDateTime);
-            const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-            if (timeCategories[timeCategory]) {
-                timeCategories[timeCategory].trades.push(trade);
-                timeCategories[timeCategory].totalPnl += pnl;
-                if (pnl > 0) timeCategories[timeCategory].winCount++;
             }
-        }
-    });
-    
-    return timeCategories;
-}
-
-function updateTimeAnalysis() {
-    try {
-        const { winningTrades, losingTrades } = analyzeWinningTrades();
-        const sessions = analyzeSessionPerformance();
-        const timeCategories = analyzeTimePerformance();
-        
-        // Update winning trades statistics
-        document.getElementById('winningTradesCount').textContent = winningTrades.length;
-        document.getElementById('winningTradesPnl').textContent = '$' + winningTrades.reduce((sum, trade) => 
-            sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0).toFixed(2);
-        document.getElementById('avgWinPnl').textContent = '$' + (winningTrades.length ? 
-            (winningTrades.reduce((sum, trade) => sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0) / winningTrades.length).toFixed(2) : '0.00');
-        document.getElementById('maxWinPnl').textContent = '$' + (winningTrades.length ? 
-            Math.max(...winningTrades.map(trade => calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0))).toFixed(2) : '0.00');
-        
-        // Update losing trades statistics
-        document.getElementById('losingTradesCount').textContent = losingTrades.length;
-        document.getElementById('losingTradesPnl').textContent = '$' + losingTrades.reduce((sum, trade) => 
-            sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0).toFixed(2);
-        document.getElementById('avgLossPnl').textContent = '$' + (losingTrades.length ? 
-            (losingTrades.reduce((sum, trade) => sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0) / losingTrades.length).toFixed(2) : '0.00');
-        document.getElementById('maxLossPnl').textContent = '$' + (losingTrades.length ? 
-            Math.min(...losingTrades.map(trade => calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0))).toFixed(2) : '0.00');
-        
-        // Update session statistics
-        Object.keys(sessions).forEach(session => {
-            const sessionData = sessions[session];
-            const elementId = session.toLowerCase().replace('_', '');
-            const element = document.getElementById(elementId + 'Trades');
-            if (element) {
-                element.textContent = sessionData.trades.length;
-                document.getElementById(elementId + 'Pnl').textContent = '$' + sessionData.totalPnl.toFixed(2);
-                document.getElementById(elementId + 'WinRate').textContent = sessionData.trades.length ? 
-                    ((sessionData.winCount / sessionData.trades.length) * 100).toFixed(1) + '%' : '0%';
-                document.getElementById(elementId + 'AvgTime').textContent = sessionData.trades.length ? 
-                    (sessionData.trades.reduce((sum, trade) => sum + (trade.tradeDuration || 0), 0) / sessionData.trades.length).toFixed(0) + 'm' : '0m';
-            }
-        });
-        
-        // Update time statistics
-        Object.keys(timeCategories).forEach(timeCat => {
-            const timeData = timeCategories[timeCat];
-            const element = document.getElementById(timeCat.toLowerCase() + 'Trades');
-            if (element) {
-                element.textContent = timeData.trades.length;
-                document.getElementById(timeCat.toLowerCase() + 'Pnl').textContent = '$' + timeData.totalPnl.toFixed(2);
-                document.getElementById(timeCat.toLowerCase() + 'WinRate').textContent = timeData.trades.length ? 
-                    ((timeData.winCount / timeData.trades.length) * 100).toFixed(1) + '%' : '0%';
-            }
-        });
-    } catch (error) {
-        console.error('Error in updateTimeAnalysis:', error);
-    }
-}
-
-window.switchAnalysisTab = function(tabName) {
-    document.querySelectorAll('.analysis-content').forEach(content => {
-        content.classList.remove('active');
-    });
-    
-    document.querySelectorAll('.analysis-tab').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    
-    document.getElementById(tabName).classList.add('active');
-    
-    // Activate the selected tab
-    event.target.classList.add('active');
-};
-
-// ========== Export/Import Functions ==========
-window.toggleDateRange = () => {
-    try {
-        const period = document.getElementById('exportPeriod');
-        const dateRangeSection = document.getElementById('dateRangeSection');
-        
-        if (period && dateRangeSection) {
-            if (period.value === 'custom') {
-                dateRangeSection.style.display = 'grid';
-            } else {
-                dateRangeSection.style.display = 'none';
-            }
-        }
-    } catch (error) {
-        console.error('Error in toggleDateRange:', error);
-    }
-};
-
-window.exportToExcel = function() {
-    try {
-        const period = document.getElementById('exportPeriod');
-        const includeTrades = document.getElementById('includeTrades');
-        const includeAnalytics = document.getElementById('includeAnalytics');
-        const includePlan = document.getElementById('includePlan');
-        
-        if (!period || !includeTrades || !includeAnalytics || !includePlan) return;
-        
-        let startDate, endDate;
-        
-        if (period.value === 'custom') {
-            const startDateInput = document.getElementById('startDate');
-            const endDateInput = document.getElementById('endDate');
-            if (!startDateInput || !endDateInput) return;
-            startDate = new Date(startDateInput.value);
-            endDate = new Date(endDateInput.value);
-        } else if (period.value === 'monthly') {
-            const now = new Date();
-            startDate = new Date(now.getFullYear(), now.getMonth(), 1);
-            endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-        } else if (period.value === 'yearly') {
-            const now = new Date();
-            startDate = new Date(now.getFullYear(), 0, 1);
-            endDate = new Date(now.getFullYear(), 11, 31);
-        } else {
-            startDate = new Date(0);
-            endDate = new Date();
-        }
-        
-        startDate.setHours(0, 0, 0, 0);
-        endDate.setHours(23, 59, 59, 999);
-        
-        const workbook = XLSX.utils.book_new();
-        
-        if (includeTrades.checked) {
+            
+            let value = 0;
+            let totalTrades = 0;
+            let winningTrades = 0;
+            let tradingDays = 0;
+            
             const filteredTrades = trades.filter(trade => {
                 const tradeDate = new Date(trade.date + 'T00:00:00');
                 return tradeDate >= startDate && tradeDate <= endDate;
             });
             
-            const tradesData = filteredTrades.map(trade => {
+            switch(metric) {
+                case 'pnl':
+                    filteredTrades.forEach(trade => {
+                        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                        value += pnl;
+                    });
+                    break;
+                case 'trades':
+                    value = filteredTrades.length;
+                    break;
+                case 'winRate':
+                    filteredTrades.forEach(trade => {
+                        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                        if (pnl > 0) winningTrades++;
+                    });
+                    value = filteredTrades.length > 0 ? (winningTrades / filteredTrades.length) * 100 : 0;
+                    break;
+                case 'days':
+                    // Calculate trading days
+                    const tradingDaysSet = new Set();
+                    filteredTrades.forEach(trade => {
+                        tradingDaysSet.add(trade.date);
+                    });
+                    value = tradingDaysSet.size;
+                    break;
+            }
+            
+            return { label, value };
+        }
+
+        function updateAnalyticsSummary() {
+            let totalProfit = 0;
+            let totalLoss = 0;
+            let winningTrades = 0;
+            let totalTrades = trades.length;
+            
+            trades.forEach(trade => {
                 const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
-                return {
-                    'Date': trade.date,
-                    'Symbol': trade.symbol,
-                    'Entry Price': trade.entryPrice,
-                    'Exit Price': trade.exitPrice,
-                    'Shares': trade.shares,
-                    'Commission': trade.commission || 0,
-                    'Direct PnL': trade.directPnL || 'N/A',
-                    'Calculated PnL': pnl,
-                    'Entry Time': trade.entryDateTime || 'N/A',
-                    'Exit Time': trade.exitDateTime || 'N/A',
-                    'Trading Session': trade.tradingSession || 'N/A',
-                    'Trade Duration (min)': trade.tradeDuration || 'N/A',
-                    'Time Category': trade.timeCategory || 'N/A',
-                    'Notes': trade.notes || ''
-                };
+                if (pnl > 0) {
+                    totalProfit += pnl;
+                    winningTrades++;
+                } else {
+                    totalLoss += Math.abs(pnl);
+                }
             });
             
-            if (tradesData.length > 0) {
-                const tradesSheet = XLSX.utils.json_to_sheet(tradesData);
-                XLSX.utils.book_append_sheet(workbook, tradesSheet, 'Trades');
+            const netPnl = totalProfit - totalLoss;
+            const winRate = totalTrades > 0 ? (winningTrades / totalTrades) * 100 : 0;
+            
+            const totalProfitElement = document.getElementById('totalProfit');
+            const totalLossElement = document.getElementById('totalLoss');
+            const netPnlElement = document.getElementById('netPnl');
+            const winRateElement = document.getElementById('winRate');
+            
+            if (totalProfitElement) totalProfitElement.textContent = '$' + totalProfit.toFixed(2);
+            if (totalLossElement) totalLossElement.textContent = '$' + totalLoss.toFixed(2);
+            if (netPnlElement) {
+                netPnlElement.textContent = '$' + netPnl.toFixed(2);
+                netPnlElement.className = netPnl >= 0 ? 'profit' : 'loss';
             }
+            if (winRateElement) winRateElement.textContent = winRate.toFixed(1) + '%';
+        }
 
-            // Add No Trading Days for export
-            const noTradingDaysData = noTradingDays.map(date => ({
-                'Date': date,
-                'Type': 'No Trading Day',
-                'Notes': 'Marked as no trading activity'
-            }));
-            
-            if (noTradingDaysData.length > 0) {
-                const noTradingSheet = XLSX.utils.json_to_sheet(noTradingDaysData);
-                XLSX.utils.book_append_sheet(workbook, noTradingSheet, 'NoTradingDays');
+        // ========== Time Analysis Functions ==========
+        function calculateTradeDuration(entryDateTime, exitDateTime) {
+            if (!entryDateTime || !exitDateTime) return 30;
+            try {
+                const entry = new Date(entryDateTime);
+                const exit = new Date(exitDateTime);
+                return Math.round((exit - entry) / (1000 * 60)); // Duration in minutes
+            } catch (error) {
+                return 30;
             }
         }
-        
-        if (includeAnalytics.checked) {
-            const analyticsData = [{
-                'Total Profit': document.getElementById('totalProfit') ? document.getElementById('totalProfit').textContent : '$0.00',
-                'Total Loss': document.getElementById('totalLoss') ? document.getElementById('totalLoss').textContent : '$0.00',
-                'Net P&L': document.getElementById('netPnl') ? document.getElementById('netPnl').textContent : '$0.00',
-                'Win Rate': document.getElementById('winRate') ? document.getElementById('winRate').textContent : '0%',
-                'Trading Days': document.getElementById('tradingDays') ? document.getElementById('tradingDays').textContent : '0',
-                'Weekend Days': document.getElementById('holidayDays') ? document.getElementById('holidayDays').textContent : '0',
-                'Remaining Days': document.getElementById('remainingDays') ? document.getElementById('remainingDays').textContent : '0',
-                'Total Month Days': document.getElementById('totalMonthDays') ? document.getElementById('totalMonthDays').textContent : '0'
-            }];
-            
-            const analyticsSheet = XLSX.utils.json_to_sheet(analyticsData);
-            XLSX.utils.book_append_sheet(workbook, analyticsSheet, 'Analytics');
-        }
-        
-        if (includePlan.checked) {
-            const planData = [{
-                'Starting Capital': '$' + tradingPlan.capital.toFixed(2),
-                'Weekly Target': tradingPlan.weeklyTarget + '%',
-                'Monthly Target': tradingPlan.monthlyTarget + '%',
-                'Yearly Target': tradingPlan.yearlyTarget + '%'
-            }];
-            
-            const planSheet = XLSX.utils.json_to_sheet(planData);
-            XLSX.utils.book_append_sheet(workbook, planSheet, 'Trading Plan');
-        }
-        
-        const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
-        const filename = `Trading_Journal_${timestamp}.xlsx`;
-        
-        XLSX.writeFile(workbook, filename);
-        
-        alert('Data exported successfully!');
-        closeModal('exportModal');
-    } catch (error) {
-        console.error('Error exporting data:', error);
-        alert('Error exporting data. Please try again.');
-    }
-};
 
-window.openImportModal = function() {
-    document.getElementById('importModal').style.display = 'flex';
-};
-
-// ========== Import Excel Function ==========
-window.importFromExcel = function() {
-    const fileInput = document.getElementById('importFile');
-    const importTrades = document.getElementById('importTrades');
-    const importPlan = document.getElementById('importPlan');
-    const importNoTradingDays = document.getElementById('importNoTradingDays');
-    const importStrategy = document.getElementById('importStrategy');
-    
-    if (!fileInput || !fileInput.files[0]) {
-        alert('Please select a file to import');
-        return;
-    }
-    
-    const file = fileInput.files[0];
-    const reader = new FileReader();
-    
-    reader.onload = function(e) {
-        try {
-            const data = new Uint8Array(e.target.result);
-            const workbook = XLSX.read(data, { type: 'array' });
+        // ========== UPDATED: Calculate trading session - FIXED VERSION ==========
+        function calculateTradingSession(entryDateTime) {
+            if (!entryDateTime) return 'INTRADAY';
             
-            let importedCount = 0;
-            
-            // Import trades
-            if (importTrades.checked && workbook.SheetNames.includes('Trades')) {
-                const tradesSheet = workbook.Sheets['Trades'];
-                const tradesData = XLSX.utils.sheet_to_json(tradesSheet);
+            try {
+                const entry = new Date(entryDateTime);
+                const hour = entry.getHours();
+                const minutes = entry.getMinutes();
+                const totalMinutes = hour * 60 + minutes;
                 
-                if (importStrategy.value === 'replace') {
-                    trades.length = 0;
+                // PRE-MARKET: 4:00 AM - 9:30 AM (04:00 - 09:30)
+                if (totalMinutes >= (4 * 60) && totalMinutes < (9 * 60 + 30)) {
+                    return 'PRE_MARKET';
                 }
-                
-                tradesData.forEach(item => {
-                    const newTrade = {
-                        id: String(Date.now() + Math.random() + importedCount),
-                        date: item.Date || new Date().toISOString().split('T')[0],
-                        symbol: item.Symbol || 'DIRECT_PNL',
-                        entryPrice: parseFloat(item['Entry Price']) || 0,
-                        exitPrice: parseFloat(item['Exit Price']) || 0,
-                        shares: parseInt(item.Shares) || 0,
-                        commission: parseFloat(item.Commission) || 0,
-                        directPnL: item['Direct PnL'] !== 'N/A' ? parseFloat(item['Direct PnL']) : undefined,
-                        notes: item.Notes || '',
-                        entryDateTime: item['Entry Time'] !== 'N/A' ? item['Entry Time'] : null,
-                        exitDateTime: item['Exit Time'] !== 'N/A' ? item['Exit Time'] : null,
-                        tradingSession: item['Trading Session'] !== 'N/A' ? item['Trading Session'] : 'INTRADAY',
-                        tradeDuration: item['Trade Duration (min)'] !== 'N/A' ? parseInt(item['Trade Duration (min)']) : 30,
-                        timeCategory: item['Time Category'] !== 'N/A' ? item['Time Category'] : null
-                    };
-                    
-                    if (importStrategy.value === 'merge') {
-                        const existingIndex = trades.findIndex(t => 
-                            t.date === newTrade.date && 
-                            t.symbol === newTrade.symbol && 
-                            t.entryPrice === newTrade.entryPrice
-                        );
-                        
-                        if (existingIndex === -1) {
-                            trades.push(newTrade);
-                            importedCount++;
-                        }
-                    } else {
-                        trades.push(newTrade);
-                        importedCount++;
-                    }
-                });
-            }
-            
-            // Import plan
-            if (importPlan.checked && workbook.SheetNames.includes('Trading Plan')) {
-                const planSheet = workbook.Sheets['Trading Plan'];
-                const planData = XLSX.utils.sheet_to_json(planSheet);
-                
-                if (planData.length > 0) {
-                    const plan = planData[0];
-                    if (plan['Starting Capital']) {
-                        tradingPlan.capital = parseFloat(plan['Starting Capital'].replace('$', '')) || tradingPlan.capital;
-                    }
-                    if (plan['Weekly Target']) {
-                        tradingPlan.weeklyTarget = parseFloat(plan['Weekly Target'].replace('%', '')) || tradingPlan.weeklyTarget;
-                    }
-                    if (plan['Monthly Target']) {
-                        tradingPlan.monthlyTarget = parseFloat(plan['Monthly Target'].replace('%', '')) || tradingPlan.monthlyTarget;
-                    }
-                    if (plan['Yearly Target']) {
-                        tradingPlan.yearlyTarget = parseFloat(plan['Yearly Target'].replace('%', '')) || tradingPlan.yearlyTarget;
-                    }
-                    importedCount++;
+                // INTRADAY: 9:30 AM - 4:00 PM (09:30 - 16:00)
+                else if (totalMinutes >= (9 * 60 + 30) && totalMinutes < (16 * 60)) {
+                    return 'INTRADAY';
                 }
-            }
-            
-            // Import no trading days
-            if (importNoTradingDays.checked && workbook.SheetNames.includes('NoTradingDays')) {
-                const noTradingSheet = workbook.Sheets['NoTradingDays'];
-                const noTradingData = XLSX.utils.sheet_to_json(noTradingSheet);
-                
-                if (importStrategy.value === 'replace') {
-                    noTradingDays.length = 0;
+                // AFTER-HOUR: 4:00 PM - 8:00 PM (16:00 - 20:00)
+                else if (totalMinutes >= (16 * 60) && totalMinutes < (20 * 60)) {
+                    return 'AFTER_HOUR';
                 }
-                
-                noTradingData.forEach(item => {
-                    if (item.Date && !noTradingDays.includes(item.Date)) {
-                        noTradingDays.push(item.Date);
-                        importedCount++;
-                    }
-                });
-            }
-            
-            // Save all imported data
-            saveTrades();
-            saveTradingPlan();
-            saveNoTradingDays();
-            
-            // Update UI
-            renderCalendar();
-            renderPlanSummary();
-            updateAnalyticsChart();
-            updateDaysStatistics();
-            
-            alert(`Successfully imported ${importedCount} items`);
-            closeModal('importModal');
-            
-        } catch (error) {
-            console.error('Error importing data:', error);
-            alert('Error importing data: ' + error.message);
-        }
-    };
-    
-    reader.onerror = function() {
-        alert('Error reading file');
-    };
-    
-    reader.readAsArrayBuffer(file);
-};
-
-// ========== NEW FUNCTION: View Trade Image ==========
-// استبدل الدالة الحالية بهذا الكود:
-function viewTradeImage(imageSrc) {
-    const imageModal = document.createElement('div');
-    imageModal.className = 'modal';
-    imageModal.id = 'imageModal';
-    imageModal.innerHTML = `
-        <div class="modal-content" style="max-width: 90%; max-height: 90%; text-align: center; position: relative;">
-            <span class="close-btn" onclick="closeImageModal()" style="position: absolute; top: 10px; right: 10px; z-index: 1001; cursor: pointer;">&times;</span>
-            <h3 style="margin-bottom: 15px;">Trade Image</h3>
-            <img src="${imageSrc}" alt="Trade Image" style="max-width: 100%; max-height: 70vh; border-radius: 8px;">
-            <div style="margin-top: 15px;">
-                <button onclick="closeImageModal()" style="padding: 8px 15px; background-color: var(--color-highlight); color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(imageModal);
-    imageModal.style.display = 'flex';
-    
-    // إضافة event listener للإغلاق بالنقر خارج النافذة
-    imageModal.addEventListener('click', function(e) {
-        if (e.target === imageModal) {
-            closeImageModal();
-        }
-    });
-}
-
-// أضف هذه الدالة الجديدة بعد دالة viewTradeImage:
-function closeImageModal() {
-    const imageModal = document.getElementById('imageModal');
-    if (imageModal) {
-        imageModal.remove();
-    }
-}
-
-// ========== Form Event Listeners ==========
-document.addEventListener('DOMContentLoaded', function() {
-    // Load theme
-    loadTheme();
-    
-    // Add event listeners for theme toggles
-    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
-    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
-    
-    if (mobileThemeToggle) {
-        mobileThemeToggle.addEventListener('change', toggleTheme);
-    }
-    
-    if (sidebarThemeToggle) {
-        sidebarThemeToggle.addEventListener('change', toggleTheme);
-    }
-    
-    // Add event listener for image preview
-    const tradeImageInput = document.getElementById('tradeImage');
-    if (tradeImageInput) {
-        tradeImageInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            const preview = document.getElementById('previewImage');
-            const previewContainer = document.getElementById('tradeImagePreview');
-            
-            if (file && preview && previewContainer) {
-                const reader = new FileReader();
-                reader.onloadend = function() {
-                    preview.src = reader.result;
-                    previewContainer.style.display = 'block';
+                // PRE-MARKET (overnight): 8:00 PM - 4:00 AM (20:00 - 04:00)
+                else {
+                    return 'PRE_MARKET';
                 }
-                reader.readAsDataURL(file);
-            } else if (previewContainer) {
-                previewContainer.style.display = 'none';
+            } catch (error) {
+                return 'INTRADAY';
             }
-        });
-    }
-
-    // Add event listeners for No Trading Day buttons
-    const markNoTradingDayBtn = document.getElementById('markNoTradingDay');
-    const unmarkNoTradingDayBtn = document.getElementById('unmarkNoTradingDay');
-    
-    if (markNoTradingDayBtn) {
-        markNoTradingDayBtn.addEventListener('click', window.markAsNoTradingDay);
-    }
-    if (unmarkNoTradingDayBtn) {
-        unmarkNoTradingDayBtn.addEventListener('click', window.unmarkNoTradingDay);
-    }
-
-    // Add event listener for hamburger menu
-    const hamburgerMenu = document.getElementById('hamburgerMenu');
-    if (hamburgerMenu) {
-        hamburgerMenu.addEventListener('click', toggleMobileMenu);
-    }
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const mobileMenu = document.getElementById('mobileMenu');
-        const hamburgerMenu = document.getElementById('hamburgerMenu');
-        
-        if (mobileMenu && hamburgerMenu && 
-            !mobileMenu.contains(event.target) && 
-            !hamburgerMenu.contains(event.target) &&
-            mobileMenu.classList.contains('active')) {
-            closeMobileMenu();
         }
-    });
 
-    // Add form event listeners
-    const tradeForm = document.getElementById('tradeForm');
-    if (tradeForm) {
-        tradeForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        function determineTimeCategory(entryDateTime) {
+            if (!entryDateTime) return 'INTRADAY';
+            try {
+                const entry = new Date(entryDateTime);
+                const hour = entry.getHours();
+                
+                if (hour >= 6 && hour < 12) return 'MORNING';
+                if (hour >= 12 && hour < 18) return 'AFTERNOON';
+                return 'EVENING';
+            } catch (error) {
+                return 'INTRADAY';
+            }
+        }
+
+        function analyzeWinningTrades() {
+            const winningTrades = trades.filter(trade => {
+                const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                return pnl > 0;
+            });
             
-            const tradeId = document.getElementById('modalTradeId')?.value || '';
-            const dateString = document.getElementById('modalDate')?.value || '';
+            const losingTrades = trades.filter(trade => {
+                const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                return pnl < 0;
+            });
             
-            const tradeModeToggle = document.getElementById('tradeModeToggle');
-            if (tradeModeToggle && tradeModeToggle.checked) return;
+            return { winningTrades, losingTrades };
+        }
 
-            // Calculate duration and session automatically
-            const entryDateTime = document.getElementById('entryTime')?.value || '';
-            const exitDateTime = document.getElementById('exitTime')?.value || '';
-            const tradeDuration = calculateTradeDuration(entryDateTime, exitDateTime);
-            const timeCategory = determineTimeCategory(entryDateTime);
-            const tradingSession = calculateTradingSession(entryDateTime); // NEW: Auto-calculate session
-
-            const newTrade = {
-                id: tradeId || String(Date.now() + Math.random()),
-                date: dateString,
-                symbol: document.getElementById('symbol') ? document.getElementById('symbol').value.toUpperCase() : '',
-                entryPrice: document.getElementById('entryPrice') ? parseFloat(document.getElementById('entryPrice').value) : 0,
-                exitPrice: document.getElementById('exitPrice') ? parseFloat(document.getElementById('exitPrice').value) : 0,
-                shares: document.getElementById('shares') ? parseInt(document.getElementById('shares').value) : 0,
-                commission: document.getElementById('commission') ? parseFloat(document.getElementById('commission').value) || 0 : 0,
-                notes: document.getElementById('notes') ? document.getElementById('notes').value : '',
-                directPnL: undefined,
-                entryDateTime: entryDateTime,
-                exitDateTime: exitDateTime,
-                tradingSession: tradingSession, // NEW: Use auto-calculated session
-                tradeDuration: tradeDuration,
-                timeCategory: timeCategory
+        function analyzeSessionPerformance() {
+            const sessions = {
+                'PRE_MARKET': { trades: [], totalPnl: 0, winCount: 0 },
+                'INTRADAY': { trades: [], totalPnl: 0, winCount: 0 },
+                'AFTER_HOUR': { trades: [], totalPnl: 0, winCount: 0 }
             };
-
-            // Handle image upload
-            const tradeImageInput = document.getElementById('tradeImage');
-            if (tradeImageInput && tradeImageInput.files[0]) {
-                const reader = new FileReader();
-                reader.onloadend = function() {
-                    newTrade.tradeImage = reader.result;
-                    saveTradeData(tradeId, newTrade, dateString);
-                }
-                reader.readAsDataURL(tradeImageInput.files[0]);
-            } else {
-                saveTradeData(tradeId, newTrade, dateString);
-            }
-        });
-    }
-    
-    const simplePnLForm = document.getElementById('simplePnLForm');
-    if (simplePnLForm) {
-        simplePnLForm.addEventListener('submit', function(e) {
-            e.preventDefault();
             
-            const dateString = document.getElementById('modalDate')?.value || '';
-            const pnlAmount = document.getElementById('directPnLAmount') ? parseFloat(document.getElementById('directPnLAmount').value) : 0;
-            const tradeId = document.getElementById('modalTradeId')?.value || '';
-            const notes = document.getElementById('simpleNotes') ? document.getElementById('simpleNotes').value : '';
+            trades.forEach(trade => {
+                // Use the automatically calculated session if available, otherwise calculate it
+                const session = trade.tradingSession || calculateTradingSession(trade.entryDateTime);
+                const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                
+                if (sessions[session]) {
+                    sessions[session].trades.push(trade);
+                    sessions[session].totalPnl += pnl;
+                    if (pnl > 0) sessions[session].winCount++;
+                }
+            });
+            
+            return sessions;
+        }
 
-            if (isNaN(pnlAmount)) {
-                alert('Please enter a valid PnL amount');
+        function analyzeTimePerformance() {
+            const timeCategories = {
+                'MORNING': { trades: [], totalPnl: 0, winCount: 0 },
+                'AFTERNOON': { trades: [], totalPnl: 0, winCount: 0 },
+                'EVENING': { trades: [], totalPnl: 0, winCount: 0 }
+            };
+            
+            trades.forEach(trade => {
+                if (trade.entryDateTime) {
+                    const timeCategory = determineTimeCategory(trade.entryDateTime);
+                    const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                    if (timeCategories[timeCategory]) {
+                        timeCategories[timeCategory].trades.push(trade);
+                        timeCategories[timeCategory].totalPnl += pnl;
+                        if (pnl > 0) timeCategories[timeCategory].winCount++;
+                    }
+                }
+            });
+            
+            return timeCategories;
+        }
+
+        function updateTimeAnalysis() {
+            try {
+                const { winningTrades, losingTrades } = analyzeWinningTrades();
+                const sessions = analyzeSessionPerformance();
+                const timeCategories = analyzeTimePerformance();
+                
+                // Update winning trades statistics
+                document.getElementById('winningTradesCount').textContent = winningTrades.length;
+                document.getElementById('winningTradesPnl').textContent = '$' + winningTrades.reduce((sum, trade) => 
+                    sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0).toFixed(2);
+                document.getElementById('avgWinPnl').textContent = '$' + (winningTrades.length ? 
+                    (winningTrades.reduce((sum, trade) => sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0) / winningTrades.length).toFixed(2) : '0.00');
+                document.getElementById('maxWinPnl').textContent = '$' + (winningTrades.length ? 
+                    Math.max(...winningTrades.map(trade => calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0))).toFixed(2) : '0.00');
+                
+                // Update losing trades statistics
+                document.getElementById('losingTradesCount').textContent = losingTrades.length;
+                document.getElementById('losingTradesPnl').textContent = '$' + losingTrades.reduce((sum, trade) => 
+                    sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0).toFixed(2);
+                document.getElementById('avgLossPnl').textContent = '$' + (losingTrades.length ? 
+                    (losingTrades.reduce((sum, trade) => sum + calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0), 0) / losingTrades.length).toFixed(2) : '0.00');
+                document.getElementById('maxLossPnl').textContent = '$' + (losingTrades.length ? 
+                    Math.min(...losingTrades.map(trade => calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0))).toFixed(2) : '0.00');
+                
+                // Update session statistics
+                Object.keys(sessions).forEach(session => {
+                    const sessionData = sessions[session];
+                    const elementId = session.toLowerCase().replace('_', '');
+                    const element = document.getElementById(elementId + 'Trades');
+                    if (element) {
+                        element.textContent = sessionData.trades.length;
+                        document.getElementById(elementId + 'Pnl').textContent = '$' + sessionData.totalPnl.toFixed(2);
+                        document.getElementById(elementId + 'WinRate').textContent = sessionData.trades.length ? 
+                            ((sessionData.winCount / sessionData.trades.length) * 100).toFixed(1) + '%' : '0%';
+                        document.getElementById(elementId + 'AvgTime').textContent = sessionData.trades.length ? 
+                            (sessionData.trades.reduce((sum, trade) => sum + (trade.tradeDuration || 0), 0) / sessionData.trades.length).toFixed(0) + 'm' : '0m';
+                    }
+                });
+                
+                // Update time statistics
+                Object.keys(timeCategories).forEach(timeCat => {
+                    const timeData = timeCategories[timeCat];
+                    const element = document.getElementById(timeCat.toLowerCase() + 'Trades');
+                    if (element) {
+                        element.textContent = timeData.trades.length;
+                        document.getElementById(timeCat.toLowerCase() + 'Pnl').textContent = '$' + timeData.totalPnl.toFixed(2);
+                        document.getElementById(timeCat.toLowerCase() + 'WinRate').textContent = timeData.trades.length ? 
+                            ((timeData.winCount / timeData.trades.length) * 100).toFixed(1) + '%' : '0%';
+                    }
+                });
+            } catch (error) {
+                console.error('Error in updateTimeAnalysis:', error);
+            }
+        }
+
+        window.switchAnalysisTab = function(tabName) {
+            document.querySelectorAll('.analysis-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.analysis-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            
+            // Activate the selected tab
+            event.target.classList.add('active');
+        };
+
+        // ========== Export/Import Functions ==========
+        window.toggleDateRange = () => {
+            try {
+                const period = document.getElementById('exportPeriod');
+                const dateRangeSection = document.getElementById('dateRangeSection');
+                
+                if (period && dateRangeSection) {
+                    if (period.value === 'custom') {
+                        dateRangeSection.style.display = 'grid';
+                    } else {
+                        dateRangeSection.style.display = 'none';
+                    }
+                }
+            } catch (error) {
+                console.error('Error in toggleDateRange:', error);
+            }
+        };
+
+        window.exportToExcel = function() {
+            try {
+                const period = document.getElementById('exportPeriod');
+                const includeTrades = document.getElementById('includeTrades');
+                const includeAnalytics = document.getElementById('includeAnalytics');
+                const includePlan = document.getElementById('includePlan');
+                const includeExpenses = document.getElementById('includeExpenses');
+                
+                if (!period || !includeTrades || !includeAnalytics || !includePlan || !includeExpenses) return;
+                
+                let startDate, endDate;
+                
+                if (period.value === 'custom') {
+                    const startDateInput = document.getElementById('startDate');
+                    const endDateInput = document.getElementById('endDate');
+                    if (!startDateInput || !endDateInput) return;
+                    startDate = new Date(startDateInput.value);
+                    endDate = new Date(endDateInput.value);
+                } else if (period.value === 'monthly') {
+                    const now = new Date();
+                    startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+                    endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+                } else if (period.value === 'yearly') {
+                    const now = new Date();
+                    startDate = new Date(now.getFullYear(), 0, 1);
+                    endDate = new Date(now.getFullYear(), 11, 31);
+                } else {
+                    startDate = new Date(0);
+                    endDate = new Date();
+                }
+                
+                startDate.setHours(0, 0, 0, 0);
+                endDate.setHours(23, 59, 59, 999);
+                
+                const workbook = XLSX.utils.book_new();
+                
+                if (includeTrades.checked) {
+                    const filteredTrades = trades.filter(trade => {
+                        const tradeDate = new Date(trade.date + 'T00:00:00');
+                        return tradeDate >= startDate && tradeDate <= endDate;
+                    });
+                    
+                    const tradesData = filteredTrades.map(trade => {
+                        const pnl = calculatePnL(trade.entryPrice, trade.exitPrice, trade.shares, trade.directPnL, trade.commission || 0);
+                        return {
+                            'Date': trade.date,
+                            'Symbol': trade.symbol,
+                            'Entry Price': trade.entryPrice,
+                            'Exit Price': trade.exitPrice,
+                            'Shares': trade.shares,
+                            'Commission': trade.commission || 0,
+                            'Direct PnL': trade.directPnL || 'N/A',
+                            'Calculated PnL': pnl,
+                            'Entry Time': trade.entryDateTime || 'N/A',
+                            'Exit Time': trade.exitDateTime || 'N/A',
+                            'Trading Session': trade.tradingSession || 'N/A',
+                            'Trade Duration (min)': trade.tradeDuration || 'N/A',
+                            'Time Category': trade.timeCategory || 'N/A',
+                            'Notes': trade.notes || ''
+                        };
+                    });
+                    
+                    if (tradesData.length > 0) {
+                        const tradesSheet = XLSX.utils.json_to_sheet(tradesData);
+                        XLSX.utils.book_append_sheet(workbook, tradesSheet, 'Trades');
+                    }
+
+                    // Add No Trading Days for export
+                    const noTradingDaysData = noTradingDays.map(date => ({
+                        'Date': date,
+                        'Type': 'No Trading Day',
+                        'Notes': 'Marked as no trading activity'
+                    }));
+                    
+                    if (noTradingDaysData.length > 0) {
+                        const noTradingSheet = XLSX.utils.json_to_sheet(noTradingDaysData);
+                        XLSX.utils.book_append_sheet(workbook, noTradingSheet, 'NoTradingDays');
+                    }
+                }
+                
+                if (includeExpenses.checked) {
+                    const filteredExpenses = expenses.filter(expense => {
+                        if (!expense.date) return true;
+                        const expenseDate = new Date(expense.date);
+                        return expenseDate >= startDate && expenseDate <= endDate;
+                    });
+                    
+                    const expensesData = filteredExpenses.map(expense => {
+                        const categoryNames = {
+                            'subscriptions': 'Subscriptions',
+                            'education': 'Education',
+                            'equipment': 'Equipment',
+                            'software': 'Software',
+                            'operational': 'Operational',
+                            'long_term': 'Long-term Investments',
+                            'other': 'Other'
+                        };
+                        
+                        return {
+                            'Date': expense.date || 'No date',
+                            'Category': categoryNames[expense.category],
+                            'Description': expense.description,
+                            'Amount': expense.amount,
+                            'Recurring': expense.recurring,
+                            'Created At': expense.createdAt
+                        };
+                    });
+                    
+                    if (expensesData.length > 0) {
+                        const expensesSheet = XLSX.utils.json_to_sheet(expensesData);
+                        XLSX.utils.book_append_sheet(workbook, expensesSheet, 'Expenses');
+                    }
+                }
+                
+                if (includeAnalytics.checked) {
+                    const analyticsData = [{
+                        'Total Profit': document.getElementById('totalProfit') ? document.getElementById('totalProfit').textContent : '$0.00',
+                        'Total Loss': document.getElementById('totalLoss') ? document.getElementById('totalLoss').textContent : '$0.00',
+                        'Net P&L': document.getElementById('netPnl') ? document.getElementById('netPnl').textContent : '$0.00',
+                        'Win Rate': document.getElementById('winRate') ? document.getElementById('winRate').textContent : '0%',
+                        'Trading Days': document.getElementById('tradingDays') ? document.getElementById('tradingDays').textContent : '0',
+                        'Weekend Days': document.getElementById('holidayDays') ? document.getElementById('holidayDays').textContent : '0',
+                        'Remaining Days': document.getElementById('remainingDays') ? document.getElementById('remainingDays').textContent : '0',
+                        'Total Month Days': document.getElementById('totalMonthDays') ? document.getElementById('totalMonthDays').textContent : '0'
+                    }];
+                    
+                    const analyticsSheet = XLSX.utils.json_to_sheet(analyticsData);
+                    XLSX.utils.book_append_sheet(workbook, analyticsSheet, 'Analytics');
+                }
+                
+                if (includePlan.checked) {
+                    const planData = [{
+                        'Starting Capital': '$' + tradingPlan.capital.toFixed(2),
+                        'Weekly Target': tradingPlan.weeklyTarget + '%',
+                        'Monthly Target': tradingPlan.monthlyTarget + '%',
+                        'Yearly Target': tradingPlan.yearlyTarget + '%'
+                    }];
+                    
+                    const planSheet = XLSX.utils.json_to_sheet(planData);
+                    XLSX.utils.book_append_sheet(workbook, planSheet, 'Trading Plan');
+                }
+                
+                const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+                const filename = `Trading_Journal_${timestamp}.xlsx`;
+                
+                XLSX.writeFile(workbook, filename);
+                
+                alert('Data exported successfully!');
+                closeModal('exportModal');
+            } catch (error) {
+                console.error('Error exporting data:', error);
+                alert('Error exporting data. Please try again.');
+            }
+        };
+
+        window.openImportModal = function() {
+            document.getElementById('importModal').style.display = 'flex';
+        };
+
+        // ========== Import Excel Function ==========
+        window.importFromExcel = function() {
+            const fileInput = document.getElementById('importFile');
+            const importTrades = document.getElementById('importTrades');
+            const importPlan = document.getElementById('importPlan');
+            const importExpenses = document.getElementById('importExpenses');
+            const importNoTradingDays = document.getElementById('importNoTradingDays');
+            const importStrategy = document.getElementById('importStrategy');
+            
+            if (!fileInput || !fileInput.files[0]) {
+                alert('Please select a file to import');
                 return;
             }
-
-            const newTrade = {
-                id: tradeId || String(Date.now() + Math.random()),
-                date: dateString,
-                symbol: 'DIRECT_PNL',
-                entryPrice: 0,
-                exitPrice: 0,
-                shares: 0,
-                commission: 0,
-                directPnL: pnlAmount,
-                notes: notes
+            
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    
+                    let importedCount = 0;
+                    
+                    // Import trades
+                    if (importTrades.checked && workbook.SheetNames.includes('Trades')) {
+                        const tradesSheet = workbook.Sheets['Trades'];
+                        const tradesData = XLSX.utils.sheet_to_json(tradesSheet);
+                        
+                        if (importStrategy.value === 'replace') {
+                            trades.length = 0;
+                        }
+                        
+                        tradesData.forEach(item => {
+                            const newTrade = {
+                                id: String(Date.now() + Math.random() + importedCount),
+                                date: item.Date || new Date().toISOString().split('T')[0],
+                                symbol: item.Symbol || 'DIRECT_PNL',
+                                entryPrice: parseFloat(item['Entry Price']) || 0,
+                                exitPrice: parseFloat(item['Exit Price']) || 0,
+                                shares: parseInt(item.Shares) || 0,
+                                commission: parseFloat(item.Commission) || 0,
+                                directPnL: item['Direct PnL'] !== 'N/A' ? parseFloat(item['Direct PnL']) : undefined,
+                                notes: item.Notes || '',
+                                entryDateTime: item['Entry Time'] !== 'N/A' ? item['Entry Time'] : null,
+                                exitDateTime: item['Exit Time'] !== 'N/A' ? item['Exit Time'] : null,
+                                tradingSession: item['Trading Session'] !== 'N/A' ? item['Trading Session'] : 'INTRADAY',
+                                tradeDuration: item['Trade Duration (min)'] !== 'N/A' ? parseInt(item['Trade Duration (min)']) : 30,
+                                timeCategory: item['Time Category'] !== 'N/A' ? item['Time Category'] : null
+                            };
+                            
+                            if (importStrategy.value === 'merge') {
+                                const existingIndex = trades.findIndex(t => 
+                                    t.date === newTrade.date && 
+                                    t.symbol === newTrade.symbol && 
+                                    t.entryPrice === newTrade.entryPrice
+                                );
+                                
+                                if (existingIndex === -1) {
+                                    trades.push(newTrade);
+                                    importedCount++;
+                                }
+                            } else {
+                                trades.push(newTrade);
+                                importedCount++;
+                            }
+                        });
+                    }
+                    
+                    // Import expenses
+                    if (importExpenses.checked && workbook.SheetNames.includes('Expenses')) {
+                        const expensesSheet = workbook.Sheets['Expenses'];
+                        const expensesData = XLSX.utils.sheet_to_json(expensesSheet);
+                        
+                        if (importStrategy.value === 'replace') {
+                            expenses.length = 0;
+                        }
+                        
+                        expensesData.forEach(item => {
+                            const categoryMapping = {
+                                'Subscriptions': 'subscriptions',
+                                'Education': 'education',
+                                'Equipment': 'equipment',
+                                'Software': 'software',
+                                'Operational': 'operational',
+                                'Long-term Investments': 'long_term',
+                                'Other': 'other'
+                            };
+                            
+                            const newExpense = {
+                                id: String(Date.now() + Math.random() + importedCount),
+                                amount: parseFloat(item.Amount) || 0,
+                                category: categoryMapping[item.Category] || 'other',
+                                description: item.Description || '',
+                                date: item.Date !== 'No date' ? item.Date : null,
+                                recurring: item.Recurring || 'no',
+                                createdAt: item['Created At'] || new Date().toISOString()
+                            };
+                            
+                            if (importStrategy.value === 'merge') {
+                                const existingIndex = expenses.findIndex(e => 
+                                    e.date === newExpense.date && 
+                                    e.amount === newExpense.amount && 
+                                    e.description === newExpense.description
+                                );
+                                
+                                if (existingIndex === -1) {
+                                    expenses.push(newExpense);
+                                    importedCount++;
+                                }
+                            } else {
+                                expenses.push(newExpense);
+                                importedCount++;
+                            }
+                        });
+                    }
+                    
+                    // Import plan
+                    if (importPlan.checked && workbook.SheetNames.includes('Trading Plan')) {
+                        const planSheet = workbook.Sheets['Trading Plan'];
+                        const planData = XLSX.utils.sheet_to_json(planSheet);
+                        
+                        if (planData.length > 0) {
+                            const plan = planData[0];
+                            if (plan['Starting Capital']) {
+                                tradingPlan.capital = parseFloat(plan['Starting Capital'].replace('$', '')) || tradingPlan.capital;
+                            }
+                            if (plan['Weekly Target']) {
+                                tradingPlan.weeklyTarget = parseFloat(plan['Weekly Target'].replace('%', '')) || tradingPlan.weeklyTarget;
+                            }
+                            if (plan['Monthly Target']) {
+                                tradingPlan.monthlyTarget = parseFloat(plan['Monthly Target'].replace('%', '')) || tradingPlan.monthlyTarget;
+                            }
+                            if (plan['Yearly Target']) {
+                                tradingPlan.yearlyTarget = parseFloat(plan['Yearly Target'].replace('%', '')) || tradingPlan.yearlyTarget;
+                            }
+                            importedCount++;
+                        }
+                    }
+                    
+                    // Import no trading days
+                    if (importNoTradingDays.checked && workbook.SheetNames.includes('NoTradingDays')) {
+                        const noTradingSheet = workbook.Sheets['NoTradingDays'];
+                        const noTradingData = XLSX.utils.sheet_to_json(noTradingSheet);
+                        
+                        if (importStrategy.value === 'replace') {
+                            noTradingDays.length = 0;
+                        }
+                        
+                        noTradingData.forEach(item => {
+                            if (item.Date && !noTradingDays.includes(item.Date)) {
+                                noTradingDays.push(item.Date);
+                                importedCount++;
+                            }
+                        });
+                    }
+                    
+                    // Save all imported data
+                    saveTrades();
+                    saveExpenses();
+                    saveTradingPlan();
+                    saveNoTradingDays();
+                    
+                    // Update UI
+                    renderCalendar();
+                    renderPlanSummary();
+                    updateAnalyticsChart();
+                    updateDaysStatistics();
+                    
+                    alert(`Successfully imported ${importedCount} items`);
+                    closeModal('importModal');
+                    
+                } catch (error) {
+                    console.error('Error importing data:', error);
+                    alert('Error importing data: ' + error.message);
+                }
             };
+            
+            reader.onerror = function() {
+                alert('Error reading file');
+            };
+            
+            reader.readAsArrayBuffer(file);
+        };
 
+        // ========== NEW FUNCTION: View Trade Image ==========
+        function viewTradeImage(imageSrc) {
+            const imageModal = document.createElement('div');
+            imageModal.className = 'modal';
+            imageModal.id = 'imageModal';
+            imageModal.innerHTML = `
+                <div class="modal-content" style="max-width: 90%; max-height: 90%; text-align: center; position: relative;">
+                    <span class="close-btn" onclick="closeImageModal()" style="position: absolute; top: 10px; right: 10px; z-index: 1001; cursor: pointer;">&times;</span>
+                    <h3 style="margin-bottom: 15px;">Trade Image</h3>
+                    <img src="${imageSrc}" alt="Trade Image" style="max-width: 100%; max-height: 70vh; border-radius: 8px;">
+                    <div style="margin-top: 15px;">
+                        <button onclick="closeImageModal()" style="padding: 8px 15px; background-color: var(--color-highlight); color: white; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(imageModal);
+            imageModal.style.display = 'flex';
+            
+            // إضافة event listener للإغلاق بالنقر خارج النافذة
+            imageModal.addEventListener('click', function(e) {
+                if (e.target === imageModal) {
+                    closeImageModal();
+                }
+            });
+        }
+
+        function closeImageModal() {
+            const imageModal = document.getElementById('imageModal');
+            if (imageModal) {
+                imageModal.remove();
+            }
+        }
+
+        // ========== Form Event Listeners ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load theme
+            loadTheme();
+            
+            // Add event listeners for theme toggles
+            const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+            const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+            
+            if (mobileThemeToggle) {
+                mobileThemeToggle.addEventListener('change', toggleTheme);
+            }
+            
+            if (sidebarThemeToggle) {
+                sidebarThemeToggle.addEventListener('change', toggleTheme);
+            }
+            
+            // Add event listener for image preview
+            const tradeImageInput = document.getElementById('tradeImage');
+            if (tradeImageInput) {
+                tradeImageInput.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    const preview = document.getElementById('previewImage');
+                    const previewContainer = document.getElementById('tradeImagePreview');
+                    
+                    if (file && preview && previewContainer) {
+                        const reader = new FileReader();
+                        reader.onloadend = function() {
+                            preview.src = reader.result;
+                            previewContainer.style.display = 'block';
+                        }
+                        reader.readAsDataURL(file);
+                    } else if (previewContainer) {
+                        previewContainer.style.display = 'none';
+                    }
+                });
+            }
+
+            // Add event listeners for No Trading Day buttons
+            const markNoTradingDayBtn = document.getElementById('markNoTradingDay');
+            const unmarkNoTradingDayBtn = document.getElementById('unmarkNoTradingDay');
+            
+            if (markNoTradingDayBtn) {
+                markNoTradingDayBtn.addEventListener('click', window.markAsNoTradingDay);
+            }
+            if (unmarkNoTradingDayBtn) {
+                unmarkNoTradingDayBtn.addEventListener('click', window.unmarkNoTradingDay);
+            }
+
+            // Add event listener for hamburger menu
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', toggleMobileMenu);
+            }
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const hamburgerMenu = document.getElementById('hamburgerMenu');
+                
+                if (mobileMenu && hamburgerMenu && 
+                    !mobileMenu.contains(event.target) && 
+                    !hamburgerMenu.contains(event.target) &&
+                    mobileMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Add form event listeners
+            const tradeForm = document.getElementById('tradeForm');
+            if (tradeForm) {
+                tradeForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const tradeId = document.getElementById('modalTradeId')?.value || '';
+                    const dateString = document.getElementById('modalDate')?.value || '';
+                    
+                    const tradeModeToggle = document.getElementById('tradeModeToggle');
+                    if (tradeModeToggle && tradeModeToggle.checked) return;
+
+                    // Calculate duration and session automatically
+                    const entryDateTime = document.getElementById('entryTime')?.value || '';
+                    const exitDateTime = document.getElementById('exitTime')?.value || '';
+                    const tradeDuration = calculateTradeDuration(entryDateTime, exitDateTime);
+                    const timeCategory = determineTimeCategory(entryDateTime);
+                    const tradingSession = calculateTradingSession(entryDateTime); // NEW: Auto-calculate session
+
+                    const newTrade = {
+                        id: tradeId || String(Date.now() + Math.random()),
+                        date: dateString,
+                        symbol: document.getElementById('symbol') ? document.getElementById('symbol').value.toUpperCase() : '',
+                        entryPrice: document.getElementById('entryPrice') ? parseFloat(document.getElementById('entryPrice').value) : 0,
+                        exitPrice: document.getElementById('exitPrice') ? parseFloat(document.getElementById('exitPrice').value) : 0,
+                        shares: document.getElementById('shares') ? parseInt(document.getElementById('shares').value) : 0,
+                        commission: document.getElementById('commission') ? parseFloat(document.getElementById('commission').value) || 0 : 0,
+                        notes: document.getElementById('notes') ? document.getElementById('notes').value : '',
+                        directPnL: undefined,
+                        entryDateTime: entryDateTime,
+                        exitDateTime: exitDateTime,
+                        tradingSession: tradingSession, // NEW: Use auto-calculated session
+                        tradeDuration: tradeDuration,
+                        timeCategory: timeCategory
+                    };
+
+                    // Handle image upload
+                    const tradeImageInput = document.getElementById('tradeImage');
+                    if (tradeImageInput && tradeImageInput.files[0]) {
+                        const reader = new FileReader();
+                        reader.onloadend = function() {
+                            newTrade.tradeImage = reader.result;
+                            saveTradeData(tradeId, newTrade, dateString);
+                        }
+                        reader.readAsDataURL(tradeImageInput.files[0]);
+                    } else {
+                        saveTradeData(tradeId, newTrade, dateString);
+                    }
+                });
+            }
+            
+            const simplePnLForm = document.getElementById('simplePnLForm');
+            if (simplePnLForm) {
+                simplePnLForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const dateString = document.getElementById('modalDate')?.value || '';
+                    const pnlAmount = document.getElementById('directPnLAmount') ? parseFloat(document.getElementById('directPnLAmount').value) : 0;
+                    const tradeId = document.getElementById('modalTradeId')?.value || '';
+                    const notes = document.getElementById('simpleNotes') ? document.getElementById('simpleNotes').value : '';
+
+                    if (isNaN(pnlAmount)) {
+                        alert('Please enter a valid PnL amount');
+                        return;
+                    }
+
+                    const newTrade = {
+                        id: tradeId || String(Date.now() + Math.random()),
+                        date: dateString,
+                        symbol: 'DIRECT_PNL',
+                        entryPrice: 0,
+                        exitPrice: 0,
+                        shares: 0,
+                        commission: 0,
+                        directPnL: pnlAmount,
+                        notes: notes
+                    };
+
+                    if (tradeId) {
+                        // Update existing trade
+                        const index = trades.findIndex(t => t.id === tradeId);
+                        if (index !== -1) {
+                            trades[index] = newTrade;
+                        }
+                    } else {
+                        // Add new trade
+                        trades.push(newTrade);
+                    }
+                    
+                    saveTrades();
+                    renderCalendar();
+                    renderPlanSummary();
+                    updateTradesList(dateString);
+                    closeModal('tradeModal');
+                });
+            }
+
+            const userInfoForm = document.getElementById('userInfoForm');
+            if (userInfoForm) {
+                userInfoForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const newUserNameInput = document.getElementById('newUserName');
+                    if (newUserNameInput) userInfo.name = newUserNameInput.value;
+                    
+                    const file = document.getElementById('profileImageUpload') ? document.getElementById('profileImageUpload').files[0] : null;
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onloadend = function() {
+                            userInfo.image = reader.result;
+                            saveUserInfo();
+                            loadUserInfo();
+                            closeModal('userInfoModal');
+                        }
+                        reader.readAsDataURL(file);
+                    } else {
+                        saveUserInfo();
+                        loadUserInfo();
+                        closeModal('userInfoModal');
+                    }
+                });
+            }
+
+            const planForm = document.getElementById('planForm');
+            if (planForm) {
+                planForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const startingCapitalInput = document.getElementById('startingCapital');
+                    const weeklyTargetGoalInput = document.getElementById('weeklyTargetGoal');
+                    const monthlyTargetGoalInput = document.getElementById('monthlyTargetGoal');
+                    const yearlyTargetGoalInput = document.getElementById('yearlyTargetGoal');
+                    
+                    if (startingCapitalInput) tradingPlan.capital = parseFloat(startingCapitalInput.value);
+                    if (weeklyTargetGoalInput) tradingPlan.weeklyTarget = parseFloat(weeklyTargetGoalInput.value) || 0;
+                    if (monthlyTargetGoalInput) tradingPlan.monthlyTarget = parseFloat(monthlyTargetGoalInput.value) || 0;
+                    if (yearlyTargetGoalInput) tradingPlan.yearlyTarget = parseFloat(yearlyTargetGoalInput.value) || 0;
+                    
+                    saveTradingPlan();
+                    renderCalendar();
+        // تحديث Plan Summary بعد حفظ التغييرات
+        renderPlanSummary();
+                    closeModal('walletModal');
+	            setTimeout(checkAlerts, 500);
+                });
+            }
+
+            // Load user data
+            loadUserInfo();
+            
+            // Initialize the application
+            renderCalendar();
+            renderPlanSummary();
+            initializeAnalytics();
+            updateDaysStatistics();
+            addJSONOptions();
+            
+            // Check alerts on startup
+            setTimeout(checkAlerts, 2000);
+            
+            // Update notification badge on startup
+            updateNotificationBadge();
+        });
+
+        // ========== NEW FUNCTION: Save Trade Data ==========
+        function saveTradeData(tradeId, newTrade, dateString) {
             if (tradeId) {
                 // Update existing trade
                 const index = trades.findIndex(t => t.id === tradeId);
@@ -4330,304 +5667,243 @@ document.addEventListener('DOMContentLoaded', function() {
             renderPlanSummary();
             updateTradesList(dateString);
             closeModal('tradeModal');
-        });
-    }
+            
+            // Check alerts after saving trade
+            setTimeout(checkAlerts, 500);
+        }
 
-    const userInfoForm = document.getElementById('userInfoForm');
-    if (userInfoForm) {
-        userInfoForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const newUserNameInput = document.getElementById('newUserName');
-            if (newUserNameInput) userInfo.name = newUserNameInput.value;
-            
-            const file = document.getElementById('profileImageUpload') ? document.getElementById('profileImageUpload').files[0] : null;
-            if (file) {
-                const reader = new FileReader();
-                reader.onloadend = function() {
-                    userInfo.image = reader.result;
-                    saveUserInfo();
-                    loadUserInfo();
-                    closeModal('userInfoModal');
+        // ========== Data Loading Functions ==========
+        function loadUserInfo() {
+            try {
+                const userNameDisplay = document.getElementById('userNameDisplay');
+                const newUserNameInput = document.getElementById('newUserName');
+                const profilePicture = document.getElementById('profilePicture');
+                const defaultIcon = document.getElementById('defaultIcon');
+                
+                if (userNameDisplay) userNameDisplay.textContent = userInfo.name;
+                if (newUserNameInput) newUserNameInput.value = userInfo.name;
+
+                if (userInfo.image) {
+                    if (profilePicture) {
+                        profilePicture.src = userInfo.image;
+                        profilePicture.style.display = 'block';
+                    }
+                    if (defaultIcon) defaultIcon.style.display = 'none';
+                } else {
+                    if (profilePicture) {
+                        profilePicture.src = '';
+                        profilePicture.style.display = 'none';
+                    }
+                    if (defaultIcon) defaultIcon.style.display = 'block';
                 }
-                reader.readAsDataURL(file);
-            } else {
-                saveUserInfo();
-                loadUserInfo();
-                closeModal('userInfoModal');
+            } catch (error) {
+                console.error('Error loading user info:', error);
             }
-        });
-    }
+        }
 
-    const planForm = document.getElementById('planForm');
-    if (planForm) {
-        planForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const startingCapitalInput = document.getElementById('startingCapital');
-            const weeklyTargetGoalInput = document.getElementById('weeklyTargetGoal');
-            const monthlyTargetGoalInput = document.getElementById('monthlyTargetGoal');
-            const yearlyTargetGoalInput = document.getElementById('yearlyTargetGoal');
-            
-            if (startingCapitalInput) tradingPlan.capital = parseFloat(startingCapitalInput.value);
-            if (weeklyTargetGoalInput) tradingPlan.weeklyTarget = parseFloat(weeklyTargetGoalInput.value) || 0;
-            if (monthlyTargetGoalInput) tradingPlan.monthlyTarget = parseFloat(monthlyTargetGoalInput.value) || 0;
-            if (yearlyTargetGoalInput) tradingPlan.yearlyTarget = parseFloat(yearlyTargetGoalInput.value) || 0;
-            
-            saveTradingPlan();
+        // Add resize event listener for responsive design
+        window.addEventListener('resize', function() {
             renderCalendar();
-            closeModal('planModal');
         });
-    }
 
-    // Load user data
-    loadUserInfo();
-    
-    // Initialize the application
-    renderCalendar();
-    renderPlanSummary();
-    initializeAnalytics();
-    updateDaysStatistics();
-    addJSONOptions();
-});
+        // Initialize analytics after page load
+        setTimeout(() => {
+            initializeAnalytics();
+            updateDaysStatistics();
+        }, 1000);
 
-// ========== NEW FUNCTION: Save Trade Data ==========
-function saveTradeData(tradeId, newTrade, dateString) {
-    if (tradeId) {
-        // Update existing trade
-        const index = trades.findIndex(t => t.id === tradeId);
-        if (index !== -1) {
-            trades[index] = newTrade;
-        }
-    } else {
-        // Add new trade
-        trades.push(newTrade);
-    }
-    
-    saveTrades();
-    renderCalendar();
-    renderPlanSummary();
-    updateTradesList(dateString);
-    closeModal('tradeModal');
-}
-
-// ========== Data Loading Functions ==========
-function loadUserInfo() {
-    try {
-        const userNameDisplay = document.getElementById('userNameDisplay');
-        const newUserNameInput = document.getElementById('newUserName');
-        const profilePicture = document.getElementById('profilePicture');
-        const defaultIcon = document.getElementById('defaultIcon');
-        
-        if (userNameDisplay) userNameDisplay.textContent = userInfo.name;
-        if (newUserNameInput) newUserNameInput.value = userInfo.name;
-
-        if (userInfo.image) {
-            if (profilePicture) {
-                profilePicture.src = userInfo.image;
-                profilePicture.style.display = 'block';
+        // ========== JSON Export/Import for Mobile ==========
+        function addJSONOptions() {
+            const exportModal = document.getElementById('exportModal');
+            if (exportModal) {
+                // تحقق إذا كانت الأزرار موجودة مسبقاً لتجنب التكرار
+                if (document.getElementById('jsonSection')) return;
+                
+                const jsonSection = document.createElement('div');
+                jsonSection.id = 'jsonSection';
+                jsonSection.style.marginTop = '20px';
+                jsonSection.style.paddingTop = '20px';
+                jsonSection.style.borderTop = '1px solid var(--border-cell)';
+                jsonSection.innerHTML = `
+                    <h4 style="color: var(--color-highlight); margin-bottom: 15px;">
+                        <i class="fas fa-mobile-alt"></i> Mobile-Friendly Options
+                    </h4>
+                    <div style="display: flex; gap: 10px; flex-direction: column;">
+                        <button type="button" onclick="exportToJSON()" style="padding: 12px; background-color: var(--color-profit); color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            <i class="fas fa-download"></i> Export to JSON (Mobile Friendly)
+                        </button>
+                        <button type="button" onclick="openJSONImport()" style="padding: 12px; background-color: var(--color-highlight); color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            <i class="fas fa-upload"></i> Import from JSON (Mobile Friendly)
+                        </button>
+                    </div>
+                    <p style="font-size: 0.8em; color: var(--text-secondary); margin-top: 10px;">
+                        * JSON format works better on mobile devices and allows copy/paste
+                    </p>
+                `;
+                
+                const exportButton = document.getElementById('exportButton');
+                if (exportButton) {
+                    exportButton.parentNode.parentNode.insertBefore(jsonSection, exportButton.parentNode.nextSibling);
+                }
             }
-            if (defaultIcon) defaultIcon.style.display = 'none';
-        } else {
-            if (profilePicture) {
-                profilePicture.src = '';
-                profilePicture.style.display = 'none';
-            }
-            if (defaultIcon) defaultIcon.style.display = 'block';
         }
-    } catch (error) {
-        console.error('Error loading user info:', error);
-    }
-}
 
-// Add resize event listener for responsive design
-window.addEventListener('resize', function() {
-    renderCalendar();
-});
-
-// Initialize analytics after page load
-setTimeout(() => {
-    initializeAnalytics();
-    updateDaysStatistics();
-}, 1000);
-
-// ========== JSON Export/Import for Mobile ==========
-function addJSONOptions() {
-    const exportModal = document.getElementById('exportModal');
-    if (exportModal) {
-        // تحقق إذا كانت الأزرار موجودة مسبقاً لتجنب التكرار
-        if (document.getElementById('jsonSection')) return;
-        
-        const jsonSection = document.createElement('div');
-        jsonSection.id = 'jsonSection';
-        jsonSection.style.marginTop = '20px';
-        jsonSection.style.paddingTop = '20px';
-        jsonSection.style.borderTop = '1px solid var(--border-cell)';
-        jsonSection.innerHTML = `
-            <h4 style="color: var(--color-highlight); margin-bottom: 15px;">
-                <i class="fas fa-mobile-alt"></i> Mobile-Friendly Options
-            </h4>
-            <div style="display: flex; gap: 10px; flex-direction: column;">
-                <button type="button" onclick="exportToJSON()" style="padding: 12px; background-color: var(--color-profit); color: white; border: none; border-radius: 4px; cursor: pointer;">
-                    <i class="fas fa-download"></i> Export to JSON (Mobile Friendly)
-                </button>
-                <button type="button" onclick="openJSONImport()" style="padding: 12px; background-color: var(--color-highlight); color: white; border: none; border-radius: 4px; cursor: pointer;">
-                    <i class="fas fa-upload"></i> Import from JSON (Mobile Friendly)
-                </button>
-            </div>
-            <p style="font-size: 0.8em; color: var(--text-secondary); margin-top: 10px;">
-                * JSON format works better on mobile devices and allows copy/paste
-            </p>
-        `;
-        
-        const exportButton = document.getElementById('exportButton');
-        if (exportButton) {
-            exportButton.parentNode.parentNode.insertBefore(jsonSection, exportButton.parentNode.nextSibling);
-        }
-    }
-}
-
-function exportToJSON() {
-    const dataToExport = {
-        trades: trades,
-        tradingPlan: tradingPlan,
-        noTradingDays: noTradingDays,
-        userInfo: userInfo,
-        exportDate: new Date().toISOString(),
-        version: '1.0'
-    };
-
-    const jsonString = JSON.stringify(dataToExport, null, 2);
-    
-    // إنشاء ملف للتحميل
-    const blob = new Blob([jsonString], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `trading_journal_${new Date().toISOString().slice(0, 10)}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    
-    // أيضاً عرض النص للنسخ واللصق
-    const jsonModal = document.createElement('div');
-    jsonModal.className = 'modal';
-    jsonModal.id = 'jsonExportModal';
-    jsonModal.innerHTML = `
-        <div class="modal-content" style="max-width: 600px;">
-            <span class="close-btn" onclick="closeModal('jsonExportModal')">&times;</span>
-            <h3><i class="fas fa-file-code"></i> JSON Export</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 15px;">
-                Copy the JSON data below for mobile import:
-            </p>
-            <textarea id="jsonDataOutput" rows="15" style="width: 100%; padding: 10px; border: 1px solid var(--border-cell); background-color: var(--bg-inactive); color: var(--text-primary); border-radius: 4px; font-family: monospace; font-size: 0.9em;" readonly>${jsonString}</textarea>
-            <div style="display: flex; gap: 10px; margin-top: 15px;">
-                <button onclick="copyJSONToClipboard()" style="flex: 1; padding: 10px; background-color: var(--color-highlight); color: white; border: none; border-radius: 4px; cursor: pointer;">
-                    <i class="fas fa-copy"></i> Copy to Clipboard
-                </button>
-                <button onclick="closeModal('jsonExportModal')" style="flex: 1; padding: 10px; background-color: var(--bg-inactive); color: var(--text-primary); border: 1px solid var(--border-cell); border-radius: 4px; cursor: pointer;">
-                    Close
-                </button>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(jsonModal);
-    jsonModal.style.display = 'flex';
-    
-    alert('JSON data ready for mobile import!');
-}
-
-function openJSONImport() {
-    closeModal('exportModal'); // أغلق نافذة التصدير أولاً
-    
-    const jsonModal = document.createElement('div');
-    jsonModal.className = 'modal';
-    jsonModal.id = 'jsonImportModal';
-    jsonModal.innerHTML = `
-        <div class="modal-content" style="max-width: 600px;">
-            <span class="close-btn" onclick="closeModal('jsonImportModal')">&times;</span>
-            <h3><i class="fas fa-file-import"></i> JSON Import</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 15px;">
-                Paste your JSON data below or select a JSON file:
-            </p>
-            <input type="file" id="jsonFileInput" accept=".json" style="width: 100%; margin-bottom: 15px; padding: 8px; border: 1px solid var(--border-cell); background-color: var(--bg-inactive); color: var(--text-primary); border-radius: 4px;">
-            <textarea id="jsonDataInput" placeholder="Paste JSON data here..." rows="10" style="width: 100%; padding: 10px; border: 1px solid var(--border-cell); background-color: var(--bg-inactive); color: var(--text-primary); border-radius: 4px; font-family: monospace;"></textarea>
-            <button onclick="importFromJSON()" style="width: 100%; margin-top: 15px; padding: 12px; background-color: var(--color-highlight); color: white; border: none; border-radius: 4px; cursor: pointer;">
-                <i class="fas fa-upload"></i> Import JSON Data
-            </button>
-        </div>
-    `;
-    document.body.appendChild(jsonModal);
-    jsonModal.style.display = 'flex';
-    
-    // إضافة event listener لتحميل الملف
-    document.getElementById('jsonFileInput').addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('jsonDataInput').value = e.target.result;
+        function exportToJSON() {
+            const dataToExport = {
+                trades: trades,
+                tradingPlan: tradingPlan,
+                expenses: expenses,
+                noTradingDays: noTradingDays,
+                userInfo: userInfo,
+                alertSettings: alertSettings,
+                notifications: notifications,
+                exportDate: new Date().toISOString(),
+                version: '1.0'
             };
-            reader.readAsText(file);
-        }
-    });
-}
 
-function importFromJSON() {
-    const jsonInput = document.getElementById('jsonDataInput');
-    if (!jsonInput || !jsonInput.value.trim()) {
-        alert('Please paste JSON data or select a JSON file');
-        return;
-    }
-
-    try {
-        const importedData = JSON.parse(jsonInput.value);
-        
-        // استيراد البيانات
-        if (importedData.trades) {
-            trades = importedData.trades;
-            saveTrades();
+            const jsonString = JSON.stringify(dataToExport, null, 2);
+            
+            // إنشاء ملف للتحميل
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `trading_journal_${new Date().toISOString().slice(0, 10)}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // أيضاً عرض النص للنسخ واللصق
+            const jsonModal = document.createElement('div');
+            jsonModal.className = 'modal';
+            jsonModal.id = 'jsonExportModal';
+            jsonModal.innerHTML = `
+                <div class="modal-content" style="max-width: 600px;">
+                    <span class="close-btn" onclick="closeModal('jsonExportModal')">&times;</span>
+                    <h3><i class="fas fa-file-code"></i> JSON Export</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        Copy the JSON data below for mobile import:
+                    </p>
+                    <textarea id="jsonDataOutput" rows="15" style="width: 100%; padding: 10px; border: 1px solid var(--border-cell); background-color: var(--bg-inactive); color: var(--text-primary); border-radius: 4px; font-family: monospace; font-size: 0.9em;" readonly>${jsonString}</textarea>
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <button onclick="copyJSONToClipboard()" style="flex: 1; padding: 10px; background-color: var(--color-highlight); color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            <i class="fas fa-copy"></i> Copy to Clipboard
+                        </button>
+                        <button onclick="closeModal('jsonExportModal')" style="flex: 1; padding: 10px; background-color: var(--bg-inactive); color: var(--text-primary); border: 1px solid var(--border-cell); border-radius: 4px; cursor: pointer;">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(jsonModal);
+            jsonModal.style.display = 'flex';
+            
+            alert('JSON data ready for mobile import!');
         }
-        if (importedData.tradingPlan) {
-            tradingPlan = importedData.tradingPlan;
-            saveTradingPlan();
-        }
-        if (importedData.noTradingDays) {
-            noTradingDays = importedData.noTradingDays;
-            saveNoTradingDays();
-        }
-        if (importedData.userInfo) {
-            userInfo = importedData.userInfo;
-            saveUserInfo();
+
+        function openJSONImport() {
+            closeModal('exportModal'); // أغلق نافذة التصدير أولاً
+            
+            const jsonModal = document.createElement('div');
+            jsonModal.className = 'modal';
+            jsonModal.id = 'jsonImportModal';
+            jsonModal.innerHTML = `
+                <div class="modal-content" style="max-width: 600px;">
+                    <span class="close-btn" onclick="closeModal('jsonImportModal')">&times;</span>
+                    <h3><i class="fas fa-file-import"></i> JSON Import</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        Paste your JSON data below or select a JSON file:
+                    </p>
+                    <input type="file" id="jsonFileInput" accept=".json" style="width: 100%; margin-bottom: 15px; padding: 8px; border: 1px solid var(--border-cell); background-color: var(--bg-inactive); color: var(--text-primary); border-radius: 4px;">
+                    <textarea id="jsonDataInput" placeholder="Paste JSON data here..." rows="10" style="width: 100%; padding: 10px; border: 1px solid var(--border-cell); background-color: var(--bg-inactive); color: var(--text-primary); border-radius: 4px; font-family: monospace;"></textarea>
+                    <button onclick="importFromJSON()" style="width: 100%; margin-top: 15px; padding: 12px; background-color: var(--color-highlight); color: white; border: none; border-radius: 4px; cursor: pointer;">
+                        <i class="fas fa-upload"></i> Import JSON Data
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(jsonModal);
+            jsonModal.style.display = 'flex';
+            
+            // إضافة event listener لتحميل الملف
+            document.getElementById('jsonFileInput').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('jsonDataInput').value = e.target.result;
+                    };
+                    reader.readAsText(file);
+                }
+            });
         }
 
-        // تحديث الواجهة
-        renderCalendar();
-        renderPlanSummary();
-        updateAnalyticsChart();
-        updateDaysStatistics();
-        loadUserInfo();
-        
-        alert('Data imported successfully from JSON!');
-        closeModal('jsonImportModal');
-        
-    } catch (error) {
-        console.error('Error importing JSON:', error);
-        alert('Invalid JSON format. Please check your data and try again.');
-    }
-}
+        function importFromJSON() {
+            const jsonInput = document.getElementById('jsonDataInput');
+            if (!jsonInput || !jsonInput.value.trim()) {
+                alert('Please paste JSON data or select a JSON file');
+                return;
+            }
 
-function copyJSONToClipboard() {
-    const jsonOutput = document.getElementById('jsonDataOutput');
-    if (jsonOutput) {
-        jsonOutput.select();
-        document.execCommand('copy');
-        alert('JSON data copied to clipboard!');
-    }
-}
+            try {
+                const importedData = JSON.parse(jsonInput.value);
+                
+                // استيراد البيانات
+                if (importedData.trades) {
+                    trades = importedData.trades;
+                    saveTrades();
+                }
+                if (importedData.tradingPlan) {
+                    tradingPlan = importedData.tradingPlan;
+                    saveTradingPlan();
+                }
+                if (importedData.expenses) {
+                    expenses = importedData.expenses;
+                    saveExpenses();
+                }
+                if (importedData.noTradingDays) {
+                    noTradingDays = importedData.noTradingDays;
+                    saveNoTradingDays();
+                }
+                if (importedData.userInfo) {
+                    userInfo = importedData.userInfo;
+                    saveUserInfo();
+                }
+                if (importedData.alertSettings) {
+                    alertSettings = importedData.alertSettings;
+                    saveAlertSettings();
+                }
+                if (importedData.notifications) {
+                    notifications = importedData.notifications;
+                    saveNotifications();
+                    updateNotificationBadge();
+                }
 
-</script>
+                // تحديث الواجهة
+                renderCalendar();
+                renderPlanSummary();
+                updateAnalyticsChart();
+                updateDaysStatistics();
+                loadUserInfo();
+                
+                alert('Data imported successfully from JSON!');
+                closeModal('jsonImportModal');
+                
+            } catch (error) {
+                console.error('Error importing JSON:', error);
+                alert('Invalid JSON format. Please check your data and try again.');
+            }
+        }
+
+        function copyJSONToClipboard() {
+            const jsonOutput = document.getElementById('jsonDataOutput');
+            if (jsonOutput) {
+                jsonOutput.select();
+                document.execCommand('copy');
+                alert('JSON data copied to clipboard!');
+            }
+        }
+    </script>
 </body>
 </html>
